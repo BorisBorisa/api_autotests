@@ -22,9 +22,4 @@ class Settings(BaseSettings):
     http_client: HTTTPClientConfig
 
 
-
-if __name__ == '__main__':
-    tmp = Settings()
-
-    print(tmp)
-
+settings = Settings()

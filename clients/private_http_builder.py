@@ -1,0 +1,31 @@
+from httpx import Client
+from config import settings
+from pydantic import BaseModel, ConfigDict
+
+from clients.authentication.authentication_client import get_authentication_client
+from clients.authentication.authentication_schema import LoginRequestSchema
+
+
+class AuthenticationUserSchema(BaseModel):
+    model_config = ConfigDict(frozen=True)
+
+    email: str
+    password: str
+
+
+def get_private_http_client(user: AuthenticationUserSchema) -> Client:
+    """
+    Функция создаёт экземпляр httpx.Client с базовыми настройками.
+
+    :return: Готовый к использованию объект httpx.Client.
+    """
+    auth_client = get_authentication_client()
+    login_request = LoginRequestSchema(email=user.email, password=user.password)
+
+    auth_response = auth_client.login(login_request)
+
+    return Client(
+        timeout=settings.http_client.timeout,
+        base_url=settings.http_client.url,
+        headers={"Authorization": f"Bearer {auth_response.access_token}"}
+    )
