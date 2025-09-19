@@ -2,7 +2,7 @@ from httpx import Client
 from config import settings
 from pydantic import BaseModel, ConfigDict
 
-from clients.authentication.authentication_client import get_authentication_client
+from clients.authentication.public_auth_client import get_public_authentication_client
 from clients.authentication.authentication_schema import LoginRequestSchema
 
 
@@ -19,9 +19,9 @@ def get_private_http_client(user: AuthenticationUserSchema) -> Client:
 
     :return: Готовый к использованию объект httpx.Client.
     """
-    auth_client = get_authentication_client()
-    login_request = LoginRequestSchema(email=user.email, password=user.password)
+    auth_client = get_public_authentication_client()
 
+    login_request = LoginRequestSchema(email=user.email, password=user.password)
     auth_response = auth_client.login(login_request)
 
     return Client(
