@@ -37,7 +37,7 @@ class Fake:
 
         :return: Случайный пароль.
         """
-        return self.faker.password()
+        return self.faker.password(special_chars=False)
 
     def sentence(self) -> str:
         """
