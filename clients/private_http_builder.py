@@ -26,6 +26,6 @@ def get_private_http_client(user: AuthenticationUserSchema) -> Client:
 
     return Client(
         timeout=settings.http_client.timeout,
-        base_url=settings.http_client.url,
+        base_url=settings.http_client.client_url,
         headers={"Authorization": f"Bearer {auth_response.access_token}"}
     )

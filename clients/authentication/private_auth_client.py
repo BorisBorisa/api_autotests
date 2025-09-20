@@ -17,7 +17,7 @@ class PrivateAuthenticationClient(APIClient):
 
         :return:
         """
-        return self.client.get(f"{APIRoutes.AUTH}/profile")
+        return self.get(f"{APIRoutes.AUTH}/profile")
 
 
 def get_private_authentication_client(user: AuthenticationUserSchema) -> PrivateAuthenticationClient:
