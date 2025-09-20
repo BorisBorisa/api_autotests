@@ -27,7 +27,13 @@ class CreateUserRequestSchema(BaseModel):
     name: str = Field(default_factory=fake.first_name)
     email: str = Field(default_factory=fake.email)
     password: str = Field(default_factory=fake.password)
-    avatar: str = Field(default="https://picsum.photos/800")
+    avatar: str = Field(default_factory=fake.uri)
+
+
+class CreateUserResponseSchema(UserSchema):
+    """
+    Описание структуры ответа на создание пользователя.
+    """
 
 
 class UpdateUserRequestSchema(BaseModel):
