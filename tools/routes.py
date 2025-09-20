@@ -8,3 +8,6 @@ class APIRoutes(str, Enum):
     CATEGORIES = "/api/v1/categories"
     FILES = "/api/v1/files"
     LOCATIONS = "/api/v1/locations"
+
+    def __str__(self):
+        return self.value
