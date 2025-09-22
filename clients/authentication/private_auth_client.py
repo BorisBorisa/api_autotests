@@ -15,7 +15,7 @@ class PrivateAuthenticationClient(APIClient):
         """
         Метод возвращает данные авторизованного пользователя.
 
-        :return:
+        :return: Ответ от сервера в виде объекта httpx.Response
         """
         return self.get(f"{APIRoutes.AUTH}/profile")
 

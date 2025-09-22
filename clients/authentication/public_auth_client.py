@@ -5,7 +5,7 @@ from clients.public_http_builder import get_public_http_client
 from clients.authentication.authentication_schema import (
     LoginRequestSchema,
     LoginResponseSchema,
-    RefreshRequestSchema
+    RefreshTokenRequestSchema
 )
 from tools.routes import APIRoutes
 
@@ -27,7 +27,7 @@ class PublicAuthenticationClient(APIClient):
             json=request.model_dump(by_alias=True)
         )
 
-    def refresh_api(self, request: RefreshRequestSchema) -> Response:
+    def refresh_api(self, request: RefreshTokenRequestSchema) -> Response:
         """
         Метод обновляет токен авторизации.
 
