@@ -1,13 +1,26 @@
 from http import HTTPStatus
 
+from clients.authentication.private_auth_client import PrivateAuthenticationClient
 from clients.authentication.public_auth_client import PublicAuthenticationClient
-from clients.authentication.authentication_schema import LoginRequestSchema, LoginResponseSchema
+from clients.authentication.authentication_schema import (
+    LoginRequestSchema,
+    LoginResponseSchema,
+    RefreshTokenRequestSchema,
+    RefreshTokenResponseSchema
+)
 from clients.errors_schema import ErrorResponseSchema
+from clients.users.users_schema import UserProfileResponseSchema
 
 from fixtures.user import UserFixture
+
 from tools.assertions.base import assert_status_code
-from tools.assertions.authentication import assert_login_response, assert_login_invalid_credentials
 from tools.assertions.schema import validate_json_schema
+from tools.assertions.authentication import (
+    assert_login_response,
+    assert_refresh_response,
+    assert_login_invalid_credentials_response,
+    assert_user_profile_response_matches, assert_refresh_with_invalid_token_response
+)
 
 
 class TestAuthentication:
@@ -62,5 +75,12 @@ class TestAuthentication:
 
         validate_json_schema(refresh_response.json(), RefreshTokenResponseSchema.model_json_schema())
 
+    def test_refresh_token_with_invalid_token(self, public_auth_client: PublicAuthenticationClient):
+        request = RefreshTokenRequestSchema()
+        response = public_auth_client.refresh_api(request)
+        response_data = ErrorResponseSchema.model_validate_json(response.text)
+
+        assert_status_code(response.status_code, HTTPStatus.UNAUTHORIZED)
+        assert_refresh_with_invalid_token_response(response_data)
 
         validate_json_schema(response.json(), ErrorResponseSchema.model_json_schema())
