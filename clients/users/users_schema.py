@@ -36,6 +36,12 @@ class CreateUserResponseSchema(UserSchema):
     """
 
 
+class UserProfileResponseSchema(UserSchema):
+    """
+    Описание структуры ответа на запрос профиля авторизованного пользователя.
+    """
+
+
 class UpdateUserRequestSchema(BaseModel):
     """
     Описание структуры запроса на обновление пользователя.
@@ -45,7 +51,3 @@ class UpdateUserRequestSchema(BaseModel):
     email: str | None = Field(default_factory=fake.email)
     password: str | None = Field(default_factory=fake.password)
     avatar: str | None = Field(default="https://picsum.photos/800")
-
-
-if __name__ == '__main__':
-    print(UpdateUserRequestSchema())
