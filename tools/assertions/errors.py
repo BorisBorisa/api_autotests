@@ -17,3 +17,4 @@ def assert_error_response(
 
     assert_equal(actual.status_code, expected.status_code, "status_code")
     assert_equal(actual.message, actual.message, "message")
+    assert_equal(actual.error, expected.error, "error")
