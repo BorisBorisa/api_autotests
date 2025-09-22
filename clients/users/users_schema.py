@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr, HttpUrl, TypeAdapter, Field
+from pydantic import BaseModel, EmailStr, HttpUrl, TypeAdapter, Field, ConfigDict
 from typing import Literal
 
 from tools.fakers import fake
@@ -51,3 +51,17 @@ class UpdateUserRequestSchema(BaseModel):
     email: str | None = Field(default_factory=fake.email)
     password: str | None = Field(default_factory=fake.password)
     avatar: str | None = Field(default="https://picsum.photos/800")
+
+
+class EmailAvailabilityRequestSchema(BaseModel):
+    """
+    Описание структуры запроса проверки зарегистрирован ли уже адрес эл. почты.
+    """
+    email: str = Field(default_factory=fake.email)
+
+
+class EmailAvailabilityResponseSchema(BaseModel):
+    """
+    Описание структуры ответа проверки доступности почты.
+    """
+    is_available: bool = Field(alias="isAvailable")
