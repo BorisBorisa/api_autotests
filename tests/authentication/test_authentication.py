@@ -27,9 +27,22 @@ class TestAuthentication:
         response_data = ErrorResponseSchema.model_validate_json(response.text)
 
         assert_status_code(response.status_code, HTTPStatus.UNAUTHORIZED)
-        assert_login_invalid_credentials(response_data)
         assert_login_invalid_credentials_response(response_data)
 
         validate_json_schema(response.json(), ErrorResponseSchema.model_json_schema())
+
+    def test_authenticated_user_can_retrieve_profile(
+            self,
+            function_user: UserFixture,
+            private_auth_client: PrivateAuthenticationClient
+    ):
+        response = private_auth_client.profile_api()
+        response_data = UserProfileResponseSchema.model_validate_json(response.text)
+
+        assert_status_code(response.status_code, HTTPStatus.OK)
+        assert_user_profile_response_matches(response_data, function_user.response)
+
+        validate_json_schema(response.json(), UserProfileResponseSchema.model_json_schema())
+
 
         validate_json_schema(response.json(), ErrorResponseSchema.model_json_schema())
