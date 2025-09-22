@@ -44,5 +44,23 @@ class TestAuthentication:
 
         validate_json_schema(response.json(), UserProfileResponseSchema.model_json_schema())
 
+    def test_refresh_token_returns_new_token_pair(
+            self,
+            function_user: UserFixture,
+            public_auth_client: PublicAuthenticationClient,
+    ):
+        login_request = LoginRequestSchema(email=function_user.email, password=function_user.password)
+        login_response = public_auth_client.login_api(login_request)
+        login_response_data = LoginResponseSchema.model_validate_json(login_response.text)
+
+        refresh_request = RefreshTokenRequestSchema(refresh_token=login_response_data.refresh_token)
+        refresh_response = public_auth_client.refresh_api(refresh_request)
+        response_data = RefreshTokenResponseSchema.model_validate_json(refresh_response.text)
+
+        assert_status_code(refresh_response.status_code, HTTPStatus.CREATED)
+        assert_refresh_response(response_data)
+
+        validate_json_schema(refresh_response.json(), RefreshTokenResponseSchema.model_json_schema())
+
 
         validate_json_schema(response.json(), ErrorResponseSchema.model_json_schema())
