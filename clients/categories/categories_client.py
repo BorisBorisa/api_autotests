@@ -36,7 +36,7 @@ class CategoriesClient(APIClient):
         :param slug: Текстовый идентификатор категории.
         :return: Ответ от сервера в виде объекта httpx.Response.
         """
-        return self.get(url=f"{APIRoutes.CATEGORIES}/{slug}")
+        return self.get(url=f"{APIRoutes.CATEGORIES}/slug/{slug}")
 
     def create_category_api(self, request: CreateCategoryRequestSchema) -> Response:
         """

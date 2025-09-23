@@ -52,7 +52,7 @@ class CreateProductResponseSchema(BaseModel):
 
 class UpdateProductRequestSchema(BaseModel):
     """
-    Описание структуры ответа на создание продукта.
+    Описание структуры запроса на обновление продукта.
     """
     title: str | None = Field(default_factory=fake.phrase)
     price: float | None = Field(default_factory=fake.price)
