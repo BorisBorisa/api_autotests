@@ -7,6 +7,6 @@ class ErrorResponseSchema(BaseModel):
     """
     model_config = ConfigDict(validate_by_name=True, validate_by_alias=True)
 
-    message: str
+    message: str | list[str]
     error: str | None = None
     status_code: int = Field(alias="statusCode")
