@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from pydantic import BaseModel, EmailStr, HttpUrl, TypeAdapter, Field, ConfigDict
 from typing import Literal
 
@@ -14,6 +16,12 @@ class UserSchema(BaseModel):
     email: EmailStr
     password: str
     avatar: HttpUrl
+
+
+class GetUserResponseSchema(UserSchema):
+    """
+    Описание структуры ответа на получение пользователя.
+    """
 
 
 GetUsersResponseSchema = TypeAdapter(list[UserSchema])
@@ -53,6 +61,12 @@ class UpdateUserRequestSchema(BaseModel):
     avatar: str | None = Field(default="https://picsum.photos/800")
 
 
+class UpdateUserResponseSchema(UserSchema):
+    """
+    Описание структуры ответа на обновление пользователя.
+    """
+
+
 class EmailAvailabilityRequestSchema(BaseModel):
     """
     Описание структуры запроса проверки зарегистрирован ли уже адрес эл. почты.
@@ -65,3 +79,13 @@ class EmailAvailabilityResponseSchema(BaseModel):
     Описание структуры ответа проверки доступности почты.
     """
     is_available: bool = Field(alias="isAvailable")
+
+
+class UserNotFoundResponseSchema(BaseModel):
+    """
+    Описание структуры ответа получения пользователя с невалидным id.
+    """
+    path: str
+    timestamp: datetime
+    name: str
+    message: str
