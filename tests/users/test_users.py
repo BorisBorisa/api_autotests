@@ -8,7 +8,12 @@ from clients.users.users_schema import (
     GetUsersResponseSchema,
     CreateUserRequestSchema,
     CreateUserResponseSchema,
-    GetUserResponseSchema, UserNotFoundResponseSchema, UpdateUserRequestSchema, UpdateUserResponseSchema
+    GetUserResponseSchema,
+    UserNotFoundResponseSchema,
+    UpdateUserRequestSchema,
+    UpdateUserResponseSchema,
+    EmailAvailabilityRequestSchema,
+    EmailAvailabilityResponseSchema
 )
 from fixtures.user import UserFixture
 
@@ -19,8 +24,11 @@ from tools.assertions.users import (
     assert_create_user_with_all_empty_fields_response,
     assert_create_user_with_wrong_password_response,
     assert_create_user_with_wrong_avatar_url_response,
-    assert_user, assert_get_user_with_wrong_id_response, assert_update_user_response,
-    assert_update_user_with_wrong_data_response
+    assert_user,
+    assert_get_user_with_wrong_id_response,
+    assert_update_user_response,
+    assert_update_user_with_wrong_data_response,
+    assert_email_availability_response
 )
 from tools.assertions.schema import validate_json_schema
 
@@ -124,3 +132,23 @@ class TestUsers:
         assert_status_code(response.status_code, HTTPStatus.OK)
 
         validate_json_schema(response.json(), GetUsersResponseSchema.json_schema())
+
+    def test_existing_email_availability(self, user_client: UserClient, function_user: UserFixture):
+        request = EmailAvailabilityRequestSchema(email=function_user.request.email)
+        response = user_client.check_email_availability_api(request)
+        response_data = EmailAvailabilityResponseSchema.model_validate_json(response.text)
+
+        assert_status_code(response.status_code, HTTPStatus.CREATED)
+        assert_email_availability_response(response_data, False)
+
+        validate_json_schema(response.json(), EmailAvailabilityResponseSchema.model_json_schema())
+
+    def test_not_existing_email_availability(self, user_client: UserClient, function_user: UserFixture):
+        request = EmailAvailabilityRequestSchema()
+        response = user_client.check_email_availability_api(request)
+        response_data = EmailAvailabilityResponseSchema.model_validate_json(response.text)
+
+        assert_status_code(response.status_code, HTTPStatus.CREATED)
+        assert_email_availability_response(response_data, True)
+
+        validate_json_schema(response.json(), EmailAvailabilityResponseSchema.model_json_schema())

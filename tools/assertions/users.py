@@ -5,7 +5,8 @@ from clients.users.users_schema import (
     CreateUserResponseSchema,
     UserNotFoundResponseSchema,
     UpdateUserRequestSchema,
-    UpdateUserResponseSchema
+    UpdateUserResponseSchema,
+    EmailAvailabilityResponseSchema
 )
 from tools.assertions.base import assert_equal
 from tools.assertions.errors import assert_error_response
@@ -150,6 +151,7 @@ def assert_update_user_response(request: UpdateUserRequestSchema, response: Upda
 
 def assert_update_user_with_wrong_data_response(actual: ErrorResponseSchema, error_messages: list):
     """
+    Проверяет, что ответ на обновление данных пользователя с некорректным данными соответствует ожидаемому.
 
     :param actual: Ответ от API с ошибкой, которую необходимо проверить.
     :param error_messages: Список сообщений ошибок
@@ -161,3 +163,13 @@ def assert_update_user_with_wrong_data_response(actual: ErrorResponseSchema, err
         status_code=400
     )
     assert_error_response(actual, expected)
+
+def assert_email_availability_response(request: EmailAvailabilityResponseSchema, expected: bool):
+    """
+    Проверка, что ответ доступности адреса электронной почты соответствует ожидаемому.
+
+    :param request: Фактические значение доступности.
+    :param expected: Ожидаемое значение доступности.
+    :return: AssertionError: Если хотя бы одно поле не совпадает.
+    """
+    assert_equal(request.is_available, expected, "email availability")
