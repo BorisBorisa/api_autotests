@@ -2,7 +2,9 @@ from clients.categories.categories_schema import (
     CreateCategoryRequestSchema,
     CreateCategoryResponseSchema,
     GetCategoryResponseSchema,
-    CategorySchema
+    CategorySchema,
+    UpdateCategoryResponseSchema,
+    UpdateCategoryRequestSchema
 )
 from clients.errors_schema import ErrorResponseSchema
 from tools.assertions.base import assert_equal
@@ -62,3 +64,15 @@ def assert_get_category_response(actual: GetCategoryResponseSchema, expected: Cr
     :return: AssertionError: Если хотя бы одно поле не совпадает.
     """
     assert_category(actual, expected)
+
+
+def assert_update_category_response(request: UpdateCategoryRequestSchema, response: UpdateCategoryResponseSchema):
+    """
+    Проверяет, что ответ на обновление категории соответствует данным из запроса.
+
+    :param request: Исходный запрос на обновление категории.
+    :param response: Ответ API с обновленными данными категории.
+    :return: AssertionError: Если хотя бы одно поле не совпадает.
+    """
+    assert_equal(request.name, response.name, "name")
+    assert_equal(request.image, str(response.image), "image")
