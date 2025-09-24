@@ -29,7 +29,13 @@ class CreateCategoryRequestSchema(BaseModel):
 
 class CreateCategoryResponseSchema(CategorySchema):
     """
-    Описание структуры ответа на создание категории
+    Описание структуры ответа на создание категории.
+    """
+
+
+class GetCategoryResponseSchema(CategorySchema):
+    """
+    Описание структуры ответа на запрос категории.
     """
 
 
