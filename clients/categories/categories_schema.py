@@ -27,6 +27,12 @@ class CreateCategoryRequestSchema(BaseModel):
     image: str = Field(default_factory=fake.uri)
 
 
+class CreateCategoryResponseSchema(CategorySchema):
+    """
+    Описание структуры ответа на создание категории
+    """
+
+
 class UpdateCategoryRequestSchema(BaseModel):
     """
     Описание запроса на обновление категории.
