@@ -1,7 +1,11 @@
 from httpx import Response
 
 from clients.api_client import APIClient
-from clients.categories.categories_schema import CreateCategoryRequestSchema, UpdateCategoryRequestSchema
+from clients.categories.categories_schema import (
+    CreateCategoryRequestSchema,
+    UpdateCategoryRequestSchema,
+    CreateCategoryResponseSchema
+)
 from clients.public_http_builder import get_public_http_client
 
 from tools.routes import APIRoutes
@@ -81,6 +85,9 @@ class CategoryClient(APIClient):
         """
         return self.get(url=f"{APIRoutes.CATEGORIES}/{category_id}/products")
 
+    def create_category(self, request: CreateCategoryRequestSchema) -> CreateCategoryResponseSchema:
+        response = self.create_category_api(request)
+        return CreateCategoryResponseSchema.model_validate_json(response.text)
 
 
 def get_category_client() -> CategoryClient:
