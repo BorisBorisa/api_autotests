@@ -20,7 +20,8 @@ from tools.assertions.categories import (
     assert_create_category_with_wrong_data_response,
     assert_get_category_response,
     assert_update_category_response,
-    assert_update_category_with_wrong_data_response
+    assert_update_category_with_wrong_data_response,
+    assert_delete_response
 )
 from tools.assertions.schema import validate_json_schema
 
@@ -99,3 +100,10 @@ class TestCategories:
         assert_update_category_with_wrong_data_response(response_data, message)
 
         validate_json_schema(response.json(), ErrorResponseSchema.model_json_schema())
+
+    def test_delete_category_test(self, category_client: CategoryClient, function_category: CategoryFixture):
+        response = category_client.delete_category_api(function_category.response.id)
+        response_data = response.json()
+
+        assert_status_code(response.status_code, HTTPStatus.OK)
+        assert_delete_response(response_data)
