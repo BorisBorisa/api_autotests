@@ -5,27 +5,33 @@ INVALID_AVATAR_URL = "https://-example.com"
 INVALID_USER_ID = 987654321
 INVALID_ROLE = "editor"
 
-invalid_user_update_data = [
-    {
-        "request": {"name": ""},
-        "message": ["name should not be empty"]
-    },
-    {
-        "request": {"role": INVALID_ROLE},
-        "message": ["role must be one of the following values: admin, customer"]
-    },
-    {
-        "request": {"email": INVALID_EMAIL},
-        "message": ["email must be an email"]},
-    {
-        "request": {"password": INVALID_PASSWORD},
-        "message": [
-            "password must be longer than or equal to 4 characters",
-            "password must contain only letters and numbers"
-        ]
-    },
-    {
-        "request": {"avatar": INVALID_AVATAR_URL},
-        "message": ["avatar must be a URL address"]
-    }
+user_update_invalid_data = [
+    (
+        {"name": ""},
+        ["name should not be empty"]
+    ),
+    (
+        {"role": INVALID_ROLE},
+        ["role must be one of the following values: admin, customer"]
+    ),
+    (
+        {"email": INVALID_EMAIL},
+        ["email must be an email"]
+    ),
+    (
+        {"password": INVALID_PASSWORD},
+        ["password must be longer than or equal to 4 characters", "password must contain only letters and numbers"]
+    ),
+    (
+        {"avatar": INVALID_AVATAR_URL},
+        ["avatar must be a URL address"]
+    )
+]
+
+user_update_invalid_ids = [
+    "empty_name",
+    "invalid_role",
+    "invalid_email",
+    "invalid_password",
+    "invalid_avatar",
 ]

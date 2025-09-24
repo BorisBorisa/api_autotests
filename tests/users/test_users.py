@@ -114,14 +114,18 @@ class TestUsers:
 
         validate_json_schema(response.json(), UpdateUserResponseSchema.model_json_schema())
 
-    @pytest.mark.parametrize("data", test_data.invalid_user_update_data)
-    def test_update_user_with_invalid_data(self, user_client: UserClient, function_user: UserFixture, data):
-        request = UpdateUserRequestSchema(**data["request"])
+    @pytest.mark.parametrize(
+        "payload, message",
+        test_data.user_update_invalid_data,
+        ids=test_data.user_update_invalid_ids
+    )
+    def test_update_user_with_invalid_data(self, user_client: UserClient, function_user: UserFixture, payload, message):
+        request = UpdateUserRequestSchema(**payload)
         response = user_client.update_user_api(user_id=function_user.response.id, request=request)
         response_data = ErrorResponseSchema.model_validate_json(response.text)
 
         assert_status_code(response.status_code, HTTPStatus.BAD_REQUEST)
-        assert_update_user_with_wrong_data_response(response_data, data["message"])
+        assert_update_user_with_wrong_data_response(response_data, message)
 
         validate_json_schema(response.json(), ErrorResponseSchema.model_json_schema())
 
