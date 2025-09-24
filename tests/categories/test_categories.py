@@ -101,7 +101,7 @@ class TestCategories:
 
         validate_json_schema(response.json(), ErrorResponseSchema.model_json_schema())
 
-    def test_delete_category_test(self, category_client: CategoryClient, function_category: CategoryFixture):
+    def test_delete_category(self, category_client: CategoryClient, function_category: CategoryFixture):
         response = category_client.delete_category_api(function_category.response.id)
         response_data = response.json()
 
