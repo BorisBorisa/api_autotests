@@ -7,14 +7,20 @@ from clients.categories.categories_client import CategoryClient
 from clients.categories.categories_schema import (
     CreateCategoryRequestSchema,
     CreateCategoryResponseSchema,
-    GetCategoryResponseSchema
+    GetCategoryResponseSchema,
+    UpdateCategoryRequestSchema,
+    UpdateCategoryResponseSchema
 )
 from clients.errors_schema import ErrorResponseSchema
 from fixtures.categories import CategoryFixture
 from testdata import test_data
 from tools.assertions.base import assert_status_code
-from tools.assertions.categories import assert_create_category_response, \
-    assert_create_category_with_wrong_data_response, assert_get_category_response
+from tools.assertions.categories import (
+    assert_create_category_response,
+    assert_create_category_with_wrong_data_response,
+    assert_get_category_response,
+    assert_update_category_response
+)
 from tools.assertions.schema import validate_json_schema
 
 
@@ -61,3 +67,13 @@ class TestCategories:
         assert_get_category_response(response_data, function_category.response)
 
         validate_json_schema(response.json(), GetCategoryResponseSchema.model_json_schema())
+
+    def test_update_category(self, category_client: CategoryClient, function_category: CategoryFixture):
+        request = UpdateCategoryRequestSchema()
+        response = category_client.update_category_api(function_category.response.id, request)
+        response_data = UpdateCategoryResponseSchema.model_validate_json(response.text)
+
+        assert_status_code(response.status_code, HTTPStatus.OK)
+        assert_update_category_response(request, response_data)
+
+        validate_json_schema(response.json(), UpdateCategoryResponseSchema.model_json_schema())
