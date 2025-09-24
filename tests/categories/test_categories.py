@@ -2,7 +2,7 @@ from http import HTTPStatus
 
 import pytest
 
-from clients.categories.categories_client import CategoriesClient
+from clients.categories.categories_client import CategoryClient
 
 from clients.categories.categories_schema import (
     CreateCategoryRequestSchema,
@@ -16,9 +16,9 @@ from tools.assertions.schema import validate_json_schema
 
 
 class TestCategories:
-    def test_create_category(self, categories_client: CategoriesClient):
+    def test_create_category(self, category_client: CategoryClient):
         request = CreateCategoryRequestSchema()
-        response = categories_client.create_category_api(request)
+        response = category_client.create_category_api(request)
         response_data = CreateCategoryResponseSchema.model_validate_json(response.text)
 
         assert_status_code(response.status_code, HTTPStatus.CREATED)
@@ -31,9 +31,9 @@ class TestCategories:
         test_data.category_create_invalid_data,
         ids=test_data.category_create_invalid_ids
     )
-    def test_create_category_with_wrong_data(self, categories_client: CategoriesClient, payload, message):
+    def test_create_category_with_wrong_data(self, category_client: CategoryClient, payload, message):
         request = CreateCategoryRequestSchema(**payload)
-        response = categories_client.create_category_api(request)
+        response = category_client.create_category_api(request)
         response_data = ErrorResponseSchema.model_validate_json(response.text)
 
         assert_status_code(response.status_code, HTTPStatus.BAD_REQUEST)

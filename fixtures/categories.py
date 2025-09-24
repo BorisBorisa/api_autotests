@@ -4,5 +4,5 @@ from clients.categories.categories_client import get_category_client, Categories
 
 
 @pytest.fixture
-def categories_client() -> CategoriesClient:
+def category_client() -> CategoryClient:
     return get_category_client()

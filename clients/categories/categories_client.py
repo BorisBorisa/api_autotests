@@ -7,7 +7,7 @@ from clients.public_http_builder import get_public_http_client
 from tools.routes import APIRoutes
 
 
-class CategoriesClient(APIClient):
+class CategoryClient(APIClient):
     """
     Клиент для работы с /api/v1/categories
     """
@@ -82,10 +82,11 @@ class CategoriesClient(APIClient):
         return self.get(url=f"{APIRoutes.CATEGORIES}/{category_id}/products")
 
 
-def get_category_client() -> CategoriesClient:
+
+def get_category_client() -> CategoryClient:
     """
     Функция создаёт экземпляр CategoriesClient с уже настроенным HTTP-клиентом.
 
     :return: Готовый к использованию CategoriesClient.
     """
-    return CategoriesClient(client=get_public_http_client())
+    return CategoryClient(client=get_public_http_client())
