@@ -23,20 +23,35 @@ def assert_create_category_response(request: CreateCategoryRequestSchema, respon
     assert_equal(request.image, str(response.image), "image")
 
 
-def assert_create_category_with_wrong_data_response(actual: ErrorResponseSchema, error_messages: list):
-    """
-    Проверяет, что ответ на обновление данных пользователя с некорректным данными соответствует ожидаемому.
-
-    :param actual: Ответ от API с ошибкой, которую необходимо проверить.
-    :param error_messages: Список сообщений ошибок.
-    :return: AssertionError: Если хотя бы одно поле не совпадает.
-    """
+def _assert_category_with_wrong_data_response(actual: ErrorResponseSchema, error_messages: list):
     expected = ErrorResponseSchema(
         message=error_messages,
         error="Bad Request",
         status_code=400
     )
     assert_error_response(actual, expected)
+
+
+def assert_create_category_with_wrong_data_response(actual: ErrorResponseSchema, error_messages: list):
+    """
+    Проверяет, что ответ на создание категории с некорректным данными соответствует ожидаемому.
+
+    :param actual: Ответ от API с ошибкой, которую необходимо проверить.
+    :param error_messages: Список сообщений ошибок.
+    :return: AssertionError: Если хотя бы одно поле не совпадает.
+    """
+    _assert_category_with_wrong_data_response(actual, error_messages)
+
+
+def assert_update_category_with_wrong_data_response(actual: ErrorResponseSchema, error_messages: list):
+    """
+    Проверяет, что ответ на обновление категории с некорректным данными соответствует ожидаемому.
+
+    :param actual: Ответ от API с ошибкой, которую необходимо проверить.
+    :param error_messages: Список сообщений ошибок.
+    :return: AssertionError: Если хотя бы одно поле не совпадает.
+    """
+    _assert_category_with_wrong_data_response(actual, error_messages)
 
 
 def assert_category(actual: CategorySchema, expected: CategorySchema):
