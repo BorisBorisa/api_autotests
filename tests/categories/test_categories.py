@@ -19,7 +19,8 @@ from tools.assertions.categories import (
     assert_create_category_response,
     assert_create_category_with_wrong_data_response,
     assert_get_category_response,
-    assert_update_category_response
+    assert_update_category_response,
+    assert_update_category_with_wrong_data_response
 )
 from tools.assertions.schema import validate_json_schema
 
@@ -37,8 +38,8 @@ class TestCategories:
 
     @pytest.mark.parametrize(
         "payload, message",
-        test_data.category_create_invalid_data,
-        ids=test_data.category_create_invalid_ids
+        test_data.category_invalid_data,
+        ids=test_data.category_invalid_ids
     )
     def test_create_category_with_wrong_data(self, category_client: CategoryClient, payload, message):
         request = CreateCategoryRequestSchema(**payload)
@@ -77,3 +78,24 @@ class TestCategories:
         assert_update_category_response(request, response_data)
 
         validate_json_schema(response.json(), UpdateCategoryResponseSchema.model_json_schema())
+
+    @pytest.mark.parametrize(
+        "payload, message",
+        test_data.category_invalid_data,
+        ids=test_data.category_invalid_ids
+    )
+    def test_update_category_with_wrong_data(
+            self,
+            category_client: CategoryClient,
+            function_category: CategoryFixture,
+            payload,
+            message
+    ):
+        request = UpdateCategoryRequestSchema(**payload)
+        response = category_client.update_category_api(function_category.response.id, request)
+        response_data = ErrorResponseSchema.model_validate_json(response.text)
+
+        assert_status_code(response.status_code, HTTPStatus.BAD_REQUEST)
+        assert_update_category_with_wrong_data_response(response_data, message)
+
+        validate_json_schema(response.json(), ErrorResponseSchema.model_json_schema())

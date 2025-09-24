@@ -37,7 +37,7 @@ user_update_invalid_ids = [
 ]
 
 # test_categories
-category_create_invalid_data = [
+category_invalid_data = [
     (
         {"name": ""},
         ["name should not be empty"]
@@ -52,7 +52,7 @@ category_create_invalid_data = [
     )
 ]
 
-category_create_invalid_ids = [
+category_invalid_ids = [
     "empty_name",
     "empty_avatar_url",
     "invalid_avatar_url",
