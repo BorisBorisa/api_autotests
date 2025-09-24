@@ -35,3 +35,25 @@ user_update_invalid_ids = [
     "invalid_password",
     "invalid_avatar",
 ]
+
+# test_categories
+category_create_invalid_data = [
+    (
+        {"name": ""},
+        ["name should not be empty"]
+    ),
+    (
+        {"image": ""},
+        ["image should not be empty", "image must be a URL address"]
+    ),
+    (
+        {"image": INVALID_AVATAR_URL},
+        ["image must be a URL address"]
+    )
+]
+
+category_create_invalid_ids = [
+    "empty_name",
+    "empty_avatar_url",
+    "invalid_avatar_url",
+]
