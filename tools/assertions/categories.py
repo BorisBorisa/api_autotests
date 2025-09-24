@@ -1,6 +1,8 @@
 from clients.categories.categories_schema import (
     CreateCategoryRequestSchema,
-    CreateCategoryResponseSchema
+    CreateCategoryResponseSchema,
+    GetCategoryResponseSchema,
+    CategorySchema
 )
 from clients.errors_schema import ErrorResponseSchema
 from tools.assertions.base import assert_equal
@@ -24,7 +26,7 @@ def assert_create_category_with_wrong_data_response(actual: ErrorResponseSchema,
     Проверяет, что ответ на обновление данных пользователя с некорректным данными соответствует ожидаемому.
 
     :param actual: Ответ от API с ошибкой, которую необходимо проверить.
-    :param error_messages: Список сообщений ошибок
+    :param error_messages: Список сообщений ошибок.
     :return: AssertionError: Если хотя бы одно поле не совпадает.
     """
     expected = ErrorResponseSchema(
@@ -33,3 +35,30 @@ def assert_create_category_with_wrong_data_response(actual: ErrorResponseSchema,
         status_code=400
     )
     assert_error_response(actual, expected)
+
+
+def assert_category(actual: CategorySchema, expected: CategorySchema):
+    """
+    Проверяет, что фактические данные категории соответствуют ожидаемым.
+
+    :param actual: Фактические данные категории.
+    :param expected: Ожидаемые данные категории.
+    :return: AssertionError: Если хотя бы одно поле не совпадает.
+    """
+    assert_equal(actual.id, expected.id, "id")
+    assert_equal(actual.name, expected.name, "name")
+    assert_equal(actual.slug, expected.slug, "slug")
+    assert_equal(actual.image, expected.image, "image")
+    assert_equal(actual.creation_at, expected.creation_at, "creation_at")
+    assert_equal(actual.updated_at, expected.updated_at, "updated_at")
+
+
+def assert_get_category_response(actual: GetCategoryResponseSchema, expected: CreateCategoryResponseSchema):
+    """
+    Проверяет, что ответ на запрос категории совпадает с ответом при её создании
+
+    :param actual: Фактические данные категории.
+    :param expected: Ожидаемые данные категории.
+    :return: AssertionError: Если хотя бы одно поле не совпадает.
+    """
+    assert_category(actual, expected)
