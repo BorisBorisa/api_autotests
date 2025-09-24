@@ -6,12 +6,15 @@ from clients.categories.categories_client import CategoryClient
 
 from clients.categories.categories_schema import (
     CreateCategoryRequestSchema,
-    CreateCategoryResponseSchema
+    CreateCategoryResponseSchema,
+    GetCategoryResponseSchema
 )
 from clients.errors_schema import ErrorResponseSchema
+from fixtures.categories import CategoryFixture
 from testdata import test_data
 from tools.assertions.base import assert_status_code
-from tools.assertions.categories import assert_create_category_response, assert_create_category_with_wrong_data_response
+from tools.assertions.categories import assert_create_category_response, \
+    assert_create_category_with_wrong_data_response, assert_get_category_response
 from tools.assertions.schema import validate_json_schema
 
 
@@ -41,8 +44,20 @@ class TestCategories:
 
         validate_json_schema(response.json(), ErrorResponseSchema.model_json_schema())
 
-    def test_get_category_by_id(self):
-        pass
+    def test_get_category_by_id(self, category_client: CategoryClient, function_category: CategoryFixture):
+        response = category_client.get_category_by_id_api(function_category.response.id)
+        response_data = GetCategoryResponseSchema.model_validate_json(response.text)
 
-    def test_get_category_by_slug(self):
-        pass
+        assert_status_code(response.status_code, HTTPStatus.OK)
+        assert_get_category_response(response_data, function_category.response)
+
+        validate_json_schema(response.json(), GetCategoryResponseSchema.model_json_schema())
+
+    def test_get_category_by_slug(self, category_client: CategoryClient, function_category: CategoryFixture):
+        response = category_client.get_category_by_slug_api(function_category.response.slug)
+        response_data = GetCategoryResponseSchema.model_validate_json(response.text)
+
+        assert_status_code(response.status_code, HTTPStatus.OK)
+        assert_get_category_response(response_data, function_category.response)
+
+        validate_json_schema(response.json(), GetCategoryResponseSchema.model_json_schema())
