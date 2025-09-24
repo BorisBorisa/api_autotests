@@ -9,7 +9,7 @@ from clients.categories.categories_schema import (
     CreateCategoryResponseSchema,
     GetCategoryResponseSchema,
     UpdateCategoryRequestSchema,
-    UpdateCategoryResponseSchema
+    UpdateCategoryResponseSchema, GetCategoriesResponseSchema
 )
 from clients.errors_schema import ErrorResponseSchema
 from fixtures.categories import CategoryFixture
@@ -107,3 +107,10 @@ class TestCategories:
 
         assert_status_code(response.status_code, HTTPStatus.OK)
         assert_delete_response(response_data)
+
+    def test_get_categories(self, category_client: CategoryClient):
+        response = category_client.get_categories_api()
+        response_data = GetCategoriesResponseSchema.validate_json(response.text)
+
+        assert_status_code(response.status_code, HTTPStatus.OK)
+        validate_json_schema(response.json(), GetCategoriesResponseSchema.json_schema())
