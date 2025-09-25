@@ -92,3 +92,50 @@ category_invalid_ids = [
     "empty_avatar_url",
     "invalid_avatar_url",
 ]
+
+# test_products
+product_invalid_data =[
+    (
+        {"title": ""},
+        ["title should not be empty"]
+    ),
+    (
+        {"price": 0},
+        ["price must be a positive number"]
+    ),
+    (
+        {"price": -1},
+        ["price must be a positive number"]
+    ),
+    (
+        {"description": ""},
+        ["description should not be empty"]
+    ),
+    (
+        {"images": [INVALID_AVATAR_URL]},
+        ["each value in images must be a URL address"]
+    ),
+    (
+        {"images": []},
+        ["images must contain at least 1 elements"]
+    ),
+    (
+        {"title": "", "price": 0, "description": "", "images": []},
+        [
+            "title should not be empty",
+            "price must be a positive number",
+            "description should not be empty",
+            "images must contain at least 1 elements"
+        ]
+    )
+]
+
+product_invalid_ids = [
+    "empty_title",
+    "zero_price",
+    "negative_price",
+    "empty_description",
+    "invalid_avatar_url",
+    "empty_avatar_list",
+    "empty_fields"
+]
