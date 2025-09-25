@@ -43,6 +43,10 @@ class CreateProductResponseSchema(ProductSchema):
     """
 
 
+class GetProductResponseSchema(ProductSchema):
+    """
+    Описание структуры ответа на запрос продукта.
+    """
 
 class UpdateProductRequestSchema(BaseModel):
     """
