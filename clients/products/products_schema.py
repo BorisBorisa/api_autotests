@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel, HttpUrl, TypeAdapter, Field
+from pydantic import BaseModel, HttpUrl, TypeAdapter, Field, ConfigDict
 
 from clients.categories.categories_schema import CategorySchema
 from tools.fakers import fake
@@ -28,11 +28,13 @@ class CreateProductRequestSchema(BaseModel):
     """
     Описание структуры запроса на создание продукта.
     """
-    title: str = Field()
-    price: int = Field()
-    description: str = Field()
-    category_id: str = Field(alias="categoryId")
-    images: list[str] = Field()
+    model_config = ConfigDict(validate_by_name=True)
+
+    title: str = Field(default_factory=fake.phrase)
+    price: int | float  = Field(default_factory=fake.price)
+    description: str = Field(default_factory=fake.sentence)
+    category_id: int = Field(alias="categoryId")
+    images: list[str] = Field(default_factory=fake.uris_list)
 
 
 class CreateProductResponseSchema(BaseModel):
@@ -54,8 +56,10 @@ class UpdateProductRequestSchema(BaseModel):
     """
     Описание структуры запроса на обновление продукта.
     """
+    model_config = ConfigDict(validate_by_name=True)
+
     title: str | None = Field(default_factory=fake.phrase)
-    price: float | None = Field(default_factory=fake.price)
+    price: int | float | None = Field(default_factory=fake.price)
     description: str | None = Field(default_factory=fake.sentence)
-    category_id: str | None = Field(alias="categoryId")  # необходимо передавать действительно значение
+    category_id: int | None = Field(alias="categoryId")
     images: list[HttpUrl] | None = Field(default_factory=fake.uris_list)
