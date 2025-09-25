@@ -45,72 +45,16 @@ def assert_create_user_response(request: CreateUserRequestSchema, response: Crea
     assert_equal(request.avatar, str(response.avatar), "avatar")
 
 
-def assert_create_user_with_wrong_email_response(actual: ErrorResponseSchema):
+def assert_create_user_with_wrong_data_response(actual: ErrorResponseSchema, error_messages: list):
     """
-    Проверяет, что ответ на регистрацию с некорректным email соответствует ожидаемой ошибке.
+    Проверяет, что ответ на регистрацию пользователя с некорректным данными соответствует ожидаемому.
 
     :param actual: Ответ от API с ошибкой, которую необходимо проверить.
+    :param error_messages: Список сообщений ошибок.
     :raises AssertionError: Если фактический ответ не соответствует ожидаемому.
     """
     expected = ErrorResponseSchema(
-        message=["email must be an email"],
-        error="Bad Request",
-        status_code=400
-    )
-    assert_error_response(actual, expected)
-
-
-def assert_create_user_with_wrong_password_response(actual: ErrorResponseSchema):
-    """
-    Проверяет, что ответ на регистрацию с некорректным password соответствует ожидаемой ошибке.
-
-    :param actual: Ответ от API с ошибкой, которую необходимо проверить.
-    :raises AssertionError: Если фактический ответ не соответствует ожидаемому.
-    """
-    expected = ErrorResponseSchema(
-        message=[
-            "password must be longer than or equal to 4 characters",
-            "password must contain only letters and numbers"
-        ],
-        error="Bad Request",
-        status_code=400
-    )
-    assert_error_response(actual, expected)
-
-
-def assert_create_user_with_wrong_avatar_url_response(actual: ErrorResponseSchema):
-    """
-    Проверяет, что ответ на регистрацию с некорректным url для аватара соответствует ожидаемой ошибке.
-
-    :param actual: Ответ от API с ошибкой, которую необходимо проверить.
-    :raises AssertionError: Если фактический ответ не соответствует ожидаемому.
-    """
-    expected = ErrorResponseSchema(
-        message=["avatar must be a URL address"],
-        error="Bad Request",
-        status_code=400
-    )
-    assert_error_response(actual, expected)
-
-
-def assert_create_user_with_all_empty_fields_response(actual: ErrorResponseSchema):
-    """
-    Проверяет, что ответ на регистрацию с пустыми полями соответствует ожидаемой ошибке.
-
-    :param actual: Ответ от API с ошибкой, которую необходимо проверить.
-    :raises AssertionError: Если фактический ответ не соответствует ожидаемому.
-    """
-    expected = ErrorResponseSchema(
-        message=[
-            "email should not be empty",
-            "email must be an email",
-            "name should not be empty",
-            "password must be longer than or equal to 4 characters",
-            "password should not be empty",
-            "password must contain only letters and numbers",
-            "avatar should not be empty",
-            "avatar must be a URL address"
-        ],
+        message=error_messages,
         error="Bad Request",
         status_code=400
     )
@@ -163,6 +107,7 @@ def assert_update_user_with_wrong_data_response(actual: ErrorResponseSchema, err
         status_code=400
     )
     assert_error_response(actual, expected)
+
 
 def assert_email_availability_response(request: EmailAvailabilityResponseSchema, expected: bool):
     """

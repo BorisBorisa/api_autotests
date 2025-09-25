@@ -20,10 +20,7 @@ from fixtures.user import UserFixture
 from tools.assertions.base import assert_status_code
 from tools.assertions.users import (
     assert_create_user_response,
-    assert_create_user_with_wrong_email_response,
-    assert_create_user_with_all_empty_fields_response,
-    assert_create_user_with_wrong_password_response,
-    assert_create_user_with_wrong_avatar_url_response,
+    assert_create_user_with_wrong_data_response,
     assert_user,
     assert_get_user_with_wrong_id_response,
     assert_update_user_response,
@@ -46,43 +43,18 @@ class TestUsers:
 
         validate_json_schema(response.json(), CreateUserResponseSchema.model_json_schema())
 
-    def test_create_user_with_wrong_email(self, user_client: UserClient):
-        request = CreateUserRequestSchema(email=test_data.INVALID_EMAIL)
+    @pytest.mark.parametrize(
+        "payload, message",
+        test_data.user_create_invalid_data,
+        ids=test_data.user_create_invalid_data_ids
+    )
+    def test_create_user_with_wrong_data(self, user_client: UserClient, payload, message):
+        request = CreateUserRequestSchema(**payload)
         response = user_client.create_user_api(request)
         response_data = ErrorResponseSchema.model_validate_json(response.text)
 
         assert_status_code(response.status_code, HTTPStatus.BAD_REQUEST)
-        assert_create_user_with_wrong_email_response(response_data)
-
-        validate_json_schema(response.json(), ErrorResponseSchema.model_json_schema())
-
-    def test_create_user_with_wrong_password(self, user_client: UserClient):
-        request = CreateUserRequestSchema(password=test_data.INVALID_PASSWORD)
-        response = user_client.create_user_api(request)
-        response_data = ErrorResponseSchema.model_validate_json(response.text)
-
-        assert_status_code(response.status_code, HTTPStatus.BAD_REQUEST)
-        assert_create_user_with_wrong_password_response(response_data)
-
-        validate_json_schema(response.json(), ErrorResponseSchema.model_json_schema())
-
-    def test_create_user_with_wrong_avatar_url(self, user_client: UserClient):
-        request = CreateUserRequestSchema(avatar=test_data.INVALID_AVATAR_URL)
-        response = user_client.create_user_api(request)
-        response_data = ErrorResponseSchema.model_validate_json(response.text)
-
-        assert_status_code(response.status_code, HTTPStatus.BAD_REQUEST)
-        assert_create_user_with_wrong_avatar_url_response(response_data)
-
-        validate_json_schema(response.json(), ErrorResponseSchema.model_json_schema())
-
-    def test_create_user_with_all_empty_fields(self, user_client: UserClient):
-        request = CreateUserRequestSchema(name="", email="", password="", avatar="")
-        response = user_client.create_user_api(request)
-        response_data = ErrorResponseSchema.model_validate_json(response.text)
-
-        assert_status_code(response.status_code, HTTPStatus.BAD_REQUEST)
-        assert_create_user_with_all_empty_fields_response(response_data)
+        assert_create_user_with_wrong_data_response(response_data, message)
 
         validate_json_schema(response.json(), ErrorResponseSchema.model_json_schema())
 
