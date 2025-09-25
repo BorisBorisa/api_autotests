@@ -48,14 +48,14 @@ class GetProductResponseSchema(ProductSchema):
     Описание структуры ответа на запрос продукта.
     """
 
-class UpdateProductRequestSchema(BaseModel):
+
+class UpdateProductRequestSchema(CreateProductRequestSchema):
     """
     Описание структуры запроса на обновление продукта.
     """
-    model_config = ConfigDict(validate_by_name=True)
 
-    title: str | None = Field(default_factory=fake.phrase)
-    price: int | float | None = Field(default_factory=fake.price)
-    description: str | None = Field(default_factory=fake.sentence)
-    category_id: int | None = Field(alias="categoryId")
-    images: list[HttpUrl] | None = Field(default_factory=fake.uris_list)
+
+class UpdateProductResponseSchema(ProductSchema):
+    """
+    Описание структуры ответа на обновление продукта.
+    """
