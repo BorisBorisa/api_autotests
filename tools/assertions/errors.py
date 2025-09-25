@@ -18,3 +18,18 @@ def assert_error_response(
     assert_equal(actual.status_code, expected.status_code, "status_code")
     assert_equal(actual.error, expected.error, "error")
     assert_equal(actual.message, expected.message, "message")
+
+
+def assert_invalid_data_response(actual: ErrorResponseSchema, error_messages: list):
+    """
+
+    :param actual:
+    :param error_messages:
+    :return:
+    """
+    expected = ErrorResponseSchema(
+        message=error_messages,
+        error="Bad Request",
+        status_code=400
+    )
+    assert_error_response(actual, expected)

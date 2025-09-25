@@ -8,7 +8,7 @@ from clients.categories.categories_schema import (
 )
 from clients.errors_schema import ErrorResponseSchema
 from tools.assertions.base import assert_equal
-from tools.assertions.errors import assert_error_response
+from tools.assertions.errors import assert_invalid_data_response
 
 
 def assert_create_category_response(request: CreateCategoryRequestSchema, response: CreateCategoryResponseSchema):
@@ -23,15 +23,6 @@ def assert_create_category_response(request: CreateCategoryRequestSchema, respon
     assert_equal(request.image, str(response.image), "image")
 
 
-def _assert_category_with_wrong_data_response(actual: ErrorResponseSchema, error_messages: list):
-    expected = ErrorResponseSchema(
-        message=error_messages,
-        error="Bad Request",
-        status_code=400
-    )
-    assert_error_response(actual, expected)
-
-
 def assert_create_category_with_wrong_data_response(actual: ErrorResponseSchema, error_messages: list):
     """
     Проверяет, что ответ на создание категории с некорректным данными соответствует ожидаемому.
@@ -40,7 +31,7 @@ def assert_create_category_with_wrong_data_response(actual: ErrorResponseSchema,
     :param error_messages: Список сообщений ошибок.
     :return: AssertionError: Если хотя бы одно поле не совпадает.
     """
-    _assert_category_with_wrong_data_response(actual, error_messages)
+    assert_invalid_data_response(actual, error_messages)
 
 
 def assert_update_category_with_wrong_data_response(actual: ErrorResponseSchema, error_messages: list):
@@ -51,7 +42,7 @@ def assert_update_category_with_wrong_data_response(actual: ErrorResponseSchema,
     :param error_messages: Список сообщений ошибок.
     :return: AssertionError: Если хотя бы одно поле не совпадает.
     """
-    _assert_category_with_wrong_data_response(actual, error_messages)
+    assert_invalid_data_response(actual, error_messages)
 
 
 def assert_category(actual: CategorySchema, expected: CategorySchema):
