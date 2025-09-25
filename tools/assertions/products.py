@@ -1,10 +1,11 @@
 from clients.errors_schema import ErrorResponseSchema
 from clients.products.products_schema import (
     CreateProductRequestSchema,
-    CreateProductResponseSchema
     CreateProductResponseSchema,
     ProductSchema,
     GetProductResponseSchema,
+    UpdateProductRequestSchema,
+    UpdateProductResponseSchema
 )
 from tools.assertions.base import assert_equal
 from tools.assertions.errors import assert_invalid_data_response
@@ -64,3 +65,18 @@ def assert_get_product_response(actual: GetProductResponseSchema, expected: Crea
     :return: AssertionError: Если хотя бы одно поле не совпадает.
     """
     assert_product(actual, expected)
+
+
+def assert_update_product_response(request: UpdateProductRequestSchema, response: UpdateProductResponseSchema):
+    """
+    Проверяет, что ответ на обновление продукта соответствует запросу.
+
+    :param request: Исходный запрос на обновление продукта.
+    :param response: Ответ API с данными продукта.
+    :return: AssertionError: Если хотя бы одно поле не совпадает.
+    """
+    assert_equal(request.title, response.title, "title")
+    assert_equal(request.price, response.price, "price")
+    assert_equal(request.description, response.description, "description")
+    assert_equal(request.category_id, response.category.id, "category id")
+    assert_equal(request.images, [str(i) for i in response.images], "images")
