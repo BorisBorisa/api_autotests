@@ -24,14 +24,14 @@ class ProductsClient(APIClient):
         """
         return self.get(url=APIRoutes.PRODUCTS)
 
-    def get_product_by_id_api(self, category_id: int) -> Response:
+    def get_product_by_id_api(self, product_id: int) -> Response:
         """
         Метод получения продуктов по id.
 
-        :param category_id: Идентификатор продукта.
+        :param product_id: Идентификатор продукта.
         :return: Ответ от сервера в виде объекта httpx.Response.
         """
-        return self.get(url=f"{APIRoutes.PRODUCTS}/{category_id}")
+        return self.get(url=f"{APIRoutes.PRODUCTS}/{product_id}")
 
     def get_product_by_slug_api(self, slug: str) -> Response:
         """
