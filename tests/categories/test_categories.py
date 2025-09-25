@@ -20,9 +20,9 @@ from tools.assertions.categories import (
     assert_create_category_with_wrong_data_response,
     assert_get_category_response,
     assert_update_category_response,
-    assert_update_category_with_wrong_data_response,
-    assert_delete_response
+    assert_update_category_with_wrong_data_response
 )
+from tools.assertions.delete import assert_delete_response
 from tools.assertions.schema import validate_json_schema
 
 

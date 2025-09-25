@@ -82,13 +82,3 @@ def assert_update_category_response(request: UpdateCategoryRequestSchema, respon
     """
     assert_equal(request.name, response.name, "name")
     assert_equal(request.image, str(response.image), "image")
-
-
-def assert_delete_response(response: bool):
-    """
-    Проверяет, что ответ на удаление успешный.
-
-    :param response: Ответ API
-    :return: AssertionError: Если хотя бы одно поле не совпадает.
-    """
-    assert response, "Expected delete response to be True, but got False"
