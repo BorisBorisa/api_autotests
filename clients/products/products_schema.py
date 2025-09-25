@@ -12,7 +12,7 @@ class ProductSchema(BaseModel):
     id: int
     title: str
     slug: str
-    price: float
+    price: int | float
     description: str
     category: CategorySchema
     images: list[HttpUrl]
@@ -31,25 +31,17 @@ class CreateProductRequestSchema(BaseModel):
     model_config = ConfigDict(validate_by_name=True)
 
     title: str = Field(default_factory=fake.phrase)
-    price: int | float  = Field(default_factory=fake.price)
+    price: int | float = Field(default_factory=fake.price)
     description: str = Field(default_factory=fake.sentence)
     category_id: int = Field(alias="categoryId")
     images: list[str] = Field(default_factory=fake.uris_list)
 
 
-class CreateProductResponseSchema(BaseModel):
+class CreateProductResponseSchema(ProductSchema):
     """
     Описание структуры ответа на создание продукта.
     """
-    title: str
-    slug: str
-    price: float
-    description: str
-    images: list[HttpUrl]
-    category: CategorySchema
-    id: int
-    creation_at: datetime = Field(alias="creationAt")
-    updated_at: datetime = Field(alias="updatedAt")
+
 
 
 class UpdateProductRequestSchema(BaseModel):
