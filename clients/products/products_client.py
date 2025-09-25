@@ -1,7 +1,11 @@
 from httpx import Response
 
 from clients.api_client import APIClient
-from clients.products.products_schema import CreateProductRequestSchema, UpdateProductRequestSchema
+from clients.products.products_schema import (
+    CreateProductRequestSchema,
+    UpdateProductRequestSchema,
+    CreateProductResponseSchema
+)
 from clients.public_http_builder import get_public_http_client
 
 from tools.routes import APIRoutes
@@ -71,6 +75,10 @@ class ProductsClient(APIClient):
         :return: Ответ от сервера в виде объекта httpx.Response.
         """
         return self.delete(url=f"{APIRoutes.PRODUCTS}/{product_id}")
+
+    def create_product(self, request: CreateProductRequestSchema) -> CreateProductResponseSchema:
+        response = self.create_product_api(request)
+        return CreateProductResponseSchema.model_validate_json(response.text)
 
 
 def get_product_client() -> ProductsClient:
