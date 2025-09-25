@@ -14,6 +14,7 @@ from clients.products.products_schema import (
 from fixtures.categories import CategoryFixture
 from fixtures.products import ProductFixture
 from tools.assertions.base import assert_status_code
+from tools.assertions.delete import assert_delete_response
 from tools.assertions.products import (
     assert_create_product_response,
     assert_create_product_with_wrong_data_response,
@@ -93,8 +94,12 @@ class TestProducts:
     def test_update_product_with_wrong_data(self, products_client: ProductsClient, function_product: ProductFixture):
         pass
 
-    def test_delete_product(self):
-        pass
+    def test_delete_product(self, products_client: ProductsClient, function_product: ProductFixture):
+        response = products_client.delete_product_api(function_product.response.id)
+        response_data = response.json()
+
+        assert_status_code(response.status_code, HTTPStatus.OK)
+        assert_delete_response(response_data)
 
     def test_get_products(self):
         pass
