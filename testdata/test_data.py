@@ -7,6 +7,10 @@ INVALID_ROLE = "editor"
 
 user_create_invalid_data = [
     (
+        {"name": ""},
+        ["name should not be empty"]
+    ),
+    (
         {"email": INVALID_EMAIL},
         ["email must be an email"]
     ),
@@ -34,6 +38,7 @@ user_create_invalid_data = [
 ]
 
 user_create_invalid_data_ids = [
+    "empty_name",
     "invalid_email",
     "invalid_password",
     "invalid_avatar_url",
