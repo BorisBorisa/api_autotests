@@ -9,7 +9,8 @@ from clients.products.products_schema import (
     CreateProductResponseSchema,
     GetProductResponseSchema,
     UpdateProductRequestSchema,
-    UpdateProductResponseSchema
+    UpdateProductResponseSchema,
+    GetProductsResponseSchema
 )
 from fixtures.categories import CategoryFixture
 from fixtures.products import ProductFixture
@@ -101,5 +102,9 @@ class TestProducts:
         assert_status_code(response.status_code, HTTPStatus.OK)
         assert_delete_response(response_data)
 
-    def test_get_products(self):
-        pass
+    def test_get_products(self, products_client: ProductsClient):
+        response = products_client.get_products_api()
+        response_data = GetProductsResponseSchema.validate_json(response.text)
+
+        assert_status_code(response.status_code, HTTPStatus.OK)
+        validate_json_schema(response.json(), GetProductsResponseSchema.json_schema())
