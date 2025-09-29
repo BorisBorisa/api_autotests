@@ -1,24 +1,27 @@
 from httpx import Response
-from pathlib import Path
 
 from clients.api_client import APIClient
+from clients.files.files_schema import UploadFileRequestSchema, UploadFileResponseSchema
 from clients.public_http_builder import get_public_http_client
 from tools.routes import APIRoutes
 
 
-class FilesClient(APIClient):
+class FileClient(APIClient):
     """
     Клиент для работы с /api/v1/files
     """
 
-    def upload_file_api(self, file_path: Path) -> Response:
+    def upload_file_api(self, request: UploadFileRequestSchema) -> Response:
         """
         Метод загрузки файла.
 
-        :param file_path: Путь к файлу.
+        :param request: Словарь с file_name, file_path.
         :return: Ответ от сервера в виде объекта httpx.Response
         """
-        return self.post(url=f"{APIRoutes.FILES}/upload", files={"file": file_path.read_bytes()})
+        return self.post(
+            url=f"{APIRoutes.FILES}/upload",
+            files={"file": (request.file_name, request.file_path.read_bytes())}
+        )
 
     def get_file_api(self, file_name: str) -> Response:
         """
@@ -29,11 +32,15 @@ class FilesClient(APIClient):
         """
         return self.get(url=f"{APIRoutes.FILES}/{file_name}")
 
+    def upload_file(self, request: UploadFileRequestSchema) -> UploadFileResponseSchema:
+        response = self.upload_file_api(request)
+        return UploadFileResponseSchema.model_validate_json(response.text)
 
-def get_file_client() -> FilesClient:
+
+def get_file_client() -> FileClient:
     """
     Функция создаёт экземпляр FilesClient с уже настроенным HTTP-клиентом.
 
     :return: Готовый к использованию FilesClient.
     """
-    return FilesClient(client=get_public_http_client())
+    return FileClient(client=get_public_http_client())
