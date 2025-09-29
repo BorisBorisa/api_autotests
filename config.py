@@ -1,5 +1,9 @@
-from pydantic import BaseModel, HttpUrl
+from pydantic import BaseModel, HttpUrl, FilePath
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+
+class TestDataConfig(BaseModel):
+    image_png_file: FilePath
 
 
 class HTTTPClientConfig(BaseModel):
@@ -20,6 +24,7 @@ class Settings(BaseSettings):
     )
 
     http_client: HTTTPClientConfig
+    test_data: TestDataConfig
 
 
 settings = Settings()
