@@ -55,6 +55,14 @@ class Fake:
         """
         return self.faker.sentence(nb_words=3, variable_nb_words=True)[:-1]
 
+    def word(self) -> str:
+        """
+        Генерирует случайное слово.
+
+        :return: Случайное слово.
+        """
+        return self.faker.word()
+
     def uri(self) -> str:
         """
         Генерирует случайное URI.
