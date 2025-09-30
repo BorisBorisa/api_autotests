@@ -69,7 +69,7 @@ def assert_get_user_with_wrong_id_response(actual: UserNotFoundResponseSchema, u
     :param user_id: Идентификатор пользователя.
     :return: AssertionError: Если фактический ответ не соответствует ожидаемому.
     """
-    assert_equal(actual.path, f"{APIRoutes.USERS}/{user_id}", "path")
+    assert_equal(actual.path, f"/{APIRoutes.USERS}/{user_id}", "path")
     assert_equal(actual.name, "EntityNotFoundError", "error name")
     assert_equal(
         actual.message,
