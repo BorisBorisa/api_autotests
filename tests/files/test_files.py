@@ -1,5 +1,6 @@
 from http import HTTPStatus
 
+import allure
 import pytest
 
 from clients.files.files_client import FileClient
@@ -15,6 +16,7 @@ from tools.assertions.schema import validate_json_schema
 @pytest.mark.regression
 @pytest.mark.files
 class TestFiles:
+    @allure.title("Upload file")
     def test_upload_file(self, file_client: FileClient):
         request = UploadFileRequestSchema(file_path=settings.test_data.image_png_file)
         response = file_client.upload_file_api(request)
@@ -25,6 +27,7 @@ class TestFiles:
 
         validate_json_schema(response.json(), UploadFileResponseSchema.model_json_schema())
 
+    @allure.title("Get file")
     def test_get_upload_file(self, file_client: FileClient, function_file: FileFixture):
         response = file_client.get_file_api(function_file.response.file_name)
 
