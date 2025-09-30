@@ -20,14 +20,14 @@ class LocationsClient(APIClient):
         """
         return self.get(url=APIRoutes.LOCATIONS)
 
-    def get_locations_by_origin_api(self, origin: OriginParams) -> Response:
+    def get_locations_by_origin_api(self, origin_param: OriginParams) -> Response:
         """
         Метод получения списка адресов отсортированных по расстоянию от указанной исходной точки.
 
-        :param origin: Начальная точка (координаты).
+        :param origin_param: Начальная точка (координаты).
         :return: Ответ от сервера в виде объекта httpx.Response.
         """
-        return self.get(url=APIRoutes.LOCATIONS, params={"origin": origin.origin})
+        return self.get(url=APIRoutes.LOCATIONS, params={"origin": origin_param.origin})
 
     def get_locations_with_a_limit_api(self, limit: int) -> Response:
         """
@@ -38,7 +38,7 @@ class LocationsClient(APIClient):
         """
         return self.get(url=APIRoutes.LOCATIONS, params={"size": limit})
 
-    def get_locations_within_a_radius(self, origin: OriginParams, radius: int) -> Response:
+    def get_locations_within_a_radius(self, origin_param: OriginParams, radius: int) -> Response:
         """
         Метод получения списка адресов в указанном радиусе от указанной исходной точки.
 
@@ -46,7 +46,7 @@ class LocationsClient(APIClient):
         :param radius: Радиус в километрах
         :return: Ответ от сервера в виде объекта httpx.Response.
         """
-        return self.get(url=APIRoutes.LOCATIONS, params={"origin": origin.origin, "radius": radius})
+        return self.get(url=APIRoutes.LOCATIONS, params={"origin": origin_param.origin, "radius": radius})
 
 
 def get_location_client() -> LocationsClient:
