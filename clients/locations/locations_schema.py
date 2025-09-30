@@ -1,4 +1,5 @@
-from pydantic import BaseModel, TypeAdapter
+from pydantic import BaseModel, TypeAdapter, Field
+from tools.fakers import fake
 
 
 class LocationSchema(BaseModel):
@@ -17,8 +18,8 @@ GetLocationsResponseSchema = TypeAdapter(list[LocationSchema])
 
 
 class OriginParams(BaseModel):
-    latitude: float
-    longitude: float
+    latitude: float = Field(default_factory=fake.random_latitude)
+    longitude: float = Field(default_factory=fake.random_longitude)
 
     @property
     def origin(self) -> str:
