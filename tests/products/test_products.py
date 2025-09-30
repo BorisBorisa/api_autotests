@@ -20,7 +20,8 @@ from tools.assertions.products import (
     assert_create_product_response,
     assert_create_product_with_wrong_data_response,
     assert_get_product_response,
-    assert_update_product_response
+    assert_update_product_response,
+    assert_update_product_with_wrong_data_response
 )
 from tools.assertions.schema import validate_json_schema
 
@@ -92,8 +93,26 @@ class TestProducts:
 
         validate_json_schema(response.json(), UpdateProductResponseSchema.model_json_schema())
 
-    def test_update_product_with_wrong_data(self, products_client: ProductsClient, function_product: ProductFixture):
-        pass
+    @pytest.mark.parametrize(
+        "payload, message",
+        test_data.product_invalid_data,
+        ids=test_data.product_invalid_ids
+    )
+    def test_update_product_with_wrong_data(
+            self,
+            products_client: ProductsClient,
+            function_product: ProductFixture,
+            payload,
+            message
+    ):
+        request = UpdateProductRequestSchema(**payload)
+        response = products_client.update_product_api(function_product.response.id, request)
+        response_data = ErrorResponseSchema.model_validate_json(response.text)
+
+        assert_status_code(response.status_code, HTTPStatus.BAD_REQUEST)
+        assert_update_product_with_wrong_data_response(response_data, message)
+
+        validate_json_schema(response.json(), ErrorResponseSchema.model_json_schema())
 
     def test_delete_product(self, products_client: ProductsClient, function_product: ProductFixture):
         response = products_client.delete_product_api(function_product.response.id)
@@ -104,7 +123,6 @@ class TestProducts:
 
     def test_get_products(self, products_client: ProductsClient):
         response = products_client.get_products_api()
-        response_data = GetProductsResponseSchema.validate_json(response.text)
 
         assert_status_code(response.status_code, HTTPStatus.OK)
         validate_json_schema(response.json(), GetProductsResponseSchema.json_schema())
