@@ -49,10 +49,14 @@ class GetProductResponseSchema(ProductSchema):
     """
 
 
-class UpdateProductRequestSchema(CreateProductRequestSchema):
+class UpdateProductRequestSchema(BaseModel):
     """
     Описание структуры запроса на обновление продукта.
     """
+    title: str | None = None
+    price: int | float | None = None
+    description: str | None = None
+    images: list[str] | None = None
 
 
 class UpdateProductResponseSchema(ProductSchema):
