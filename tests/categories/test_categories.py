@@ -110,7 +110,6 @@ class TestCategories:
 
     def test_get_categories(self, category_client: CategoryClient):
         response = category_client.get_categories_api()
-        response_data = GetCategoriesResponseSchema.validate_json(response.text)
 
         assert_status_code(response.status_code, HTTPStatus.OK)
         validate_json_schema(response.json(), GetCategoriesResponseSchema.json_schema())

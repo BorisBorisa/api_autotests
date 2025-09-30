@@ -101,14 +101,6 @@ class TestUsers:
 
         validate_json_schema(response.json(), ErrorResponseSchema.model_json_schema())
 
-    def test_get_users(self, user_client: UserClient):
-        response = user_client.get_users_api()
-        response_data = GetUsersResponseSchema.validate_json(response.text)
-
-        assert_status_code(response.status_code, HTTPStatus.OK)
-
-        validate_json_schema(response.json(), GetUsersResponseSchema.json_schema())
-
     def test_existing_email_availability(self, user_client: UserClient, function_user: UserFixture):
         request = EmailAvailabilityRequestSchema(email=function_user.request.email)
         response = user_client.check_email_availability_api(request)
@@ -128,3 +120,9 @@ class TestUsers:
         assert_email_availability_response(response_data, True)
 
         validate_json_schema(response.json(), EmailAvailabilityResponseSchema.model_json_schema())
+
+    def test_get_users(self, user_client: UserClient):
+        response = user_client.get_users_api()
+
+        assert_status_code(response.status_code, HTTPStatus.OK)
+        validate_json_schema(response.json(), GetUsersResponseSchema.json_schema())
