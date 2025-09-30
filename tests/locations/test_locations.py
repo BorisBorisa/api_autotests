@@ -1,6 +1,7 @@
 from http import HTTPStatus
 
 import pytest
+import allure
 
 from clients.locations.locations_client import LocationsClient
 from clients.locations.locations_schema import GetLocationsResponseSchema, OriginParams
@@ -14,6 +15,7 @@ from config import settings
 @pytest.mark.regression
 @pytest.mark.locations
 class TestLocations:
+    @allure.title("Get locations")
     def test_get_locations(self, locations_client: LocationsClient):
         response = locations_client.get_locations_api()
 
@@ -21,6 +23,7 @@ class TestLocations:
 
         validate_json_schema(response.json(), GetLocationsResponseSchema.json_schema())
 
+    @allure.title("Get locations by origin")
     def test_get_locations_by_origin(self, locations_client: LocationsClient):
         param = OriginParams()
         response = locations_client.get_locations_by_origin_api(param)
@@ -29,6 +32,7 @@ class TestLocations:
 
         validate_json_schema(response.json(), GetLocationsResponseSchema.json_schema())
 
+    @allure.title("Get locations with limit")
     def test_get_locations_with_limit(self, locations_client: LocationsClient):
         limit = settings.test_data.response_limit
         response = locations_client.get_locations_with_a_limit_api(limit)
@@ -39,6 +43,7 @@ class TestLocations:
 
         validate_json_schema(response.json(), GetLocationsResponseSchema.json_schema())
 
+    @allure.title("Get locations with radius")
     def test_get_locations_with_radius(self, locations_client: LocationsClient):
         radius = settings.test_data.search_radius
         param = OriginParams()
