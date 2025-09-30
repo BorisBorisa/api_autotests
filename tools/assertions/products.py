@@ -37,6 +37,17 @@ def assert_create_product_with_wrong_data_response(actual: ErrorResponseSchema, 
     assert_invalid_data_response(actual, error_messages)
 
 
+def assert_update_product_with_wrong_data_response(actual: ErrorResponseSchema, error_messages: list):
+    """
+    Проверяет, что ответ на обновление продукта с некорректным данными соответствует ожидаемому.
+
+    :param actual: Ответ от API с ошибкой, которую необходимо проверить.
+    :param error_messages: Список сообщений ошибок.
+    :return: AssertionError: Если хотя бы одно поле не совпадает.
+    """
+    assert_invalid_data_response(actual, error_messages)
+
+
 def assert_product(actual: ProductSchema, expected: ProductSchema):
     """
     Проверяет, что фактические данные продукта соответствуют ожидаемым.
