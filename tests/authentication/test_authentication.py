@@ -1,5 +1,7 @@
 from http import HTTPStatus
 
+import pytest
+
 from clients.authentication.private_auth_client import PrivateAuthenticationClient
 from clients.authentication.public_auth_client import PublicAuthenticationClient
 from clients.authentication.authentication_schema import (
@@ -23,6 +25,8 @@ from tools.assertions.authentication import (
 )
 
 
+@pytest.mark.regression
+@pytest.mark.authentication
 class TestAuthentication:
     def test_login(self, function_user: UserFixture, public_auth_client: PublicAuthenticationClient):
         request = LoginRequestSchema(email=function_user.email, password=function_user.password)

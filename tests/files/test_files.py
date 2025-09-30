@@ -1,5 +1,7 @@
 from http import HTTPStatus
 
+import pytest
+
 from clients.files.files_client import FileClient
 from clients.files.files_schema import UploadFileResponseSchema, UploadFileRequestSchema
 
@@ -10,6 +12,8 @@ from tools.assertions.files import assert_upload_file_response, assert_upload_fi
 from tools.assertions.schema import validate_json_schema
 
 
+@pytest.mark.regression
+@pytest.mark.files
 class TestFiles:
     def test_upload_file(self, file_client: FileClient):
         request = UploadFileRequestSchema(file_path=settings.test_data.image_png_file)

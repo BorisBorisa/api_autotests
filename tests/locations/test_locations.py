@@ -1,5 +1,7 @@
 from http import HTTPStatus
 
+import pytest
+
 from clients.locations.locations_client import LocationsClient
 from clients.locations.locations_schema import GetLocationsResponseSchema, OriginParams
 from tools.assertions.base import assert_status_code
@@ -9,6 +11,8 @@ from tools.assertions.schema import validate_json_schema
 from config import settings
 
 
+@pytest.mark.regression
+@pytest.mark.locations
 class TestLocations:
     def test_get_locations(self, locations_client: LocationsClient):
         response = locations_client.get_locations_api()

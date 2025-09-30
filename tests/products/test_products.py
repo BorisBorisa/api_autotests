@@ -28,6 +28,8 @@ from tools.assertions.schema import validate_json_schema
 from testdata import test_data
 
 
+@pytest.mark.regression
+@pytest.mark.products
 class TestProducts:
     def test_create_product(self, products_client: ProductsClient, function_category: CategoryFixture):
         request = CreateProductRequestSchema(category_id=function_category.response.id)

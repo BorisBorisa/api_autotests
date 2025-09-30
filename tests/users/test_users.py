@@ -32,6 +32,8 @@ from tools.assertions.schema import validate_json_schema
 from testdata import test_data
 
 
+@pytest.mark.regression
+@pytest.mark.users
 class TestUsers:
     def test_crate_user(self, user_client: UserClient):
         request = CreateUserRequestSchema()

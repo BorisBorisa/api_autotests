@@ -26,6 +26,8 @@ from tools.assertions.delete import assert_delete_response
 from tools.assertions.schema import validate_json_schema
 
 
+@pytest.mark.regression
+@pytest.mark.categories
 class TestCategories:
     def test_create_category(self, category_client: CategoryClient):
         request = CreateCategoryRequestSchema()
