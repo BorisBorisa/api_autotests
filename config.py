@@ -4,6 +4,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class TestDataConfig(BaseModel):
     image_png_file: FilePath
+    response_limit: int
+    search_radius: int
 
 
 class HTTTPClientConfig(BaseModel):
