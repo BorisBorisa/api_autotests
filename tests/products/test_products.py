@@ -1,6 +1,7 @@
 from http import HTTPStatus
 
 import pytest
+import allure
 
 from clients.errors_schema import ErrorResponseSchema
 from clients.products.products_client import ProductsClient
@@ -31,6 +32,7 @@ from testdata import test_data
 @pytest.mark.regression
 @pytest.mark.products
 class TestProducts:
+    @allure.title("Create product")
     def test_create_product(self, products_client: ProductsClient, function_category: CategoryFixture):
         request = CreateProductRequestSchema(category_id=function_category.response.id)
         response = products_client.create_product_api(request)
@@ -41,6 +43,7 @@ class TestProducts:
 
         validate_json_schema(response.json(), CreateProductResponseSchema.model_json_schema())
 
+    @allure.title("Create product with invalid data fails")
     @pytest.mark.parametrize(
         "payload, message",
         test_data.product_invalid_data,
@@ -62,6 +65,7 @@ class TestProducts:
 
         validate_json_schema(response.json(), ErrorResponseSchema.model_json_schema())
 
+    @allure.title("Get product by ID")
     def test_get_product_by_id(self, products_client: ProductsClient, function_product: ProductFixture):
         response = products_client.get_product_by_id_api(product_id=function_product.response.id)
         response_data = GetProductResponseSchema.model_validate_json(response.text)
@@ -71,6 +75,7 @@ class TestProducts:
 
         validate_json_schema(response.json(), GetProductResponseSchema.model_json_schema())
 
+    @allure.title("Get product by slug")
     def test_get_product_by_slug(self, products_client: ProductsClient, function_product: ProductFixture):
         response = products_client.get_product_by_slug_api(slug=function_product.response.slug)
         response_data = GetProductResponseSchema.model_validate_json(response.text)
@@ -80,6 +85,7 @@ class TestProducts:
 
         validate_json_schema(response.json(), GetProductResponseSchema.model_json_schema())
 
+    @allure.title("Update product")
     def test_update_product(
             self,
             products_client: ProductsClient,
@@ -95,6 +101,7 @@ class TestProducts:
 
         validate_json_schema(response.json(), UpdateProductResponseSchema.model_json_schema())
 
+    @allure.title("Update product with invalid data fails")
     @pytest.mark.parametrize(
         "payload, message",
         test_data.product_invalid_data,
@@ -116,6 +123,7 @@ class TestProducts:
 
         validate_json_schema(response.json(), ErrorResponseSchema.model_json_schema())
 
+    @allure.title("Delete product")
     def test_delete_product(self, products_client: ProductsClient, function_product: ProductFixture):
         response = products_client.delete_product_api(function_product.response.id)
         response_data = response.json()
@@ -123,6 +131,7 @@ class TestProducts:
         assert_status_code(response.status_code, HTTPStatus.OK)
         assert_delete_response(response_data)
 
+    @allure.title("Getting products")
     def test_get_products(self, products_client: ProductsClient):
         response = products_client.get_products_api()
 
