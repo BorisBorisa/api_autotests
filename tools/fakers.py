@@ -91,6 +91,20 @@ class Fake:
             max_value=10000
         )
 
+    def random_latitude(self) -> float:
+        """
+        Генерирует случайную широту.
+        :return: Случайная широта.
+        """
+        return float(self.faker.latitude())
+
+    def random_longitude(self) -> float:
+        """
+        Генерирует случайную долготу.
+        :return: Случайная долгота.
+        """
+        return float(self.faker.longitude())
+
     @staticmethod
     def role() -> str:
         """
