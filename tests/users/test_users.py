@@ -1,6 +1,7 @@
 from http import HTTPStatus
 
 import pytest
+import allure
 
 from clients.errors_schema import ErrorResponseSchema
 from clients.users.users_client import UserClient
@@ -35,6 +36,7 @@ from testdata import test_data
 @pytest.mark.regression
 @pytest.mark.users
 class TestUsers:
+    @allure.title("Create user")
     def test_crate_user(self, user_client: UserClient):
         request = CreateUserRequestSchema()
         response = user_client.create_user_api(request)
@@ -45,6 +47,7 @@ class TestUsers:
 
         validate_json_schema(response.json(), CreateUserResponseSchema.model_json_schema())
 
+    @allure.title("Create user with invalid data fails")
     @pytest.mark.parametrize(
         "payload, message",
         test_data.user_create_invalid_data,
@@ -60,7 +63,8 @@ class TestUsers:
 
         validate_json_schema(response.json(), ErrorResponseSchema.model_json_schema())
 
-    def test_get_user_with_id(self, user_client: UserClient, function_user: UserFixture):
+    @allure.title("Get user by ID")
+    def test_get_user_by_id(self, user_client: UserClient, function_user: UserFixture):
         response = user_client.get_user_api(user_id=function_user.response.id)
         response_data = GetUserResponseSchema.model_validate_json(response.text)
 
@@ -69,7 +73,8 @@ class TestUsers:
 
         validate_json_schema(response.json(), GetUserResponseSchema.model_json_schema())
 
-    def test_get_user_with_wrong_id(self, user_client: UserClient):
+    @allure.title("Get user with an invalid ID fails")
+    def test_get_user_with_invalid_id(self, user_client: UserClient):
         response = user_client.get_user_api(user_id=test_data.INVALID_USER_ID)
         response_data = UserNotFoundResponseSchema.model_validate_json(response.text)
 
@@ -78,6 +83,7 @@ class TestUsers:
 
         validate_json_schema(response.json(), UserNotFoundResponseSchema.model_json_schema())
 
+    @allure.title("Update user")
     def test_update_user(self, user_client: UserClient, function_user: UserFixture):
         request = UpdateUserRequestSchema()
         response = user_client.update_user_api(user_id=function_user.response.id, request=request)
@@ -88,6 +94,7 @@ class TestUsers:
 
         validate_json_schema(response.json(), UpdateUserResponseSchema.model_json_schema())
 
+    @allure.title("Update user with invalid data fails")
     @pytest.mark.parametrize(
         "payload, message",
         test_data.user_update_invalid_data,
@@ -103,6 +110,7 @@ class TestUsers:
 
         validate_json_schema(response.json(), ErrorResponseSchema.model_json_schema())
 
+    @allure.title("Existing email is unavailable")
     def test_existing_email_availability(self, user_client: UserClient, function_user: UserFixture):
         request = EmailAvailabilityRequestSchema(email=function_user.request.email)
         response = user_client.check_email_availability_api(request)
@@ -113,6 +121,7 @@ class TestUsers:
 
         validate_json_schema(response.json(), EmailAvailabilityResponseSchema.model_json_schema())
 
+    @allure.title("Non-existing email is available")
     def test_not_existing_email_availability(self, user_client: UserClient, function_user: UserFixture):
         request = EmailAvailabilityRequestSchema()
         response = user_client.check_email_availability_api(request)
@@ -123,6 +132,7 @@ class TestUsers:
 
         validate_json_schema(response.json(), EmailAvailabilityResponseSchema.model_json_schema())
 
+    @allure.title("Getting users")
     def test_get_users(self, user_client: UserClient):
         response = user_client.get_users_api()
 
