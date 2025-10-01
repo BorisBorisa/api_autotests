@@ -1,3 +1,5 @@
+import allure
+
 from httpx import Response
 
 from clients.api_client import APIClient
@@ -16,6 +18,7 @@ class ProductsClient(APIClient):
     Клиент для работы с /api/v1/products
     """
 
+    @allure.step("Get products")
     def get_products_api(self) -> Response:
         """
         Метод получения списка всех продуктов.
@@ -24,6 +27,7 @@ class ProductsClient(APIClient):
         """
         return self.get(url=APIRoutes.PRODUCTS)
 
+    @allure.step("Get product by id {product_id}")
     def get_product_by_id_api(self, product_id: int) -> Response:
         """
         Метод получения продуктов по id.
@@ -33,6 +37,7 @@ class ProductsClient(APIClient):
         """
         return self.get(url=f"{APIRoutes.PRODUCTS}/{product_id}")
 
+    @allure.step("Get product by slug {slug}")
     def get_product_by_slug_api(self, slug: str) -> Response:
         """
         Метод получения продуктов по текстовому идентификатору.
@@ -42,6 +47,7 @@ class ProductsClient(APIClient):
         """
         return self.get(url=f"{APIRoutes.PRODUCTS}/slug/{slug}")
 
+    @allure.step("Create product")
     def create_product_api(self, request: CreateProductRequestSchema) -> Response:
         """
         Метод создания продукта.
@@ -54,6 +60,7 @@ class ProductsClient(APIClient):
             json=request.model_dump(by_alias=True)
         )
 
+    @allure.step("Update product")
     def update_product_api(self, product_id: int, request: UpdateProductRequestSchema) -> Response:
         """
         Метод обновления продукта по идентификатору.
@@ -67,6 +74,7 @@ class ProductsClient(APIClient):
             json=request.model_dump(by_alias=True)
         )
 
+    @allure.step("Delete product")
     def delete_product_api(self, product_id: int) -> Response:
         """
         Метод удаления продукта по id.

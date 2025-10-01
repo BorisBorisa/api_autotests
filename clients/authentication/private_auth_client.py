@@ -1,3 +1,5 @@
+import allure
+
 from httpx import Response
 
 from clients.api_client import APIClient
@@ -11,6 +13,7 @@ class PrivateAuthenticationClient(APIClient):
     Публичный клиент для работы с /api/v1/auth
     """
 
+    @allure.step("Get authenticate user profile")
     def profile_api(self) -> Response:
         """
         Метод возвращает данные авторизованного пользователя.

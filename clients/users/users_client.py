@@ -1,3 +1,5 @@
+import allure
+
 from httpx import Response
 
 from clients.api_client import APIClient
@@ -17,6 +19,7 @@ class UserClient(APIClient):
     Клиент для работы с /api/v1/users
     """
 
+    @allure.step("Get users")
     def get_users_api(self) -> Response:
         """
         Метод получения списка всех пользователей.
@@ -25,6 +28,7 @@ class UserClient(APIClient):
         """
         return self.get(url=APIRoutes.USERS)
 
+    @allure.step("Get users by id {user_id}")
     def get_user_api(self, user_id: int) -> Response:
         """
         Метод получения пользователя по идентификатору.
@@ -34,6 +38,7 @@ class UserClient(APIClient):
         """
         return self.get(url=f"{APIRoutes.USERS}/{user_id}")
 
+    @allure.step("Create user")
     def create_user_api(self, request: CreateUserRequestSchema) -> Response:
         """
         Метод выполняет создание пользователя.
@@ -46,6 +51,7 @@ class UserClient(APIClient):
             json=request.model_dump(by_alias=True)
         )
 
+    @allure.step("Update user by id {user_id}")
     def update_user_api(self, user_id: int, request: UpdateUserRequestSchema) -> Response:
         """
         Метод обновления пользователя по идентификатору.
@@ -59,6 +65,7 @@ class UserClient(APIClient):
             json=request.model_dump(by_alias=True)
         )
 
+    @allure.step("Check email availability")
     def check_email_availability_api(self, request: EmailAvailabilityRequestSchema) -> Response:
         """
         Метод проверки, зарегистрирован ли адрес электронной почты в системе.

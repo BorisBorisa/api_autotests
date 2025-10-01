@@ -1,3 +1,5 @@
+import allure
+
 from httpx import Response
 
 from clients.api_client import APIClient
@@ -16,6 +18,7 @@ class CategoryClient(APIClient):
     Клиент для работы с /api/v1/categories
     """
 
+    @allure.step("Get categories")
     def get_categories_api(self) -> Response:
         """
         Метод получения списка всех категорий.
@@ -24,6 +27,7 @@ class CategoryClient(APIClient):
         """
         return self.get(url=APIRoutes.CATEGORIES)
 
+    @allure.step("Get category by id {category_id}")
     def get_category_by_id_api(self, category_id: int) -> Response:
         """
         Метод получения категории по id.
@@ -33,6 +37,7 @@ class CategoryClient(APIClient):
         """
         return self.get(url=f"{APIRoutes.CATEGORIES}/{category_id}")
 
+    @allure.step("Get category by slug {slug}")
     def get_category_by_slug_api(self, slug: str) -> Response:
         """
         Метод получения категории по текстовому идентификатору.
@@ -42,6 +47,7 @@ class CategoryClient(APIClient):
         """
         return self.get(url=f"{APIRoutes.CATEGORIES}/slug/{slug}")
 
+    @allure.step("Create category")
     def create_category_api(self, request: CreateCategoryRequestSchema) -> Response:
         """
         Метод выполняет создание категории.
@@ -54,6 +60,7 @@ class CategoryClient(APIClient):
             json=request.model_dump(by_alias=True)
         )
 
+    @allure.step("Update category")
     def update_category_api(self, category_id: int, request: UpdateCategoryRequestSchema) -> Response:
         """
         Метод обновления категории по идентификатору.
@@ -67,6 +74,7 @@ class CategoryClient(APIClient):
             json=request.model_dump(by_alias=True)
         )
 
+    @allure.step("Delete category")
     def delete_category_api(self, category_id: int) -> Response:
         """
         Метод удаления категории по id.
@@ -76,6 +84,7 @@ class CategoryClient(APIClient):
         """
         return self.delete(url=f"{APIRoutes.CATEGORIES}/{category_id}")
 
+    @allure.step("Get products by category id {category_id}")
     def get_products_by_category_id_api(self, category_id: int) -> Response:
         """
         метод получения всех продуктов по id категории.

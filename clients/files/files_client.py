@@ -1,3 +1,5 @@
+import allure
+
 from httpx import Response
 
 from clients.api_client import APIClient
@@ -11,6 +13,7 @@ class FileClient(APIClient):
     Клиент для работы с /api/v1/files
     """
 
+    @allure.step("Upload file")
     def upload_file_api(self, request: UploadFileRequestSchema) -> Response:
         """
         Метод загрузки файла.
@@ -23,6 +26,7 @@ class FileClient(APIClient):
             files={"file": (request.file_name, request.file_path.read_bytes())}
         )
 
+    @allure.step("Get file by name {file_name}")
     def get_file_api(self, file_name: str) -> Response:
         """
         Метод получения файла.
