@@ -3,6 +3,8 @@ from http import HTTPStatus
 import pytest
 import allure
 
+from allure_commons.types import Severity
+
 from clients.locations.locations_client import LocationsClient
 from clients.locations.locations_schema import GetLocationsResponseSchema, OriginParams
 from tools.assertions.base import assert_status_code
@@ -23,6 +25,7 @@ from tools.allure.storys import AllureStory
 class TestLocations:
     @allure.story(AllureStory.GET_ENTITIES)
     @allure.title("Get locations")
+    @allure.severity(Severity.NORMAL)
     def test_get_locations(self, locations_client: LocationsClient):
         response = locations_client.get_locations_api()
 
@@ -32,6 +35,7 @@ class TestLocations:
 
     @allure.story(AllureStory.GET_ENTITIES)
     @allure.title("Get locations by origin")
+    @allure.severity(Severity.NORMAL)
     def test_get_locations_by_origin(self, locations_client: LocationsClient):
         param = OriginParams()
         response = locations_client.get_locations_by_origin_api(param)
@@ -42,6 +46,7 @@ class TestLocations:
 
     @allure.story(AllureStory.GET_ENTITIES)
     @allure.title("Get locations with limit")
+    @allure.severity(Severity.NORMAL)
     def test_get_locations_with_limit(self, locations_client: LocationsClient):
         limit = settings.test_data.response_limit
         response = locations_client.get_locations_with_a_limit_api(limit)
@@ -54,6 +59,7 @@ class TestLocations:
 
     @allure.story(AllureStory.GET_ENTITIES)
     @allure.title("Get locations with radius")
+    @allure.severity(Severity.NORMAL)
     def test_get_locations_with_radius(self, locations_client: LocationsClient):
         radius = settings.test_data.search_radius
         param = OriginParams()

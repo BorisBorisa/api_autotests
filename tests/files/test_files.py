@@ -3,6 +3,8 @@ from http import HTTPStatus
 import allure
 import pytest
 
+from allure_commons.types import Severity
+
 from clients.files.files_client import FileClient
 from clients.files.files_schema import UploadFileResponseSchema, UploadFileRequestSchema
 
@@ -24,6 +26,7 @@ from tools.allure.storys import AllureStory
 class TestFiles:
     @allure.story(AllureStory.UPDATE_ENTITY)
     @allure.title("Upload file")
+    @allure.severity(Severity.NORMAL)
     def test_upload_file(self, file_client: FileClient):
         request = UploadFileRequestSchema(file_path=settings.test_data.image_png_file)
         response = file_client.upload_file_api(request)
@@ -36,6 +39,7 @@ class TestFiles:
 
     @allure.story(AllureStory.GET_ENTITY)
     @allure.title("Get file")
+    @allure.severity(Severity.NORMAL)
     def test_get_upload_file(self, file_client: FileClient, function_file: FileFixture):
         response = file_client.get_file_api(function_file.response.file_name)
 

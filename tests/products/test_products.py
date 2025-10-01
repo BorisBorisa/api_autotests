@@ -2,6 +2,7 @@ from http import HTTPStatus
 
 import pytest
 import allure
+from allure_commons.types import Severity
 
 from clients.errors_schema import ErrorResponseSchema
 from clients.products.products_client import ProductsClient
@@ -40,6 +41,7 @@ from tools.allure.storys import AllureStory
 class TestProducts:
     @allure.story(AllureStory.CREATE_ENTITY)
     @allure.title("Create product")
+    @allure.severity(Severity.NORMAL)
     def test_create_product(self, products_client: ProductsClient, function_category: CategoryFixture):
         request = CreateProductRequestSchema(category_id=function_category.response.id)
         response = products_client.create_product_api(request)
@@ -52,6 +54,7 @@ class TestProducts:
 
     @allure.story(AllureStory.VALIDATE_ENTITY)
     @allure.title("Create product with invalid data fails")
+    @allure.severity(Severity.NORMAL)
     @pytest.mark.parametrize(
         "payload, message",
         test_data.product_invalid_data,
@@ -75,6 +78,7 @@ class TestProducts:
 
     @allure.story(AllureStory.GET_ENTITY)
     @allure.title("Get product by ID")
+    @allure.severity(Severity.NORMAL)
     def test_get_product_by_id(self, products_client: ProductsClient, function_product: ProductFixture):
         response = products_client.get_product_by_id_api(product_id=function_product.response.id)
         response_data = GetProductResponseSchema.model_validate_json(response.text)
@@ -86,6 +90,7 @@ class TestProducts:
 
     @allure.story(AllureStory.GET_ENTITY)
     @allure.title("Get product by slug")
+    @allure.severity(Severity.NORMAL)
     def test_get_product_by_slug(self, products_client: ProductsClient, function_product: ProductFixture):
         response = products_client.get_product_by_slug_api(slug=function_product.response.slug)
         response_data = GetProductResponseSchema.model_validate_json(response.text)
@@ -97,6 +102,7 @@ class TestProducts:
 
     @allure.story(AllureStory.UPDATE_ENTITY)
     @allure.title("Update product")
+    @allure.severity(Severity.NORMAL)
     def test_update_product(
             self,
             products_client: ProductsClient,
@@ -114,6 +120,7 @@ class TestProducts:
 
     @allure.story(AllureStory.VALIDATE_ENTITY)
     @allure.title("Update product with invalid data fails")
+    @allure.severity(Severity.NORMAL)
     @pytest.mark.parametrize(
         "payload, message",
         test_data.product_invalid_data,
@@ -137,6 +144,7 @@ class TestProducts:
 
     @allure.story(AllureStory.DELETE_ENTITY)
     @allure.title("Delete product")
+    @allure.severity(Severity.NORMAL)
     def test_delete_product(self, products_client: ProductsClient, function_product: ProductFixture):
         response = products_client.delete_product_api(function_product.response.id)
         response_data = response.json()
@@ -146,6 +154,7 @@ class TestProducts:
 
     @allure.story(AllureStory.GET_ENTITIES)
     @allure.title("Getting products")
+    @allure.severity(Severity.NORMAL)
     def test_get_products(self, products_client: ProductsClient):
         response = products_client.get_products_api()
 

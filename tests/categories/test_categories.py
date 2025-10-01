@@ -3,6 +3,8 @@ from http import HTTPStatus
 import pytest
 import allure
 
+from allure_commons.types import Severity
+
 from clients.categories.categories_client import CategoryClient
 
 from clients.categories.categories_schema import (
@@ -38,6 +40,7 @@ from tools.allure.storys import AllureStory
 class TestCategories:
     @allure.story(AllureStory.CREATE_ENTITY)
     @allure.title("Create category")
+    @allure.severity(Severity.NORMAL)
     def test_create_category(self, category_client: CategoryClient):
         request = CreateCategoryRequestSchema()
         response = category_client.create_category_api(request)
@@ -50,6 +53,7 @@ class TestCategories:
 
     @allure.story(AllureStory.VALIDATE_ENTITY)
     @allure.title("Create category with invalid data fails")
+    @allure.severity(Severity.NORMAL)
     @pytest.mark.parametrize(
         "payload, message",
         test_data.category_invalid_data,
@@ -67,6 +71,7 @@ class TestCategories:
 
     @allure.story(AllureStory.GET_ENTITY)
     @allure.title("Get category by ID")
+    @allure.severity(Severity.NORMAL)
     def test_get_category_by_id(self, category_client: CategoryClient, function_category: CategoryFixture):
         response = category_client.get_category_by_id_api(function_category.response.id)
         response_data = GetCategoryResponseSchema.model_validate_json(response.text)
@@ -78,6 +83,7 @@ class TestCategories:
 
     @allure.story(AllureStory.GET_ENTITY)
     @allure.title("Get category by slug")
+    @allure.severity(Severity.NORMAL)
     def test_get_category_by_slug(self, category_client: CategoryClient, function_category: CategoryFixture):
         response = category_client.get_category_by_slug_api(function_category.response.slug)
         response_data = GetCategoryResponseSchema.model_validate_json(response.text)
@@ -89,6 +95,7 @@ class TestCategories:
 
     @allure.story(AllureStory.UPDATE_ENTITY)
     @allure.title("Update category")
+    @allure.severity(Severity.NORMAL)
     def test_update_category(self, category_client: CategoryClient, function_category: CategoryFixture):
         request = UpdateCategoryRequestSchema()
         response = category_client.update_category_api(function_category.response.id, request)
@@ -101,6 +108,7 @@ class TestCategories:
 
     @allure.story(AllureStory.VALIDATE_ENTITY)
     @allure.title("Update category with invalid data fails")
+    @allure.severity(Severity.NORMAL)
     @pytest.mark.parametrize(
         "payload, message",
         test_data.category_invalid_data,
@@ -124,6 +132,7 @@ class TestCategories:
 
     @allure.story(AllureStory.DELETE_ENTITY)
     @allure.title("Delete category")
+    @allure.severity(Severity.NORMAL)
     def test_delete_category(self, category_client: CategoryClient, function_category: CategoryFixture):
         response = category_client.delete_category_api(function_category.response.id)
         response_data = response.json()
@@ -133,6 +142,7 @@ class TestCategories:
 
     @allure.story(AllureStory.GET_ENTITIES)
     @allure.title("Getting categories")
+    @allure.severity(Severity.NORMAL)
     def test_get_categories(self, category_client: CategoryClient):
         response = category_client.get_categories_api()
 
