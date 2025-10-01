@@ -24,11 +24,17 @@ from tools.assertions.authentication import (
     assert_login_invalid_credentials_response,
     assert_user_profile_response_matches, assert_refresh_with_invalid_token_response
 )
+from tools.allure.epics import AllureEpic
+from tools.allure.features import AllureFeatures
+from tools.allure.storys import AllureStory
 
 
 @pytest.mark.regression
 @pytest.mark.authentication
+@allure.epic(AllureEpic.AUTHENTICATION)
+@allure.feature(AllureFeatures.AUTHENTICATION)
 class TestAuthentication:
+    @allure.story(AllureStory.LOGIN)
     @allure.title("Login with correct credentials")
     def test_login(self, function_user: UserFixture, public_auth_client: PublicAuthenticationClient):
         request = LoginRequestSchema(email=function_user.email, password=function_user.password)
@@ -40,6 +46,7 @@ class TestAuthentication:
 
         validate_json_schema(response.json(), LoginResponseSchema.model_json_schema())
 
+    @allure.story(AllureStory.VALIDATE_ENTITY)
     @allure.title("Login with invalid credentials")
     def test_login_invalid_credentials(self, public_auth_client: PublicAuthenticationClient):
         request = LoginRequestSchema()
@@ -51,6 +58,7 @@ class TestAuthentication:
 
         validate_json_schema(response.json(), ErrorResponseSchema.model_json_schema())
 
+    @allure.story(AllureStory.GET_ENTITY)
     @allure.title("Retrieving an authenticated user’s profile")
     def test_authenticated_user_can_retrieve_profile(
             self,
@@ -65,6 +73,7 @@ class TestAuthentication:
 
         validate_json_schema(response.json(), UserProfileResponseSchema.model_json_schema())
 
+    @allure.story(AllureStory.GET_ENTITY)
     @allure.title("Refreshing tokens with a valid token returns a new token pair")
     def test_refresh_token_returns_new_token_pair(
             self,
@@ -84,6 +93,7 @@ class TestAuthentication:
 
         validate_json_schema(refresh_response.json(), RefreshTokenResponseSchema.model_json_schema())
 
+    @allure.story(AllureStory.VALIDATE_ENTITY)
     @allure.title("Refreshing tokens with an invalid token returns an error")
     def test_refresh_token_with_invalid_token(self, public_auth_client: PublicAuthenticationClient):
         request = RefreshTokenRequestSchema()

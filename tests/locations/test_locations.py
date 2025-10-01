@@ -11,10 +11,17 @@ from tools.assertions.schema import validate_json_schema
 
 from config import settings
 
+from tools.allure.epics import AllureEpic
+from tools.allure.features import AllureFeatures
+from tools.allure.storys import AllureStory
+
 
 @pytest.mark.regression
 @pytest.mark.locations
+@allure.epic(AllureEpic.STORE)
+@allure.feature(AllureFeatures.LOCATIONS)
 class TestLocations:
+    @allure.story(AllureStory.GET_ENTITIES)
     @allure.title("Get locations")
     def test_get_locations(self, locations_client: LocationsClient):
         response = locations_client.get_locations_api()
@@ -23,6 +30,7 @@ class TestLocations:
 
         validate_json_schema(response.json(), GetLocationsResponseSchema.json_schema())
 
+    @allure.story(AllureStory.GET_ENTITIES)
     @allure.title("Get locations by origin")
     def test_get_locations_by_origin(self, locations_client: LocationsClient):
         param = OriginParams()
@@ -32,6 +40,7 @@ class TestLocations:
 
         validate_json_schema(response.json(), GetLocationsResponseSchema.json_schema())
 
+    @allure.story(AllureStory.GET_ENTITIES)
     @allure.title("Get locations with limit")
     def test_get_locations_with_limit(self, locations_client: LocationsClient):
         limit = settings.test_data.response_limit
@@ -43,6 +52,7 @@ class TestLocations:
 
         validate_json_schema(response.json(), GetLocationsResponseSchema.json_schema())
 
+    @allure.story(AllureStory.GET_ENTITIES)
     @allure.title("Get locations with radius")
     def test_get_locations_with_radius(self, locations_client: LocationsClient):
         radius = settings.test_data.search_radius

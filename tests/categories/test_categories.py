@@ -26,10 +26,17 @@ from tools.assertions.categories import (
 from tools.assertions.delete import assert_delete_response
 from tools.assertions.schema import validate_json_schema
 
+from tools.allure.epics import AllureEpic
+from tools.allure.features import AllureFeatures
+from tools.allure.storys import AllureStory
+
 
 @pytest.mark.regression
 @pytest.mark.categories
+@allure.epic(AllureEpic.STORE)
+@allure.feature(AllureFeatures.CATEGORIES)
 class TestCategories:
+    @allure.story(AllureStory.CREATE_ENTITY)
     @allure.title("Create category")
     def test_create_category(self, category_client: CategoryClient):
         request = CreateCategoryRequestSchema()
@@ -41,6 +48,7 @@ class TestCategories:
 
         validate_json_schema(response.json(), CreateCategoryResponseSchema.model_json_schema())
 
+    @allure.story(AllureStory.VALIDATE_ENTITY)
     @allure.title("Create category with invalid data fails")
     @pytest.mark.parametrize(
         "payload, message",
@@ -57,6 +65,7 @@ class TestCategories:
 
         validate_json_schema(response.json(), ErrorResponseSchema.model_json_schema())
 
+    @allure.story(AllureStory.GET_ENTITY)
     @allure.title("Get category by ID")
     def test_get_category_by_id(self, category_client: CategoryClient, function_category: CategoryFixture):
         response = category_client.get_category_by_id_api(function_category.response.id)
@@ -67,6 +76,7 @@ class TestCategories:
 
         validate_json_schema(response.json(), GetCategoryResponseSchema.model_json_schema())
 
+    @allure.story(AllureStory.GET_ENTITY)
     @allure.title("Get category by slug")
     def test_get_category_by_slug(self, category_client: CategoryClient, function_category: CategoryFixture):
         response = category_client.get_category_by_slug_api(function_category.response.slug)
@@ -77,6 +87,7 @@ class TestCategories:
 
         validate_json_schema(response.json(), GetCategoryResponseSchema.model_json_schema())
 
+    @allure.story(AllureStory.UPDATE_ENTITY)
     @allure.title("Update category")
     def test_update_category(self, category_client: CategoryClient, function_category: CategoryFixture):
         request = UpdateCategoryRequestSchema()
@@ -88,6 +99,7 @@ class TestCategories:
 
         validate_json_schema(response.json(), UpdateCategoryResponseSchema.model_json_schema())
 
+    @allure.story(AllureStory.VALIDATE_ENTITY)
     @allure.title("Update category with invalid data fails")
     @pytest.mark.parametrize(
         "payload, message",
@@ -110,6 +122,7 @@ class TestCategories:
 
         validate_json_schema(response.json(), ErrorResponseSchema.model_json_schema())
 
+    @allure.story(AllureStory.DELETE_ENTITY)
     @allure.title("Delete category")
     def test_delete_category(self, category_client: CategoryClient, function_category: CategoryFixture):
         response = category_client.delete_category_api(function_category.response.id)
@@ -118,6 +131,7 @@ class TestCategories:
         assert_status_code(response.status_code, HTTPStatus.OK)
         assert_delete_response(response_data)
 
+    @allure.story(AllureStory.GET_ENTITIES)
     @allure.title("Getting categories")
     def test_get_categories(self, category_client: CategoryClient):
         response = category_client.get_categories_api()
