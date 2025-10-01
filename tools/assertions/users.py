@@ -1,3 +1,5 @@
+import allure
+
 from clients.errors_schema import ErrorResponseSchema
 from clients.users.users_schema import (
     UserSchema,
@@ -14,6 +16,7 @@ from tools.assertions.errors import assert_error_response
 from tools.routes import APIRoutes
 
 
+@allure.step("Check user")
 def assert_user(actual: UserSchema, expected: UserSchema):
     """
     Проверяет корректность данных пользователя.
@@ -31,6 +34,7 @@ def assert_user(actual: UserSchema, expected: UserSchema):
     assert_equal(actual.avatar, expected.avatar, "avatar")
 
 
+@allure.step("Check create user response")
 def assert_create_user_response(request: CreateUserRequestSchema, response: CreateUserResponseSchema):
     """
     Проверяет, что ответ на создание пользователя соответствует запросу.
@@ -45,6 +49,7 @@ def assert_create_user_response(request: CreateUserRequestSchema, response: Crea
     assert_equal(request.avatar, str(response.avatar), "avatar")
 
 
+@allure.step("Check user creation response with wrong data")
 def assert_create_user_with_wrong_data_response(actual: ErrorResponseSchema, error_messages: list):
     """
     Проверяет, что ответ на регистрацию пользователя с некорректным данными соответствует ожидаемому.
@@ -61,6 +66,7 @@ def assert_create_user_with_wrong_data_response(actual: ErrorResponseSchema, err
     assert_error_response(actual, expected)
 
 
+@allure.step("Check get user response with invalid id {user_id}")
 def assert_get_user_with_wrong_id_response(actual: UserNotFoundResponseSchema, user_id: int):
     """
     Проверяет, что ответ на получение пользователя с некорректным user_id соответствует ожидаемому.
@@ -78,6 +84,7 @@ def assert_get_user_with_wrong_id_response(actual: UserNotFoundResponseSchema, u
     )
 
 
+@allure.step("Check update user response")
 def assert_update_user_response(request: UpdateUserRequestSchema, response: UpdateUserResponseSchema):
     """
     Проверяет, что ответ на обновление данных пользователя соответствует запросу.
@@ -93,6 +100,7 @@ def assert_update_user_response(request: UpdateUserRequestSchema, response: Upda
     assert_equal(request.avatar, str(response.avatar), "avatar")
 
 
+@allure.step("Check user update response with invalid data")
 def assert_update_user_with_wrong_data_response(actual: ErrorResponseSchema, error_messages: list):
     """
     Проверяет, что ответ на обновление данных пользователя с некорректным данными соответствует ожидаемому.
@@ -109,6 +117,7 @@ def assert_update_user_with_wrong_data_response(actual: ErrorResponseSchema, err
     assert_error_response(actual, expected)
 
 
+@allure.step("Check email availability response")
 def assert_email_availability_response(request: EmailAvailabilityResponseSchema, expected: bool):
     """
     Проверка, что ответ доступности адреса электронной почты соответствует ожидаемому.

@@ -1,7 +1,10 @@
+import allure
+
 from clients.errors_schema import ErrorResponseSchema
 from tools.assertions.base import assert_equal
 
 
+@allure.step("Check error response")
 def assert_error_response(
         actual: ErrorResponseSchema,
         expected: ErrorResponseSchema
@@ -20,12 +23,15 @@ def assert_error_response(
     assert_equal(actual.message, expected.message, "message")
 
 
+@allure.step("Check error response for invalid data request")
 def assert_invalid_data_response(actual: ErrorResponseSchema, error_messages: list):
     """
+    Проверяет, что объект ответа API с ошибками валидации (`ErrorResponseSchema`)
+    при запросе с невалидными данными соответствует ожидаемому значению.
 
-    :param actual:
-    :param error_messages:
-    :return:
+    :param actual: Фактический ответ API.
+    :param error_messages: Ожидаемые сообщения об ошибках.
+    :raises AssertionError: Если значения полей не совпадают.
     """
     expected = ErrorResponseSchema(
         message=error_messages,

@@ -1,3 +1,5 @@
+import allure
+
 from clients.errors_schema import ErrorResponseSchema
 from clients.products.products_schema import (
     CreateProductRequestSchema,
@@ -11,6 +13,7 @@ from tools.assertions.base import assert_equal
 from tools.assertions.errors import assert_invalid_data_response
 
 
+@allure.step("Check create product response")
 def assert_create_product_response(request: CreateProductRequestSchema, response: CreateProductResponseSchema):
     """
     Проверяет, что ответ на создание продукта соответствует запросу.
@@ -26,6 +29,7 @@ def assert_create_product_response(request: CreateProductRequestSchema, response
     assert_equal(request.images, [str(i) for i in response.images], "images")
 
 
+@allure.step("Check product creation response with invalid data")
 def assert_create_product_with_wrong_data_response(actual: ErrorResponseSchema, error_messages: list):
     """
     Проверяет, что ответ на создание продукта с некорректным данными соответствует ожидаемому.
@@ -37,6 +41,7 @@ def assert_create_product_with_wrong_data_response(actual: ErrorResponseSchema, 
     assert_invalid_data_response(actual, error_messages)
 
 
+@allure.step("Check product update response with invalid data")
 def assert_update_product_with_wrong_data_response(actual: ErrorResponseSchema, error_messages: list):
     """
     Проверяет, что ответ на обновление продукта с некорректным данными соответствует ожидаемому.
@@ -48,6 +53,7 @@ def assert_update_product_with_wrong_data_response(actual: ErrorResponseSchema, 
     assert_invalid_data_response(actual, error_messages)
 
 
+@allure.step("Check product")
 def assert_product(actual: ProductSchema, expected: ProductSchema):
     """
     Проверяет, что фактические данные продукта соответствуют ожидаемым.
@@ -67,6 +73,7 @@ def assert_product(actual: ProductSchema, expected: ProductSchema):
     assert_equal(actual.updated_at, expected.updated_at, "updated_at")
 
 
+@allure.step("Check get product response")
 def assert_get_product_response(actual: GetProductResponseSchema, expected: CreateProductResponseSchema):
     """
     Проверяет, что ответ на запрос продукта совпадает с ответом при её создании
@@ -78,6 +85,7 @@ def assert_get_product_response(actual: GetProductResponseSchema, expected: Crea
     assert_product(actual, expected)
 
 
+@allure.step("Check update product response")
 def assert_update_product_response(request: UpdateProductRequestSchema, response: UpdateProductResponseSchema):
     """
     Проверяет, что ответ на обновление продукта соответствует запросу.

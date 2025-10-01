@@ -1,3 +1,6 @@
+import allure
+
+@allure.step("Check delete response")
 def assert_delete_response(response: bool):
     """
     Проверяет, что ответ на удаление успешный.

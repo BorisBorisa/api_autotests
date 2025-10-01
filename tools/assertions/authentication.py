@@ -1,3 +1,5 @@
+import allure
+
 from clients.authentication.authentication_schema import LoginResponseSchema, RefreshTokenResponseSchema
 from clients.errors_schema import ErrorResponseSchema
 from clients.users.users_schema import CreateUserResponseSchema, UserProfileResponseSchema
@@ -7,6 +9,7 @@ from tools.assertions.base import assert_is_true
 from tools.assertions.users import assert_user
 
 
+@allure.step("Check response contains both access and refresh tokens")
 def assert_tokens_present(response):
     """
     Проверяет, что в ответе присутствуют access и refresh токены.
@@ -18,6 +21,7 @@ def assert_tokens_present(response):
     assert_is_true(response.refresh_token, "refresh_token")
 
 
+@allure.step("Check login response")
 def assert_login_response(response: LoginResponseSchema):
     """
     Проверяет корректность ответа при успешной авторизации.
@@ -28,6 +32,7 @@ def assert_login_response(response: LoginResponseSchema):
     assert_tokens_present(response)
 
 
+@allure.step("Check refresh tokens response")
 def assert_refresh_response(response: RefreshTokenResponseSchema):
     """
     Проверяет корректность ответа при обновлении токенов доступа.
@@ -38,6 +43,7 @@ def assert_refresh_response(response: RefreshTokenResponseSchema):
     assert_tokens_present(response)
 
 
+@allure.step("Check refresh tokens response")
 def assert_login_invalid_credentials_response(actual: ErrorResponseSchema):
     """
     Проверяет, что ответ на авторизацию с некорректными данными соответствует ожидаемой ошибке.
@@ -51,7 +57,7 @@ def assert_login_invalid_credentials_response(actual: ErrorResponseSchema):
     )
     assert_error_response(actual, expected)
 
-
+@allure.step("Check user profile response matches the created user data")
 def assert_user_profile_response_matches(
         actual: UserProfileResponseSchema,
         expected: CreateUserResponseSchema
@@ -61,12 +67,11 @@ def assert_user_profile_response_matches(
 
     :param actual: Данные профиля из API.
     :param expected: Данные пользователя после создания.
-    :return: AssertionError: Если хотя бы одно поле не совпадает.
-    :return:
+    :raises: AssertionError: Если хотя бы одно поле не совпадает.
     """
     assert_user(actual, expected)
 
-
+@allure.step("Check refresh response with an invalid token")
 def assert_refresh_with_invalid_token_response(actual: ErrorResponseSchema):
     """
     Проверяет, что ответ на авторизацию с некорректными данными соответствует ожидаемой ошибке.

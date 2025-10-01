@@ -1,9 +1,12 @@
+import allure
+
 from clients.files.files_schema import UploadFileRequestSchema, UploadFileResponseSchema
 from tools.assertions.base import assert_equal
 from tools.routes import APIRoutes
 from config import settings
 
 
+@allure.step("Check upload file response")
 def assert_upload_file_response(request: UploadFileRequestSchema, response: UploadFileResponseSchema):
     """
     Проверяет, что ответ на загрузку файла соответствует запросу.
@@ -19,6 +22,7 @@ def assert_upload_file_response(request: UploadFileRequestSchema, response: Uplo
     assert_equal(str(response.location), expected_url, "upload file url")
 
 
+@allure.step("Check uploaded file content")
 def assert_upload_file_content(request_content: bytes, response_content: bytes):
     """
     Проверяет, что содержимое загруженного файла совпадает с исходным.

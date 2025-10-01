@@ -1,3 +1,5 @@
+import allure
+
 from clients.categories.categories_schema import (
     CreateCategoryRequestSchema,
     CreateCategoryResponseSchema,
@@ -11,6 +13,7 @@ from tools.assertions.base import assert_equal
 from tools.assertions.errors import assert_invalid_data_response
 
 
+@allure.step("Check create category response")
 def assert_create_category_response(request: CreateCategoryRequestSchema, response: CreateCategoryResponseSchema):
     """
     Проверяет, что ответ на создание категории соответствует запросу.
@@ -22,7 +25,7 @@ def assert_create_category_response(request: CreateCategoryRequestSchema, respon
     assert_equal(request.name, response.name, "name")
     assert_equal(request.image, str(response.image), "image")
 
-
+@allure.step("Check create category with invalid data response")
 def assert_create_category_with_wrong_data_response(actual: ErrorResponseSchema, error_messages: list):
     """
     Проверяет, что ответ на создание категории с некорректным данными соответствует ожидаемому.
@@ -33,7 +36,7 @@ def assert_create_category_with_wrong_data_response(actual: ErrorResponseSchema,
     """
     assert_invalid_data_response(actual, error_messages)
 
-
+@allure.step("Check update category with invalid data response")
 def assert_update_category_with_wrong_data_response(actual: ErrorResponseSchema, error_messages: list):
     """
     Проверяет, что ответ на обновление категории с некорректным данными соответствует ожидаемому.
@@ -45,6 +48,7 @@ def assert_update_category_with_wrong_data_response(actual: ErrorResponseSchema,
     assert_invalid_data_response(actual, error_messages)
 
 
+@allure.step("Check category")
 def assert_category(actual: CategorySchema, expected: CategorySchema):
     """
     Проверяет, что фактические данные категории соответствуют ожидаемым.
@@ -61,6 +65,7 @@ def assert_category(actual: CategorySchema, expected: CategorySchema):
     assert_equal(actual.updated_at, expected.updated_at, "updated_at")
 
 
+@allure.step("Check get category response")
 def assert_get_category_response(actual: GetCategoryResponseSchema, expected: CreateCategoryResponseSchema):
     """
     Проверяет, что ответ на запрос категории совпадает с ответом при её создании
@@ -72,6 +77,7 @@ def assert_get_category_response(actual: GetCategoryResponseSchema, expected: Cr
     assert_category(actual, expected)
 
 
+@allure.step("Check update category response")
 def assert_update_category_response(request: UpdateCategoryRequestSchema, response: UpdateCategoryResponseSchema):
     """
     Проверяет, что ответ на обновление категории соответствует данным из запроса.

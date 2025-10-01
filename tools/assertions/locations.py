@@ -1,6 +1,9 @@
+import allure
+
 from clients.locations.locations_schema import GetLocationsResponseSchema
 
 
+@allure.step("Check get locations response len")
 def assert_get_locations_response_len(response: GetLocationsResponseSchema, expected_len: int):
     """
     Проверяет что фактическая длинна ответа соответстввует ожидаемому.
