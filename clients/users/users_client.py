@@ -24,7 +24,7 @@ class UserClient(APIClient):
         """
         Метод получения списка всех пользователей.
 
-        :return: Ответ от сервера в виде объекта httpx.Response.
+        :return: Ответ от сервера в виде объекта http.Response.
         """
         return self.get(url=APIRoutes.USERS)
 
@@ -34,7 +34,7 @@ class UserClient(APIClient):
         Метод получения пользователя по идентификатору.
 
         :param user_id: Идентификатор пользователя.
-        :return: Ответ от сервера в виде объекта httpx.Response.
+        :return: Ответ от сервера в виде объекта http.Response.
         """
         return self.get(url=f"{APIRoutes.USERS}/{user_id}")
 
@@ -44,7 +44,7 @@ class UserClient(APIClient):
         Метод выполняет создание пользователя.
 
         :param request: Словарь с name, email, password, avatar.
-        :return: Ответ от сервера в виде объекта httpx.Response.
+        :return: Ответ от сервера в виде объекта http.Response.
         """
         return self.client.post(
             url=APIRoutes.USERS,
@@ -58,7 +58,7 @@ class UserClient(APIClient):
 
         :param user_id: Идентификатор пользователя.
         :param request: Словарь с email, lastName, firstName, middleName.
-        :return: Ответ от сервера в виде объекта httpx.Response.
+        :return: Ответ от сервера в виде объекта http.Response.
         """
         return self.put(
             url=f"{APIRoutes.USERS}/{user_id}",
@@ -71,7 +71,7 @@ class UserClient(APIClient):
         Метод проверки, зарегистрирован ли адрес электронной почты в системе.
 
         :param request: Словарь с email.
-        :return: Ответ от сервера в виде объекта httpx.Response.
+        :return: Ответ от сервера в виде объекта http.Response.
         """
         return self.post(
             url=f"{APIRoutes.USERS}/is-available",

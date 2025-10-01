@@ -23,7 +23,7 @@ class CategoryClient(APIClient):
         """
         Метод получения списка всех категорий.
 
-        :return: Ответ от сервера в виде объекта httpx.Response.
+        :return: Ответ от сервера в виде объекта http.Response.
         """
         return self.get(url=APIRoutes.CATEGORIES)
 
@@ -33,7 +33,7 @@ class CategoryClient(APIClient):
         Метод получения категории по id.
 
         :param category_id: Идентификатор категории.
-        :return: Ответ от сервера в виде объекта httpx.Response.
+        :return: Ответ от сервера в виде объекта http.Response.
         """
         return self.get(url=f"{APIRoutes.CATEGORIES}/{category_id}")
 
@@ -43,7 +43,7 @@ class CategoryClient(APIClient):
         Метод получения категории по текстовому идентификатору.
 
         :param slug: Текстовый идентификатор категории.
-        :return: Ответ от сервера в виде объекта httpx.Response.
+        :return: Ответ от сервера в виде объекта http.Response.
         """
         return self.get(url=f"{APIRoutes.CATEGORIES}/slug/{slug}")
 
@@ -53,7 +53,7 @@ class CategoryClient(APIClient):
         Метод выполняет создание категории.
 
         :param request: Словарь с name, image.
-        :return: Ответ от сервера в виде объекта httpx.Response.
+        :return: Ответ от сервера в виде объекта http.Response.
         """
         return self.post(
             url=APIRoutes.CATEGORIES,
@@ -67,7 +67,7 @@ class CategoryClient(APIClient):
 
         :param category_id: Идентификатор категории.
         :param request: Словарь с name, image.
-        :return: Ответ от сервера в виде объекта httpx.Response.
+        :return: Ответ от сервера в виде объекта http.Response.
         """
         return self.put(
             url=f"{APIRoutes.CATEGORIES}/{category_id}",
@@ -80,7 +80,7 @@ class CategoryClient(APIClient):
         Метод удаления категории по id.
 
         :param category_id: Идентификатор категории.
-        :return: Ответ от сервера в виде объекта httpx.Response.
+        :return: Ответ от сервера в виде объекта http.Response.
         """
         return self.delete(url=f"{APIRoutes.CATEGORIES}/{category_id}")
 
@@ -90,7 +90,7 @@ class CategoryClient(APIClient):
         метод получения всех продуктов по id категории.
 
         :param category_id: Идентификатор категории.
-        :return: Ответ от сервера в виде объекта httpx.Response.
+        :return: Ответ от сервера в виде объекта http.Response.
         """
         return self.get(url=f"{APIRoutes.CATEGORIES}/{category_id}/products")
 

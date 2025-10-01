@@ -19,7 +19,7 @@ class FileClient(APIClient):
         Метод загрузки файла.
 
         :param request: Словарь с file_name, file_path.
-        :return: Ответ от сервера в виде объекта httpx.Response
+        :return: Ответ от сервера в виде объекта http.Response
         """
         return self.post(
             url=f"{APIRoutes.FILES}/upload",
@@ -32,7 +32,7 @@ class FileClient(APIClient):
         Метод получения файла.
 
         :param file_name: Имя файла.
-        :return: Ответ от сервера в виде объекта httpx.Response
+        :return: Ответ от сервера в виде объекта http.Response
         """
         return self.get(url=f"{APIRoutes.FILES}/{file_name}")
 

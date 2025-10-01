@@ -23,7 +23,7 @@ class PublicAuthenticationClient(APIClient):
         Метод выполняет аутентификации пользователя.
 
         :param request: Объект LoginRequestSchema с 'email' и 'password' пользователя.
-        :return: Ответ от сервера в виде объекта httpx.Response
+        :return: Ответ от сервера в виде объекта http.Response
         """
         return self.post(
             url=f"{APIRoutes.AUTH}/login",
@@ -36,7 +36,7 @@ class PublicAuthenticationClient(APIClient):
         Метод обновляет токен авторизации.
 
         :param request: Словарь с refreshToken.
-        :return: Ответ от сервера в виде объекта httpx.Response
+        :return: Ответ от сервера в виде объекта http.Response
         """
         return self.post(
             url=f"{APIRoutes.AUTH}/refresh-token",

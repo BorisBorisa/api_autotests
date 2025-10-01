@@ -23,7 +23,7 @@ class ProductsClient(APIClient):
         """
         Метод получения списка всех продуктов.
 
-        :return: Ответ от сервера в виде объекта httpx.Response.
+        :return: Ответ от сервера в виде объекта http.Response.
         """
         return self.get(url=APIRoutes.PRODUCTS)
 
@@ -33,7 +33,7 @@ class ProductsClient(APIClient):
         Метод получения продуктов по id.
 
         :param product_id: Идентификатор продукта.
-        :return: Ответ от сервера в виде объекта httpx.Response.
+        :return: Ответ от сервера в виде объекта http.Response.
         """
         return self.get(url=f"{APIRoutes.PRODUCTS}/{product_id}")
 
@@ -43,7 +43,7 @@ class ProductsClient(APIClient):
         Метод получения продуктов по текстовому идентификатору.
 
         :param slug: Текстовый идентификатор продукта.
-        :return: Ответ от сервера в виде объекта httpx.Response.
+        :return: Ответ от сервера в виде объекта http.Response.
         """
         return self.get(url=f"{APIRoutes.PRODUCTS}/slug/{slug}")
 
@@ -53,7 +53,7 @@ class ProductsClient(APIClient):
         Метод создания продукта.
 
         :param request: Словарь с title, price, description, category_id, image.
-        :return: Ответ от сервера в виде объекта httpx.Response.
+        :return: Ответ от сервера в виде объекта http.Response.
         """
         return self.post(
             url=APIRoutes.PRODUCTS,
@@ -67,7 +67,7 @@ class ProductsClient(APIClient):
 
         :param product_id: Идентификатор продукта.
         :param request: Словарь с title, price, description, category_id, image.
-        :return: Ответ от сервера в виде объекта httpx.Response.
+        :return: Ответ от сервера в виде объекта http.Response.
         """
         return self.put(
             url=f"{APIRoutes.PRODUCTS}/{product_id}",
@@ -80,7 +80,7 @@ class ProductsClient(APIClient):
         Метод удаления продукта по id.
 
         :param product_id: Идентификатор продукта.
-        :return: Ответ от сервера в виде объекта httpx.Response.
+        :return: Ответ от сервера в виде объекта http.Response.
         """
         return self.delete(url=f"{APIRoutes.PRODUCTS}/{product_id}")
 

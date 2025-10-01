@@ -11,7 +11,7 @@ class APIClient:
         """
         Базовый API клиент.
 
-        :param client: экземпляр httpx.Client для выполнения HTTP-запросов
+        :param client: экземпляр http.Client для выполнения HTTP-запросов
         """
         self.client = client
 

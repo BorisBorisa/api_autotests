@@ -19,7 +19,7 @@ class LocationsClient(APIClient):
         """
         Метод получения списка всех адресов.
 
-        :return: Ответ от сервера в виде объекта httpx.Response.
+        :return: Ответ от сервера в виде объекта http.Response.
         """
         return self.get(url=APIRoutes.LOCATIONS)
 
@@ -29,7 +29,7 @@ class LocationsClient(APIClient):
         Метод получения списка адресов отсортированных по расстоянию от указанной исходной точки.
 
         :param origin_param: Начальная точка (координаты).
-        :return: Ответ от сервера в виде объекта httpx.Response.
+        :return: Ответ от сервера в виде объекта http.Response.
         """
         return self.get(url=APIRoutes.LOCATIONS, params={"origin": origin_param.origin})
 
@@ -39,7 +39,7 @@ class LocationsClient(APIClient):
         Метод получения списка адресов ограниченное лимитом.
 
         :param limit: Лимит ответов.
-        :return: Ответ от сервера в виде объекта httpx.Response.
+        :return: Ответ от сервера в виде объекта http.Response.
         """
         return self.get(url=APIRoutes.LOCATIONS, params={"size": limit})
 
@@ -50,7 +50,7 @@ class LocationsClient(APIClient):
 
         :param origin: Начальная точка (координаты).
         :param radius: Радиус в километрах
-        :return: Ответ от сервера в виде объекта httpx.Response.
+        :return: Ответ от сервера в виде объекта http.Response.
         """
         return self.get(url=APIRoutes.LOCATIONS, params={"origin": origin_param.origin, "radius": radius})
 
