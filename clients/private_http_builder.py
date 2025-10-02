@@ -1,4 +1,6 @@
 from httpx import Client
+
+from clients.event_hooks import curl_event_hook
 from config import settings
 from pydantic import BaseModel, ConfigDict
 
@@ -27,5 +29,6 @@ def get_private_http_client(user: AuthenticationUserSchema) -> Client:
     return Client(
         timeout=settings.http_client.timeout,
         base_url=settings.http_client.client_url,
-        headers={"Authorization": f"Bearer {auth_response.access_token}"}
+        headers={"Authorization": f"Bearer {auth_response.access_token}"},
+        event_hooks={"request": [curl_event_hook]}
     )
