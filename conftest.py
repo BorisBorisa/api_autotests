@@ -4,5 +4,6 @@ pytest_plugins = (
     "fixtures.categories",
     "fixtures.products",
     "fixtures.files",
-    "fixtures.locations"
+    "fixtures.locations",
+    "fixtures.logger"
 )
