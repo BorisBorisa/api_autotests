@@ -12,15 +12,16 @@ class HTTTPClientConfig(BaseModel):
     url: HttpUrl
     timeout: float
 
+    @property
+    def client_url(self) -> str:
+        return str(self.url)
+
+
 class LoggerConfig(BaseModel):
     path: str
     format: str
     rotation: str
     retention: int
-
-    @property
-    def client_url(self) -> str:
-        return str(self.url)
 
 
 class Settings(BaseSettings):
