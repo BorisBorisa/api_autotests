@@ -3,7 +3,10 @@ import allure
 from clients.files.files_schema import UploadFileRequestSchema, UploadFileResponseSchema
 from tools.assertions.base import assert_equal
 from tools.routes import APIRoutes
+from tools.logger import get_logger
 from config import settings
+
+logger = get_logger("FILES_ASSERTIONS")
 
 
 @allure.step("Check upload file response")
@@ -15,6 +18,7 @@ def assert_upload_file_response(request: UploadFileRequestSchema, response: Uplo
     :param response: Ответ API с данными загрузки.
     :return: AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Check upload file response")
 
     expected_url = f"{settings.http_client.url}{APIRoutes.FILES}/{response.file_name}"
 
@@ -31,4 +35,6 @@ def assert_upload_file_content(request_content: bytes, response_content: bytes):
     :param response_content: Байтовые данные файла из ответа.
     :raises AssertionError: Если содержимое файлов отличается.
     """
+    logger.info("Check uploaded file content")
+
     assert_equal(response_content, request_content, "file")

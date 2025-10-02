@@ -2,6 +2,9 @@ import allure
 
 from clients.errors_schema import ErrorResponseSchema
 from tools.assertions.base import assert_equal
+from tools.logger import get_logger
+
+logger = get_logger("ERRORS_ASSERTIONS")
 
 
 @allure.step("Check error response")
@@ -17,6 +20,7 @@ def assert_error_response(
     :param expected: Ожидаемый ответ API.
     :raises AssertionError: Если значения полей не совпадают.
     """
+    logger.info("Check error response")
 
     assert_equal(actual.status_code, expected.status_code, "status_code")
     assert_equal(actual.error, expected.error, "error")
@@ -33,6 +37,8 @@ def assert_invalid_data_response(actual: ErrorResponseSchema, error_messages: li
     :param error_messages: Ожидаемые сообщения об ошибках.
     :raises AssertionError: Если значения полей не совпадают.
     """
+    logger.info("Check error response for invalid data request")
+
     expected = ErrorResponseSchema(
         message=error_messages,
         error="Bad Request",

@@ -7,6 +7,9 @@ from clients.users.users_schema import CreateUserResponseSchema, UserProfileResp
 from tools.assertions.errors import assert_error_response
 from tools.assertions.base import assert_is_true
 from tools.assertions.users import assert_user
+from tools.logger import get_logger
+
+logger = get_logger("AUTHENTICATION_ASSERTIONS")
 
 
 @allure.step("Check response contains both access and refresh tokens")
@@ -17,6 +20,8 @@ def assert_tokens_present(response):
     :param response: Объект ответа, содержащий токены авторизации.
     :raises AssertionError: Если какое-либо из условий не выполняется.
     """
+    logger.info("Check response contains both access and refresh tokens")
+
     assert_is_true(response.access_token, "access_token")
     assert_is_true(response.refresh_token, "refresh_token")
 
@@ -29,6 +34,8 @@ def assert_login_response(response: LoginResponseSchema):
     :param response: Объект ответа с токенами авторизации.
     :raises AssertionError: Если какое-либо из условий не выполняется.
     """
+    logger.info("Check login response")
+
     assert_tokens_present(response)
 
 
@@ -40,6 +47,8 @@ def assert_refresh_response(response: RefreshTokenResponseSchema):
     :param response: Объект ответа с токенами авторизации.
     :raises AssertionError: Если какое-либо из условий не выполняется.
     """
+    logger.info("Check refresh tokens response")
+
     assert_tokens_present(response)
 
 
@@ -51,11 +60,14 @@ def assert_login_invalid_credentials_response(actual: ErrorResponseSchema):
     :param actual: Ответ от API с ошибкой, которую необходимо проверить.
     :raises AssertionError: Если фактический ответ не соответствует ожидаемому.
     """
+    logger.info("Check refresh tokens response")
+
     expected = ErrorResponseSchema(
         message="Unauthorized",
         status_code=401
     )
     assert_error_response(actual, expected)
+
 
 @allure.step("Check user profile response matches the created user data")
 def assert_user_profile_response_matches(
@@ -69,7 +81,10 @@ def assert_user_profile_response_matches(
     :param expected: Данные пользователя после создания.
     :raises: AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Check user profile response matches the created user data")
+
     assert_user(actual, expected)
+
 
 @allure.step("Check refresh response with an invalid token")
 def assert_refresh_with_invalid_token_response(actual: ErrorResponseSchema):
@@ -79,6 +94,8 @@ def assert_refresh_with_invalid_token_response(actual: ErrorResponseSchema):
     :param actual: Ответ от API с ошибкой, которую необходимо проверить.
     :raises AssertionError: Если фактический ответ не соответствует ожидаемому.
     """
+    logger.info("Check refresh response with an invalid token")
+
     expected = ErrorResponseSchema(
         message="Invalid",
         error="Unauthorized",

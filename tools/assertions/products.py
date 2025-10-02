@@ -11,6 +11,9 @@ from clients.products.products_schema import (
 )
 from tools.assertions.base import assert_equal
 from tools.assertions.errors import assert_invalid_data_response
+from tools.logger import get_logger
+
+logger = get_logger("PRODUCTS_ASSERTIONS")
 
 
 @allure.step("Check create product response")
@@ -22,6 +25,8 @@ def assert_create_product_response(request: CreateProductRequestSchema, response
     :param response: Ответ API с данными продукта.
     :return: AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Check create product response")
+
     assert_equal(request.title, response.title, "title")
     assert_equal(request.price, response.price, "price")
     assert_equal(request.description, response.description, "description")
@@ -38,6 +43,8 @@ def assert_create_product_with_wrong_data_response(actual: ErrorResponseSchema, 
     :param error_messages: Список сообщений ошибок.
     :return: AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Check product creation response with invalid data")
+
     assert_invalid_data_response(actual, error_messages)
 
 
@@ -50,6 +57,8 @@ def assert_update_product_with_wrong_data_response(actual: ErrorResponseSchema, 
     :param error_messages: Список сообщений ошибок.
     :return: AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Check product update response with invalid data")
+
     assert_invalid_data_response(actual, error_messages)
 
 
@@ -62,6 +71,8 @@ def assert_product(actual: ProductSchema, expected: ProductSchema):
     :param expected: Ожидаемые данные продукта.
     :return: AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Check product")
+
     assert_equal(actual.id, expected.id, "id")
     assert_equal(actual.title, expected.title, "title")
     assert_equal(actual.slug, expected.slug, "slug")
@@ -82,6 +93,8 @@ def assert_get_product_response(actual: GetProductResponseSchema, expected: Crea
     :param expected: Ожидаемые данные продукта.
     :return: AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Check get product response")
+
     assert_product(actual, expected)
 
 
@@ -94,6 +107,8 @@ def assert_update_product_response(request: UpdateProductRequestSchema, response
     :param response: Ответ API с данными продукта.
     :return: AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Check update product response")
+
     assert_equal(request.title, response.title, "title")
     assert_equal(request.price, response.price, "price")
     assert_equal(request.description, response.description, "description")

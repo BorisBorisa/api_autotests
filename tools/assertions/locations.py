@@ -2,6 +2,10 @@ import allure
 
 from clients.locations.locations_schema import GetLocationsResponseSchema
 
+from tools.logger import get_logger
+
+logger = get_logger("LOCATIONS_ASSERTIONS")
+
 
 @allure.step("Check get locations response len")
 def assert_get_locations_response_len(response: GetLocationsResponseSchema, expected_len: int):
@@ -12,6 +16,8 @@ def assert_get_locations_response_len(response: GetLocationsResponseSchema, expe
     :param expected_len: Ожидаемая длинна ответа
     :return:
     """
+    logger.info("Check get locations response len")
+
     assert len(response) == expected_len, (
         f'Incorrect get locations response length. '
         f'Expected length: {expected_len}. '

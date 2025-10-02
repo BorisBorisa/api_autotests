@@ -12,8 +12,10 @@ from clients.users.users_schema import (
 )
 from tools.assertions.base import assert_equal
 from tools.assertions.errors import assert_error_response
-
+from tools.logger import get_logger
 from tools.routes import APIRoutes
+
+logger = get_logger("USERS_ASSERTIONS")
 
 
 @allure.step("Check user")
@@ -25,6 +27,7 @@ def assert_user(actual: UserSchema, expected: UserSchema):
     :param expected: Ожидаемые данные пользователя.
     :return: AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Check user")
 
     assert_equal(actual.id, expected.id, "id")
     assert_equal(actual.name, expected.name, "name")
@@ -43,6 +46,8 @@ def assert_create_user_response(request: CreateUserRequestSchema, response: Crea
     :param response: Ответ API с данными пользователя.
     :return: AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Check create user response")
+
     assert_equal(request.name, response.name, "name")
     assert_equal(request.email, response.email, "email")
     assert_equal(request.password, response.password, "password")
@@ -58,6 +63,8 @@ def assert_create_user_with_wrong_data_response(actual: ErrorResponseSchema, err
     :param error_messages: Список сообщений ошибок.
     :raises AssertionError: Если фактический ответ не соответствует ожидаемому.
     """
+    logger.info("Check user creation response with wrong data")
+
     expected = ErrorResponseSchema(
         message=error_messages,
         error="Bad Request",
@@ -75,6 +82,8 @@ def assert_get_user_with_wrong_id_response(actual: UserNotFoundResponseSchema, u
     :param user_id: Идентификатор пользователя.
     :return: AssertionError: Если фактический ответ не соответствует ожидаемому.
     """
+    logger.info(f'Check get user response with invalid id "{user_id}"')
+
     assert_equal(actual.path, f"/{APIRoutes.USERS}/{user_id}", "path")
     assert_equal(actual.name, "EntityNotFoundError", "error name")
     assert_equal(
@@ -93,6 +102,8 @@ def assert_update_user_response(request: UpdateUserRequestSchema, response: Upda
     :param response: Ответ API с данными пользователя.
     :return: AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Check update user response")
+
     assert_equal(request.name, response.name, "name")
     assert_equal(request.role, response.role, "role")
     assert_equal(request.email, response.email, "email")
@@ -109,6 +120,8 @@ def assert_update_user_with_wrong_data_response(actual: ErrorResponseSchema, err
     :param error_messages: Список сообщений ошибок
     :return: AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Check user update response with invalid data")
+
     expected = ErrorResponseSchema(
         message=error_messages,
         error="Bad Request",
@@ -126,4 +139,6 @@ def assert_email_availability_response(request: EmailAvailabilityResponseSchema,
     :param expected: Ожидаемое значение доступности.
     :return: AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Check email availability response")
+
     assert_equal(request.is_available, expected, "email availability")

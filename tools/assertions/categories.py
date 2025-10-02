@@ -11,6 +11,9 @@ from clients.categories.categories_schema import (
 from clients.errors_schema import ErrorResponseSchema
 from tools.assertions.base import assert_equal
 from tools.assertions.errors import assert_invalid_data_response
+from tools.logger import get_logger
+
+logger = get_logger("CATEGORYS_ASSERTIONS")
 
 
 @allure.step("Check create category response")
@@ -22,8 +25,11 @@ def assert_create_category_response(request: CreateCategoryRequestSchema, respon
     :param response: Ответ API с данными категории.
     :return: AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Check create category response")
+
     assert_equal(request.name, response.name, "name")
     assert_equal(request.image, str(response.image), "image")
+
 
 @allure.step("Check create category with invalid data response")
 def assert_create_category_with_wrong_data_response(actual: ErrorResponseSchema, error_messages: list):
@@ -34,7 +40,10 @@ def assert_create_category_with_wrong_data_response(actual: ErrorResponseSchema,
     :param error_messages: Список сообщений ошибок.
     :return: AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Check create category with invalid data response")
+
     assert_invalid_data_response(actual, error_messages)
+
 
 @allure.step("Check update category with invalid data response")
 def assert_update_category_with_wrong_data_response(actual: ErrorResponseSchema, error_messages: list):
@@ -45,6 +54,8 @@ def assert_update_category_with_wrong_data_response(actual: ErrorResponseSchema,
     :param error_messages: Список сообщений ошибок.
     :return: AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Check update category with invalid data response")
+
     assert_invalid_data_response(actual, error_messages)
 
 
@@ -57,6 +68,8 @@ def assert_category(actual: CategorySchema, expected: CategorySchema):
     :param expected: Ожидаемые данные категории.
     :return: AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Check category")
+
     assert_equal(actual.id, expected.id, "id")
     assert_equal(actual.name, expected.name, "name")
     assert_equal(actual.slug, expected.slug, "slug")
@@ -74,6 +87,8 @@ def assert_get_category_response(actual: GetCategoryResponseSchema, expected: Cr
     :param expected: Ожидаемые данные категории.
     :return: AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Check get category response")
+
     assert_category(actual, expected)
 
 
@@ -86,5 +101,7 @@ def assert_update_category_response(request: UpdateCategoryRequestSchema, respon
     :param response: Ответ API с обновленными данными категории.
     :return: AssertionError: Если хотя бы одно поле не совпадает.
     """
+    logger.info("Check update category response")
+
     assert_equal(request.name, response.name, "name")
     assert_equal(request.image, str(response.image), "image")
