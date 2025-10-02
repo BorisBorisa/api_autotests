@@ -12,6 +12,12 @@ class HTTTPClientConfig(BaseModel):
     url: HttpUrl
     timeout: float
 
+class LoggerConfig(BaseModel):
+    path: str
+    format: str
+    rotation: str
+    retention: int
+
     @property
     def client_url(self) -> str:
         return str(self.url)
@@ -26,6 +32,7 @@ class Settings(BaseSettings):
     )
 
     http_client: HTTTPClientConfig
+    logger: LoggerConfig
     test_data: TestDataConfig
 
 
