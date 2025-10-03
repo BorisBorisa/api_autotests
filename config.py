@@ -17,13 +17,6 @@ class HTTTPClientConfig(BaseModel):
         return str(self.url)
 
 
-class LoggerConfig(BaseModel):
-    path: str
-    format: str
-    rotation: str
-    retention: int
-
-
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         extra="allow",
@@ -33,7 +26,6 @@ class Settings(BaseSettings):
     )
 
     http_client: HTTTPClientConfig
-    logger: LoggerConfig
     test_data: TestDataConfig
 
 
