@@ -121,7 +121,7 @@ class TestCategories:
             payload,
             message
     ):
-        request = UpdateCategoryRequestSchema(**payload)
+        request = UpdateCategoryRequestSchema(name=None, image=None).model_copy(update=payload)
         response = category_client.update_category_api(function_category.response.id, request)
         response_data = ErrorResponseSchema.model_validate_json(response.text)
 

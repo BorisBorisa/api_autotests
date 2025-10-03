@@ -120,7 +120,8 @@ class TestUsers:
         ids=test_data.user_update_invalid_ids
     )
     def test_update_user_with_invalid_data(self, user_client: UserClient, function_user: UserFixture, payload, message):
-        request = UpdateUserRequestSchema(**payload)
+        request = UpdateUserRequestSchema(name=None, email=None, password=None, avatar=None, role=None).model_copy(
+            update=payload)
         response = user_client.update_user_api(user_id=function_user.response.id, request=request)
         response_data = ErrorResponseSchema.model_validate_json(response.text)
 

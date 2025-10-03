@@ -106,10 +106,9 @@ class TestProducts:
     def test_update_product(
             self,
             products_client: ProductsClient,
-            function_category: CategoryFixture,
             function_product: ProductFixture
     ):
-        request = UpdateProductRequestSchema(category_id=function_category.response.id)
+        request = UpdateProductRequestSchema()
         response = products_client.update_product_api(function_product.response.id, request)
         response_data = UpdateProductResponseSchema.model_validate_json(response.text)
 
@@ -133,7 +132,8 @@ class TestProducts:
             payload,
             message
     ):
-        request = UpdateProductRequestSchema(**payload)
+        request = UpdateProductRequestSchema(title=None, price=None, description=None, images=None).model_copy(
+            update=payload)
         response = products_client.update_product_api(function_product.response.id, request)
         response_data = ErrorResponseSchema.model_validate_json(response.text)
 
