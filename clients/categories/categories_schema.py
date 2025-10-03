@@ -23,8 +23,8 @@ class CreateCategoryRequestSchema(BaseModel):
     """
     Описание запроса на создание категории.
     """
-    name: str = Field(default_factory=fake.phrase)
-    image: str = Field(default_factory=fake.uri)
+    name: str | None = Field(default_factory=fake.phrase)
+    image: str | None = Field(default_factory=fake.uri)
 
 
 class CreateCategoryResponseSchema(CategorySchema):

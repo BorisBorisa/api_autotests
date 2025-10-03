@@ -30,11 +30,11 @@ class CreateProductRequestSchema(BaseModel):
     """
     model_config = ConfigDict(validate_by_name=True)
 
-    title: str = Field(default_factory=fake.phrase)
-    price: int | float = Field(default_factory=fake.price)
-    description: str = Field(default_factory=fake.sentence)
-    category_id: int = Field(alias="categoryId")
-    images: list[str] = Field(default_factory=fake.uris_list)
+    title: str | None = Field(default_factory=fake.phrase)
+    price: int | float | None = Field(default_factory=fake.price)
+    description: str | None = Field(default_factory=fake.sentence)
+    category_id: int | None = Field(alias="categoryId", default=None)
+    images: list[str] | None = Field(default_factory=fake.uris_list)
 
 
 class CreateProductResponseSchema(ProductSchema):
@@ -49,14 +49,10 @@ class GetProductResponseSchema(ProductSchema):
     """
 
 
-class UpdateProductRequestSchema(BaseModel):
+class UpdateProductRequestSchema(CreateProductRequestSchema):
     """
     Описание структуры запроса на обновление продукта.
     """
-    title: str | None = None
-    price: int | float | None = None
-    description: str | None = None
-    images: list[str] | None = None
 
 
 class UpdateProductResponseSchema(ProductSchema):

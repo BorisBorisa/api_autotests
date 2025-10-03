@@ -32,10 +32,10 @@ class CreateUserRequestSchema(BaseModel):
     """
     Описание структуры запроса на создание пользователя.
     """
-    name: str = Field(default_factory=fake.first_name)
-    email: str = Field(default_factory=fake.email)
-    password: str = Field(default_factory=fake.password)
-    avatar: str = Field(default_factory=fake.uri)
+    name: str | None = Field(default_factory=fake.first_name)
+    email: str | None = Field(default_factory=fake.email)
+    password: str | None = Field(default_factory=fake.password)
+    avatar: str | None = Field(default_factory=fake.uri)
 
 
 class CreateUserResponseSchema(UserSchema):
@@ -50,15 +50,11 @@ class UserProfileResponseSchema(UserSchema):
     """
 
 
-class UpdateUserRequestSchema(BaseModel):
+class UpdateUserRequestSchema(CreateUserRequestSchema):
     """
     Описание структуры запроса на обновление пользователя.
     """
-    name: str | None = Field(default_factory=fake.first_name)
     role: str | None = Field(default_factory=fake.role)
-    email: str | None = Field(default_factory=fake.email)
-    password: str | None = Field(default_factory=fake.password)
-    avatar: str | None = Field(default="https://picsum.photos/800")
 
 
 class UpdateUserResponseSchema(UserSchema):
