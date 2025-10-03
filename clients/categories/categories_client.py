@@ -71,7 +71,7 @@ class CategoryClient(APIClient):
         """
         return self.put(
             url=f"{APIRoutes.CATEGORIES}/{category_id}",
-            json=request.model_dump(by_alias=True)
+            json=request.model_dump(by_alias=True, exclude_none=True)
         )
 
     @allure.step("Delete category")

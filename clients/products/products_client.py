@@ -71,7 +71,7 @@ class ProductsClient(APIClient):
         """
         return self.put(
             url=f"{APIRoutes.PRODUCTS}/{product_id}",
-            json=request.model_dump(by_alias=True)
+            json=request.model_dump(by_alias=True, exclude_none=True)
         )
 
     @allure.step("Delete product")

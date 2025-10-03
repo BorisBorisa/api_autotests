@@ -62,7 +62,7 @@ class UserClient(APIClient):
         """
         return self.put(
             url=f"{APIRoutes.USERS}/{user_id}",
-            json=request.model_dump(by_alias=True)
+            json=request.model_dump(by_alias=True, exclude_none=True)
         )
 
     @allure.step("Check email availability")
