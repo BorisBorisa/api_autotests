@@ -1,31 +1,27 @@
+import sys
+
 import pytest
 import allure
 
 from io import StringIO
 from loguru import logger
 
-from tools.logger import logger_init, FORMAT
+FORMAT = "<w><g>{time:YY-MM-DD HH:mm:ss}</g> | <y>{level:^8}</y> | <m>{extra[name]:^25}</m> | <c>{message}</c></w>"
 
 
 @pytest.fixture(autouse=True, scope="session")
-def initialize_logger():
-    logger_init()
+def setup_global_logger():
+    logger.remove()
+    logger.add(sys.stderr, format=FORMAT, colorize=True)
 
-@allure.title("Logs")
+
 @pytest.fixture(autouse=True)
-def loguru_to_allure():
-    """
-    Фикстура, которая автоматически прикрепляет логи loguru к каждому тесту в Allure.
-    """
+def attach_logs_to_allure():
     log_stream = StringIO()
-    handler_id = logger.add(log_stream, format=FORMAT, level="DEBUG", colorize=False)
+    handler_id = logger.add(log_stream, format=FORMAT)
 
-    yield
-
-    allure.attach(
-        log_stream.getvalue(),
-        name="loguru_logs",
-        attachment_type=allure.attachment_type.TEXT
-    )
-
-    logger.remove(handler_id)
+    try:
+        yield
+    finally:
+        logger.remove(handler_id)
+        allure.attach(log_stream.getvalue(), name="logs", attachment_type=allure.attachment_type.TEXT)
