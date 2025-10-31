@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 276' \
+  -H 'content-type: application/json' \
+  -d '{"title":"News","price":3304.16,"description":"Through dinner effect some.","categoryId":583,"images":["https://www.lamb.org/poststerms.htm","https://navarro.com/list/categorieshomepage.php","https://www.porter.info/explorecategory.jsp","https://day.net/categorieshome.html"]}'

@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 236' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Month hour eight","price":0,"description":"Approach happen TV out watch eye executive own.","categoryId":573,"images":["http://www.shelton-gray.info/categorysearch.jsp","https://www.may-taylor.net/posts/categoryhomepage.jsp"]}'

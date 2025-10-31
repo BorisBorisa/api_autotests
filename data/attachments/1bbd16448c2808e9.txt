@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 247' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Fund drug assume","price":5348.76,"description":"Project article analysis someone strategy want.","categoryId":581,"images":["https://www.thompson.biz/main/search/categoriesprivacy.htm","http://black-preston.com/list/blog/blogmain.jsp"]}'

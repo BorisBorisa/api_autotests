@@ -1,0 +1,12 @@
+25-10-31 21:07:27 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/categories
+25-10-31 21:07:28 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/categories
+25-10-31 21:07:28 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/products
+25-10-31 21:07:28 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/products
+25-10-31 21:07:28 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 201
+25-10-31 21:07:28 |   INFO   |    PRODUCTS_ASSERTIONS    | Check create product response
+25-10-31 21:07:28 |   INFO   |      BASE_ASSERTIONS      | Check that "title" equals to Man health part
+25-10-31 21:07:28 |   INFO   |      BASE_ASSERTIONS      | Check that "price" equals to 9516.27
+25-10-31 21:07:28 |   INFO   |      BASE_ASSERTIONS      | Check that "description" equals to Trip region ready star major charge wall.
+25-10-31 21:07:28 |   INFO   |      BASE_ASSERTIONS      | Check that "category id" equals to 568
+25-10-31 21:07:28 |   INFO   |      BASE_ASSERTIONS      | Check that "images" equals to ['http://www.garcia.com/wp-content/list/appprivacy.php', 'https://www.morgan-ross.net/appfaq.asp', 'http://www.griffin-marquez.com/main/main/tagshome.jsp', 'http://scott-ross.com/app/categoryhome.php']
+25-10-31 21:07:28 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema

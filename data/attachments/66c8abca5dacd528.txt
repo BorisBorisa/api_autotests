@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 326' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Man health part","price":9516.27,"description":"Trip region ready star major charge wall.","categoryId":568,"images":["http://www.garcia.com/wp-content/list/appprivacy.php","https://www.morgan-ross.net/appfaq.asp","http://www.griffin-marquez.com/main/main/tagshome.jsp","http://scott-ross.com/app/categoryhome.php"]}'

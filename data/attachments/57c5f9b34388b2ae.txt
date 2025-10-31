@@ -1,0 +1,16 @@
+25-10-31 21:07:21 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/users
+25-10-31 21:07:22 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/users
+25-10-31 21:07:22 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/auth/login
+25-10-31 21:07:22 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/auth/login
+25-10-31 21:07:23 |   INFO   |        HTTP_CLIENT        | Make GET request to https://api.escuelajs.co/api/v1/auth/profile
+25-10-31 21:07:23 |   INFO   |        HTTP_CLIENT        | Got response 200 OK from https://api.escuelajs.co/api/v1/auth/profile
+25-10-31 21:07:23 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 200
+25-10-31 21:07:23 |   INFO   | AUTHENTICATION_ASSERTIONS | Check user profile response matches the created user data
+25-10-31 21:07:23 |   INFO   |     USERS_ASSERTIONS      | Check user
+25-10-31 21:07:23 |   INFO   |      BASE_ASSERTIONS      | Check that "id" equals to 333
+25-10-31 21:07:23 |   INFO   |      BASE_ASSERTIONS      | Check that "name" equals to Jeremiah
+25-10-31 21:07:23 |   INFO   |      BASE_ASSERTIONS      | Check that "role" equals to customer
+25-10-31 21:07:23 |   INFO   |      BASE_ASSERTIONS      | Check that "email" equals to pbaldwin@example.net
+25-10-31 21:07:23 |   INFO   |      BASE_ASSERTIONS      | Check that "password" equals to 8PiI9ZhoC5
+25-10-31 21:07:23 |   INFO   |      BASE_ASSERTIONS      | Check that "avatar" equals to http://www.moore-brown.com/categoryregister.html
+25-10-31 21:07:23 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema

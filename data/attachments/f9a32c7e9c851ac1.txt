@@ -1,0 +1,5 @@
+25-10-31 21:07:25 |   INFO   |        HTTP_CLIENT        | Make GET request to https://api.escuelajs.co/api/v1/locations?size=5
+25-10-31 21:07:26 |   INFO   |        HTTP_CLIENT        | Got response 200 OK from https://api.escuelajs.co/api/v1/locations?size=5
+25-10-31 21:07:26 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 200
+25-10-31 21:07:26 |   INFO   |   LOCATIONS_ASSERTIONS    | Check get locations response len
+25-10-31 21:07:26 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema

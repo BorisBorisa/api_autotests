@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 282' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Different per","price":522.94,"description":"Arm by east myself question.","categoryId":576,"images":["https://fritz.com/tags/category/tagssearch.php","https://www.rodriguez.biz/explore/search/blogfaq.jsp","https://rivera-alvarado.com/list/categories/exploreauthor.html"]}'

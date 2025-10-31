@@ -1,0 +1,14 @@
+25-10-31 21:07:19 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/categories
+25-10-31 21:07:19 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/categories
+25-10-31 21:07:19 |   INFO   |        HTTP_CLIENT        | Make GET request to https://api.escuelajs.co/api/v1/categories/slug/market-base-week-wish
+25-10-31 21:07:20 |   INFO   |        HTTP_CLIENT        | Got response 200 OK from https://api.escuelajs.co/api/v1/categories/slug/market-base-week-wish
+25-10-31 21:07:20 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 200
+25-10-31 21:07:20 |   INFO   |   CATEGORYS_ASSERTIONS    | Check get category response
+25-10-31 21:07:20 |   INFO   |   CATEGORYS_ASSERTIONS    | Check category
+25-10-31 21:07:20 |   INFO   |      BASE_ASSERTIONS      | Check that "id" equals to 560
+25-10-31 21:07:20 |   INFO   |      BASE_ASSERTIONS      | Check that "name" equals to Market base week wish
+25-10-31 21:07:20 |   INFO   |      BASE_ASSERTIONS      | Check that "slug" equals to market-base-week-wish
+25-10-31 21:07:20 |   INFO   |      BASE_ASSERTIONS      | Check that "image" equals to https://ewing.com/tag/maincategory.html
+25-10-31 21:07:20 |   INFO   |      BASE_ASSERTIONS      | Check that "creation_at" equals to 2025-10-31 18:07:20+00:00
+25-10-31 21:07:20 |   INFO   |      BASE_ASSERTIONS      | Check that "updated_at" equals to 2025-10-31 18:07:20+00:00
+25-10-31 21:07:20 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema

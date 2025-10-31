@@ -1,0 +1,12 @@
+25-10-31 21:07:43 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/users
+25-10-31 21:07:43 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/users
+25-10-31 21:07:43 |   INFO   |        HTTP_CLIENT        | Make PUT request to https://api.escuelajs.co/api/v1/users/337
+25-10-31 21:07:44 |   INFO   |        HTTP_CLIENT        | Got response 200 OK from https://api.escuelajs.co/api/v1/users/337
+25-10-31 21:07:44 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 200
+25-10-31 21:07:44 |   INFO   |     USERS_ASSERTIONS      | Check update user response
+25-10-31 21:07:44 |   INFO   |      BASE_ASSERTIONS      | Check that "name" equals to Patrick
+25-10-31 21:07:44 |   INFO   |      BASE_ASSERTIONS      | Check that "role" equals to admin
+25-10-31 21:07:44 |   INFO   |      BASE_ASSERTIONS      | Check that "email" equals to clarkbrenda@example.org
+25-10-31 21:07:44 |   INFO   |      BASE_ASSERTIONS      | Check that "password" equals to QiceCF2n1L
+25-10-31 21:07:44 |   INFO   |      BASE_ASSERTIONS      | Check that "avatar" equals to https://thornton.com/explore/postsabout.php
+25-10-31 21:07:44 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema

@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 295' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Factor third","price":5658.34,"description":"Two if live western alone pretty green.","categoryId":577,"images":["http://www.turner.net/posts/wp-contentindex.html","https://lee.org/tag/tagpost.htm","http://www.knight.com/appterms.html","http://calhoun.biz/list/categoriesprivacy.htm"]}'

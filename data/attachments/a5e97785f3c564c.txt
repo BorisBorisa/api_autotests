@@ -1,0 +1,7 @@
+25-10-31 21:07:19 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/categories
+25-10-31 21:07:19 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/categories
+25-10-31 21:07:19 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 201
+25-10-31 21:07:19 |   INFO   |   CATEGORYS_ASSERTIONS    | Check create category response
+25-10-31 21:07:19 |   INFO   |      BASE_ASSERTIONS      | Check that "name" equals to Thousand his
+25-10-31 21:07:19 |   INFO   |      BASE_ASSERTIONS      | Check that "image" equals to https://www.lee.org/categoryprivacy.html
+25-10-31 21:07:19 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema

@@ -1,0 +1,10 @@
+curl -X 'PUT' \
+  'https://api.escuelajs.co/api/v1/products/521' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 191' \
+  -H 'content-type: application/json' \
+  -d '{"title":"High authority","price":8702.98,"description":"Drug its outside event left.","images":["https://larsen.com/app/mainregister.htm","http://lewis-torres.info/explore/appregister.jsp"]}'

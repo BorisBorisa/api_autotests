@@ -1,0 +1,4 @@
+25-10-31 21:07:26 |   INFO   |        HTTP_CLIENT        | Make GET request to https://api.escuelajs.co/api/v1/locations?origin=-52.0961035%2C-94.410381&radius=7
+25-10-31 21:07:26 |   INFO   |        HTTP_CLIENT        | Got response 200 OK from https://api.escuelajs.co/api/v1/locations?origin=-52.0961035%2C-94.410381&radius=7
+25-10-31 21:07:26 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 200
+25-10-31 21:07:26 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema
