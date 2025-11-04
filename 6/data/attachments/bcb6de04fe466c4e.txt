@@ -1,0 +1,10 @@
+curl -X 'PUT' \
+  'https://api.escuelajs.co/api/v1/products/67' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 297' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Do red well","price":9616.58,"description":"Whole baby establish if cell.","images":["https://www.williams.org/blog/postshomepage.html","http://reyes-church.net/wp-content/blog/categoryterms.html","http://www.evans-barker.info/searchcategory.php","https://carlson.com/listcategory.htm"]}'

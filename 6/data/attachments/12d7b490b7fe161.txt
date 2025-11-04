@@ -1,0 +1,7 @@
+25-11-04 18:03:23 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/files/upload
+25-11-04 18:03:23 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/files/upload
+25-11-04 18:03:23 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 201
+25-11-04 18:03:23 |   INFO   |     FILES_ASSERTIONS      | Check upload file response
+25-11-04 18:03:23 |   INFO   |      BASE_ASSERTIONS      | Check that "name" equals to notice
+25-11-04 18:03:23 |   INFO   |      BASE_ASSERTIONS      | Check that "upload file url" equals to https://api.escuelajs.co/api/v1/files/932a
+25-11-04 18:03:23 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema

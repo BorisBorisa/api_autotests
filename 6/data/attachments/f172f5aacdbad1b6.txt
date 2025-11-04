@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 287' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Interview there","price":3448.62,"description":"Nearly person behind son story drop.","categoryId":56,"images":["http://www.ramos.com/explore/search/mainregister.php","https://taylor.com/wp-content/blog/categoryhome.jsp","https://www.washington.biz/wp-content/blogterms.html"]}'

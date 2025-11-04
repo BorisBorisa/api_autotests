@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 347' \
+  -H 'content-type: application/json' \
+  -d '{"title":"High American control","price":4506.54,"description":"Least near maybe dream mind keep report.","categoryId":57,"images":["http://www.allison.com/app/app/postsprivacy.asp","https://www.campbell.com/categoriescategory.php","http://www.kemp-bowers.org/tag/explorepost.html","http://www.pacheco-lewis.net/app/explore/categoriesterms.html"]}'

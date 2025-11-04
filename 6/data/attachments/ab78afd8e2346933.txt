@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 176' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Authority so","price":6762.51,"description":"Blue early table heart six offer several.","categoryId":59,"images":["http://www.rios.net/categories/list/tagshome.htm"]}'

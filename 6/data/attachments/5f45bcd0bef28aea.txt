@@ -1,0 +1,11 @@
+25-11-04 18:03:32 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/users
+25-11-04 18:03:33 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/users
+25-11-04 18:03:33 |   INFO   |        HTTP_CLIENT        | Make PUT request to https://api.escuelajs.co/api/v1/users/29
+25-11-04 18:03:33 |   INFO   |        HTTP_CLIENT        | Got response 400 Bad Request from https://api.escuelajs.co/api/v1/users/29
+25-11-04 18:03:33 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 400
+25-11-04 18:03:33 |   INFO   |     USERS_ASSERTIONS      | Check user update response with invalid data
+25-11-04 18:03:33 |   INFO   |     ERRORS_ASSERTIONS     | Check error response
+25-11-04 18:03:33 |   INFO   |      BASE_ASSERTIONS      | Check that "status_code" equals to 400
+25-11-04 18:03:33 |   INFO   |      BASE_ASSERTIONS      | Check that "error" equals to Bad Request
+25-11-04 18:03:33 |   INFO   |      BASE_ASSERTIONS      | Check that "message" equals to ['email must be an email']
+25-11-04 18:03:33 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema

@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 309' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Yeah her these","price":7226.98,"description":"Skin character reach.","categoryId":54,"images":["http://moore.net/search/categories/wp-contenthomepage.html","http://nunez.com/blog/list/exploreauthor.html","https://cline.net/main/app/postsabout.php","http://warren-russell.com/list/listsearch.html"]}'

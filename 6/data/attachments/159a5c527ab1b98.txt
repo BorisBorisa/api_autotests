@@ -1,0 +1,7 @@
+curl -X 'GET' \
+  'https://api.escuelajs.co/api/v1/locations?origin=-33.774857%2C-107.626511' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1'

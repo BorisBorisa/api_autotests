@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 292' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Democratic result","price":980.59,"description":"Itself organization include clear scientist available can.","categoryId":52,"images":["http://scott.com/exploremain.html","http://morgan.com/wp-content/categoryfaq.html","https://www.fletcher-vargas.net/search/blog/searchindex.php"]}'

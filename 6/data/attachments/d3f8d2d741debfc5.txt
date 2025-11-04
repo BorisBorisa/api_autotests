@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 157' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Seek it approach","price":698.25,"description":"Myself language force table eat lot leave unit.","categoryId":47,"images":["https://-example.com"]}'

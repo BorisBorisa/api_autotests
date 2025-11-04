@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 200' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Group size","price":6895.2,"description":"Because garden loss team after.","categoryId":43,"images":["http://www.newman-wagner.biz/tagprivacy.php","http://carlson-hodges.biz/tagsindex.jsp"]}'

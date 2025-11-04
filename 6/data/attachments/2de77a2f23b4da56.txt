@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 309' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Simply","price":7418.42,"description":"Write best myself week entire community.","categoryId":58,"images":["https://grant.com/explorefaq.jsp","https://ramirez.com/list/tagsterms.htm","http://medina-juarez.info/category/wp-contentindex.asp","http://www.wright.net/posts/wp-content/blogcategory.php"]}'

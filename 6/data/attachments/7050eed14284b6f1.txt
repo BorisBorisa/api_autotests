@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 345' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Lose conference tough","price":0,"description":"As pick everybody cause question interest rich keep.","categoryId":42,"images":["http://www.moore-gomez.com/search/bloghome.php","https://torres-owens.net/categories/explorecategory.php","https://watkins.net/tag/tag/searchhomepage.htm","https://hall.info/blog/explore/blogprivacy.html"]}'

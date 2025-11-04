@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/users' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 127' \
+  -H 'content-type: application/json' \
+  -d '{"name":"Helen","email":"james40@example.org","password":"GMhk9e1w4T","avatar":"https://stewart-chapman.biz/app/listhome.html"}'

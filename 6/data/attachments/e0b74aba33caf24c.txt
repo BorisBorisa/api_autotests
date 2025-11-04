@@ -1,0 +1,10 @@
+25-11-04 18:03:31 |   INFO   |        HTTP_CLIENT        | Make GET request to https://api.escuelajs.co/api/v1/users/987654321
+25-11-04 18:03:31 |   INFO   |        HTTP_CLIENT        | Got response 400 Bad Request from https://api.escuelajs.co/api/v1/users/987654321
+25-11-04 18:03:31 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 400
+25-11-04 18:03:31 |   INFO   |     USERS_ASSERTIONS      | Check get user response with invalid id "987654321"
+25-11-04 18:03:31 |   INFO   |      BASE_ASSERTIONS      | Check that "path" equals to /api/v1/users/987654321
+25-11-04 18:03:31 |   INFO   |      BASE_ASSERTIONS      | Check that "error name" equals to EntityNotFoundError
+25-11-04 18:03:31 |   INFO   |      BASE_ASSERTIONS      | Check that "message" equals to Could not find any entity of type "User" matching: {
+    "id": 987654321
+}
+25-11-04 18:03:31 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema
