@@ -1,0 +1,9 @@
+25-11-04 18:57:13 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/users
+25-11-04 18:57:13 |   INFO   |        HTTP_CLIENT        | Got response 400 Bad Request from https://api.escuelajs.co/api/v1/users
+25-11-04 18:57:13 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 400
+25-11-04 18:57:13 |   INFO   |     USERS_ASSERTIONS      | Check user creation response with wrong data
+25-11-04 18:57:13 |   INFO   |     ERRORS_ASSERTIONS     | Check error response
+25-11-04 18:57:13 |   INFO   |      BASE_ASSERTIONS      | Check that "status_code" equals to 400
+25-11-04 18:57:13 |   INFO   |      BASE_ASSERTIONS      | Check that "error" equals to Bad Request
+25-11-04 18:57:13 |   INFO   |      BASE_ASSERTIONS      | Check that "message" equals to ['password must be longer than or equal to 4 characters', 'password must contain only letters and numbers']
+25-11-04 18:57:13 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema

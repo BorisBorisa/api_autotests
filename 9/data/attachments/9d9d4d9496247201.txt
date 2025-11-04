@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 332' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Management clear control ground","price":3808.49,"description":"Say choose mention condition Republican.","categoryId":139,"images":["http://www.webb-brown.com/postsfaq.htm","https://herrera.com/main/explorehome.jsp","https://www.hamilton-smith.com/posts/explore/searchpost.asp","https://brown.biz/search/explorefaq.php"]}'

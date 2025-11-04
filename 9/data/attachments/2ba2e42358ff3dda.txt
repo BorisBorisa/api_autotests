@@ -1,0 +1,12 @@
+25-11-04 18:57:06 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/categories
+25-11-04 18:57:06 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/categories
+25-11-04 18:57:06 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/products
+25-11-04 18:57:06 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/products
+25-11-04 18:57:06 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 201
+25-11-04 18:57:06 |   INFO   |    PRODUCTS_ASSERTIONS    | Check create product response
+25-11-04 18:57:06 |   INFO   |      BASE_ASSERTIONS      | Check that "title" equals to Boy fear trip
+25-11-04 18:57:06 |   INFO   |      BASE_ASSERTIONS      | Check that "price" equals to 311.85
+25-11-04 18:57:06 |   INFO   |      BASE_ASSERTIONS      | Check that "description" equals to Foot plan my nothing discover safe and.
+25-11-04 18:57:06 |   INFO   |      BASE_ASSERTIONS      | Check that "category id" equals to 123
+25-11-04 18:57:06 |   INFO   |      BASE_ASSERTIONS      | Check that "images" equals to ['http://burgess-martin.com/tagspost.asp', 'http://www.williams-roberson.com/posts/tags/categoryauthor.jsp', 'https://www.moore.com/listlogin.html', 'http://www.perez-moran.com/list/categoriesfaq.php']
+25-11-04 18:57:06 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema

@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 314' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Writer manage","price":7731.16,"description":"I system bank respond end.","categoryId":137,"images":["http://montgomery.com/search/categorylogin.html","http://todd.info/tag/blog/tagshomepage.html","http://www.long.com/categories/tags/wp-contentfaq.html","http://snyder.com/categories/listregister.html"]}'

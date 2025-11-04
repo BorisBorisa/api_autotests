@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 276' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Least mind establish","price":1915.65,"description":"Population whole would forward partner interview.","categoryId":138,"images":["http://wilson.biz/explore/categoryprivacy.asp","https://www.alexander.net/categoryfaq.php","https://www.frey.com/wp-contenthome.asp"]}'

@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 340' \
+  -H 'content-type: application/json' \
+  -d '{"title":"No second director","price":4024.53,"description":"School particularly market beat leave soon.","categoryId":132,"images":["http://www.cooper-myers.com/categorieslogin.php","http://martinez-dixon.org/app/blogmain.php","http://www.johnson.com/search/tag/searchlogin.php","http://www.harris-smith.net/main/search/postsprivacy.asp"]}'

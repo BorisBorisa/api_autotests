@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 283' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Entire pattern stand","price":0,"description":"Reflect including indicate do sure three buy later.","categoryId":124,"images":["https://www.stephens.com/tags/tags/appmain.php","http://spears.biz/list/explore/postsindex.html","http://reed.com/list/posts/wp-contentfaq.htm"]}'

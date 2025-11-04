@@ -1,0 +1,12 @@
+25-11-04 18:57:07 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/categories
+25-11-04 18:57:07 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/categories
+25-11-04 18:57:07 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/products
+25-11-04 18:57:08 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/products
+25-11-04 18:57:08 |   INFO   |        HTTP_CLIENT        | Make PUT request to https://api.escuelajs.co/api/v1/products/102
+25-11-04 18:57:08 |   INFO   |        HTTP_CLIENT        | Got response 200 OK from https://api.escuelajs.co/api/v1/products/102
+25-11-04 18:57:08 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 200
+25-11-04 18:57:08 |   INFO   |    PRODUCTS_ASSERTIONS    | Check update product response
+25-11-04 18:57:08 |   INFO   |      BASE_ASSERTIONS      | Check that "title" equals to Foot black
+25-11-04 18:57:08 |   INFO   |      BASE_ASSERTIONS      | Check that "price" equals to 1378.44
+25-11-04 18:57:08 |   INFO   |      BASE_ASSERTIONS      | Check that "description" equals to Thing probably real family fund response really yourself.
+25-11-04 18:57:08 |   INFO   |      BASE_ASSERTIONS      | Check that "category id" equals to 128

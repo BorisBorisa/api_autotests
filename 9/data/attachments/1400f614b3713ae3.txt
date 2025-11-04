@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 321' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Boy fear trip","price":311.85,"description":"Foot plan my nothing discover safe and.","categoryId":123,"images":["http://burgess-martin.com/tagspost.asp","http://www.williams-roberson.com/posts/tags/categoryauthor.jsp","https://www.moore.com/listlogin.html","http://www.perez-moran.com/list/categoriesfaq.php"]}'

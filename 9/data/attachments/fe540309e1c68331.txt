@@ -1,0 +1,9 @@
+25-11-04 18:57:03 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/auth/refresh-token
+25-11-04 18:57:03 |   INFO   |        HTTP_CLIENT        | Got response 401 Unauthorized from https://api.escuelajs.co/api/v1/auth/refresh-token
+25-11-04 18:57:03 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 401
+25-11-04 18:57:03 |   INFO   | AUTHENTICATION_ASSERTIONS | Check refresh response with an invalid token
+25-11-04 18:57:03 |   INFO   |     ERRORS_ASSERTIONS     | Check error response
+25-11-04 18:57:03 |   INFO   |      BASE_ASSERTIONS      | Check that "status_code" equals to 401
+25-11-04 18:57:03 |   INFO   |      BASE_ASSERTIONS      | Check that "error" equals to Unauthorized
+25-11-04 18:57:03 |   INFO   |      BASE_ASSERTIONS      | Check that "message" equals to Invalid
+25-11-04 18:57:03 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema

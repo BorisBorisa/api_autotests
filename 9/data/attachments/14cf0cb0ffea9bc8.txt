@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 147' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Executive but","price":975.29,"description":"Wonder reason face.","categoryId":135,"images":["https://gregory.com/list/searchterms.asp"]}'

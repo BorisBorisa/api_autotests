@@ -1,0 +1,7 @@
+25-11-04 18:57:15 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/users
+25-11-04 18:57:16 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/users
+25-11-04 18:57:16 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/users/is-available
+25-11-04 18:57:16 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/users/is-available
+25-11-04 18:57:16 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 201
+25-11-04 18:57:16 |   INFO   |     USERS_ASSERTIONS      | Check email availability response
+25-11-04 18:57:16 |   INFO   |      BASE_ASSERTIONS      | Check that "email availability" equals to True

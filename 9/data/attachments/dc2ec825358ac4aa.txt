@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 332' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Course professional kitchen their","price":2134.49,"description":"Item born five accept remain moment more gas.","categoryId":136,"images":["http://www.sutton.com/search/listabout.jsp","http://mclaughlin.com/list/app/categorieshomepage.jsp","http://anderson-rogers.com/listmain.jsp","http://mitchell.com/explorepost.htm"]}'
