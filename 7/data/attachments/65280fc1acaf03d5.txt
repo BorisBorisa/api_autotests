@@ -1,0 +1,10 @@
+curl -X 'PUT' \
+  'https://api.escuelajs.co/api/v1/products/80' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 283' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Financial animal","price":3610.42,"description":"Region them painting music society.","images":["http://www.greene.com/tags/app/blogmain.htm","https://snow.info/postsfaq.htm","http://www.cook-cowan.com/main/categoriessearch.html","http://navarro.com/app/tag/tagsmain.php"]}'

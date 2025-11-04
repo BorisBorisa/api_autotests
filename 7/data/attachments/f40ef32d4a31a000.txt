@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 294' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Teach be speak four","price":6199.65,"description":"Pm you those interview kind.","categoryId":77,"images":["http://morris-harris.com/tagauthor.htm","https://smith.com/exploresearch.asp","https://jones.com/categoryregister.htm","http://jenkins-wade.com/tags/wp-contentcategory.html"]}'

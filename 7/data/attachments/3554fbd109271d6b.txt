@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 232' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Risk tonight ground","price":9837.4,"description":"Thousand rise series professional wall camera court.","categoryId":70,"images":["https://sanchez-conner.com/categoriesterms.html","https://www.foster.org/mainauthor.php"]}'

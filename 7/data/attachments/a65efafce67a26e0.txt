@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 245' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Now sell citizen","price":0,"description":"Three money grow interesting.","categoryId":71,"images":["https://soto-wilson.com/appterms.html","http://fisher.com/search/main/searchterms.jsp","https://www.wolf.com/posts/main/mainfaq.asp"]}'

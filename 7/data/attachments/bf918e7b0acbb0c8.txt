@@ -1,0 +1,12 @@
+25-11-04 18:05:06 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/categories
+25-11-04 18:05:06 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/categories
+25-11-04 18:05:06 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/products
+25-11-04 18:05:06 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/products
+25-11-04 18:05:06 |   INFO   |        HTTP_CLIENT        | Make PUT request to https://api.escuelajs.co/api/v1/products/80
+25-11-04 18:05:07 |   INFO   |        HTTP_CLIENT        | Got response 200 OK from https://api.escuelajs.co/api/v1/products/80
+25-11-04 18:05:07 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 200
+25-11-04 18:05:07 |   INFO   |    PRODUCTS_ASSERTIONS    | Check update product response
+25-11-04 18:05:07 |   INFO   |      BASE_ASSERTIONS      | Check that "title" equals to Financial animal
+25-11-04 18:05:07 |   INFO   |      BASE_ASSERTIONS      | Check that "price" equals to 3610.42
+25-11-04 18:05:07 |   INFO   |      BASE_ASSERTIONS      | Check that "description" equals to Region them painting music society.
+25-11-04 18:05:07 |   INFO   |      BASE_ASSERTIONS      | Check that "category id" equals to 74

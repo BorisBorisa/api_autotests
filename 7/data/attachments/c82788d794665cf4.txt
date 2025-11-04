@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 276' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Yet television international","price":5353.27,"description":"","categoryId":75,"images":["https://davis.info/list/list/wp-contentauthor.php","https://nixon.biz/wp-contentmain.php","http://ho-ward.info/tag/tagpost.html","http://saunders.org/app/blog/blogterms.html"]}'

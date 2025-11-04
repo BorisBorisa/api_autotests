@@ -1,0 +1,13 @@
+25-11-04 18:05:11 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/users
+25-11-04 18:05:11 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/users
+25-11-04 18:05:11 |   INFO   |        HTTP_CLIENT        | Make GET request to https://api.escuelajs.co/api/v1/users/38
+25-11-04 18:05:11 |   INFO   |        HTTP_CLIENT        | Got response 200 OK from https://api.escuelajs.co/api/v1/users/38
+25-11-04 18:05:11 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 200
+25-11-04 18:05:11 |   INFO   |     USERS_ASSERTIONS      | Check user
+25-11-04 18:05:11 |   INFO   |      BASE_ASSERTIONS      | Check that "id" equals to 38
+25-11-04 18:05:11 |   INFO   |      BASE_ASSERTIONS      | Check that "name" equals to Roy
+25-11-04 18:05:11 |   INFO   |      BASE_ASSERTIONS      | Check that "role" equals to customer
+25-11-04 18:05:11 |   INFO   |      BASE_ASSERTIONS      | Check that "email" equals to gbrowning@example.com
+25-11-04 18:05:11 |   INFO   |      BASE_ASSERTIONS      | Check that "password" equals to CAIolOTmk7
+25-11-04 18:05:11 |   INFO   |      BASE_ASSERTIONS      | Check that "avatar" equals to http://medina-ho.com/search/tagsregister.php
+25-11-04 18:05:11 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema

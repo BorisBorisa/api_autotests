@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 119' \
+  -H 'content-type: application/json' \
+  -d '{"title":"About argue out","price":7774.24,"description":"Lose trial financial need wish.","categoryId":78,"images":[]}'

@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 236' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Young crime strategy","price":7498.3,"description":"Church training edge.","categoryId":84,"images":["https://www.tate.net/categories/categoryterms.htm","https://murphy.biz/mainpost.htm","http://washington.com/listlogin.php"]}'

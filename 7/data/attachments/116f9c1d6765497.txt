@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 314' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Capital land","price":4847.54,"description":"Deal whole operation beautiful cover.","categoryId":85,"images":["http://www.cohen-clark.com/wp-contenthome.html","https://joseph.com/tags/blogindex.html","http://king-aguilar.com/tag/app/taghome.asp","https://williams.info/explore/wp-content/tagspost.html"]}'

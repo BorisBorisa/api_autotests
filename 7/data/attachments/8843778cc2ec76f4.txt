@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 325' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Career walk","price":9355.1,"description":"Boy still hit when.","categoryId":81,"images":["http://matthews.com/list/search/wp-contentsearch.htm","http://www.contreras-clark.org/posts/search/categoriesauthor.jsp","https://sullivan-myers.com/wp-content/listlogin.htm","https://www.edwards.com/list/maincategory.asp"]}'
