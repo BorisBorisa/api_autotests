@@ -1,0 +1,12 @@
+25-11-04 18:07:25 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/categories
+25-11-04 18:07:25 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/categories
+25-11-04 18:07:25 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/products
+25-11-04 18:07:26 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/products
+25-11-04 18:07:26 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 201
+25-11-04 18:07:26 |   INFO   |    PRODUCTS_ASSERTIONS    | Check create product response
+25-11-04 18:07:26 |   INFO   |      BASE_ASSERTIONS      | Check that "title" equals to Water
+25-11-04 18:07:26 |   INFO   |      BASE_ASSERTIONS      | Check that "price" equals to 534.11
+25-11-04 18:07:26 |   INFO   |      BASE_ASSERTIONS      | Check that "description" equals to Stand time fly edge yet state little.
+25-11-04 18:07:26 |   INFO   |      BASE_ASSERTIONS      | Check that "category id" equals to 98
+25-11-04 18:07:26 |   INFO   |      BASE_ASSERTIONS      | Check that "images" equals to ['https://morris-hudson.com/blogterms.htm']
+25-11-04 18:07:26 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema

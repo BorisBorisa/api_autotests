@@ -1,0 +1,13 @@
+25-11-04 18:07:26 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/categories
+25-11-04 18:07:26 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/categories
+25-11-04 18:07:26 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/products
+25-11-04 18:07:27 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/products
+25-11-04 18:07:27 |   INFO   |        HTTP_CLIENT        | Make GET request to https://api.escuelajs.co/api/v1/products/slug/idea-hotel-itself
+25-11-04 18:07:27 |   INFO   |        HTTP_CLIENT        | Got response 200 OK from https://api.escuelajs.co/api/v1/products/slug/idea-hotel-itself
+25-11-04 18:07:27 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 200
+25-11-04 18:07:27 |   INFO   |    PRODUCTS_ASSERTIONS    | Check get product response
+25-11-04 18:07:27 |   INFO   |    PRODUCTS_ASSERTIONS    | Check product
+25-11-04 18:07:27 |   INFO   |      BASE_ASSERTIONS      | Check that "id" equals to 89
+25-11-04 18:07:27 |   INFO   |      BASE_ASSERTIONS      | Check that "title" equals to Idea hotel itself
+25-11-04 18:07:27 |   INFO   |      BASE_ASSERTIONS      | Check that "slug" equals to idea-hotel-itself
+25-11-04 18:07:27 |   INFO   |      BASE_ASSERTIONS      | Check that "price" equals to 4777.28

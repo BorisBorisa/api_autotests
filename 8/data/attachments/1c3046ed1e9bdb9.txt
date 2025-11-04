@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 339' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Fund capital some","price":4618.97,"description":"Idea painting along must unit out different wall.","categoryId":110,"images":["http://www.garcia.org/categoriesregister.php","http://www.turner.biz/search/search/tagsauthor.php","http://www.bradley.com/categories/postshome.html","https://lane.net/posts/explore/mainsearch.html"]}'

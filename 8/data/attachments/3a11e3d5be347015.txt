@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 260' \
+  -H 'content-type: application/json' \
+  -d '{"title":"","price":8444.53,"description":"Upon space happy rather option.","categoryId":95,"images":["https://www.murphy-lawrence.biz/categorieslogin.jsp","http://www.greene-stanley.biz/posts/postspost.html","https://www.green-lynch.com/explorehomepage.htm"]}'

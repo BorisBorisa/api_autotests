@@ -1,0 +1,10 @@
+curl -X 'PUT' \
+  'https://api.escuelajs.co/api/v1/products/90' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 136' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Statement","price":9364.97,"description":"Watch glass group assume soon.","images":["https://www.jennings.biz/listindex.php"]}'

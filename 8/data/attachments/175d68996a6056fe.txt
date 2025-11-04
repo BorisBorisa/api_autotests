@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 240' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Two ok","price":9289.22,"description":"Machine develop vote law fight exist finally.","categoryId":107,"images":["https://www.buck.com/mainabout.asp","https://shah.com/categoriescategory.php","http://hines.com/categoriesfaq.htm"]}'

@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 328' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Idea hotel itself","price":4777.28,"description":"Change billion contain some democratic up see article.","categoryId":100,"images":["https://www.weaver-nguyen.com/categories/list/bloghomepage.htm","http://www.middleton.net/search/posts/tagsmain.jsp","http://santana-brown.info/categories/tags/categoryhomepage.html"]}'

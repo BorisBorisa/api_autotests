@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 155' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Water","price":534.11,"description":"Stand time fly edge yet state little.","categoryId":98,"images":["https://morris-hudson.com/blogterms.htm"]}'

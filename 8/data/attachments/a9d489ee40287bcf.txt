@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 233' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Religious former","price":-1,"description":"Whom send light future house thousand herself.","categoryId":97,"images":["https://www.wilson.com/category/main/blogmain.htm","http://olson-reid.com/tags/posts/postsprivacy.htm"]}'

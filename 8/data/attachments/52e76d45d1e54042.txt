@@ -1,0 +1,9 @@
+25-11-04 18:07:20 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/categories
+25-11-04 18:07:21 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/categories
+25-11-04 18:07:21 |   INFO   |        HTTP_CLIENT        | Make PUT request to https://api.escuelajs.co/api/v1/categories/89
+25-11-04 18:07:21 |   INFO   |        HTTP_CLIENT        | Got response 200 OK from https://api.escuelajs.co/api/v1/categories/89
+25-11-04 18:07:21 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 200
+25-11-04 18:07:21 |   INFO   |   CATEGORYS_ASSERTIONS    | Check update category response
+25-11-04 18:07:21 |   INFO   |      BASE_ASSERTIONS      | Check that "name" equals to Onto majority tree
+25-11-04 18:07:21 |   INFO   |      BASE_ASSERTIONS      | Check that "image" equals to http://www.hamilton.com/main/list/categoryabout.php
+25-11-04 18:07:21 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema

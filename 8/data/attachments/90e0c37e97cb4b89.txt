@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 253' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Lot southern claim","price":3728.91,"description":"Offer per last.","categoryId":103,"images":["https://barrett.com/explore/blog/categoriesabout.html","http://knight.com/blog/tags/wp-contentmain.html","http://www.graham.com/listhomepage.php"]}'

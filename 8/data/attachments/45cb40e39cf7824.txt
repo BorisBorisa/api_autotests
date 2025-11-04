@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/users' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 142' \
+  -H 'content-type: application/json' \
+  -d '{"name":"Stephanie","email":"scotttiffany@example.com","password":"2bOBultVr4","avatar":"https://www.wright.info/category/app/appauthor.html"}'

@@ -1,0 +1,10 @@
+curl -X 'PUT' \
+  'https://api.escuelajs.co/api/v1/categories/89' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 91' \
+  -H 'content-type: application/json' \
+  -d '{"name":"Onto majority tree","image":"http://www.hamilton.com/main/list/categoryabout.php"}'

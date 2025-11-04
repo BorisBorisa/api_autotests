@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 208' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Let","price":3327.1,"description":"Find nice major Mrs social under.","categoryId":112,"images":["https://www.gonzalez.org/blog/tag/blogterms.htm","https://www.bailey.info/main/categoriespost.php"]}'
