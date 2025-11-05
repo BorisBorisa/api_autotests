@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 317' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Great trial","price":6852.81,"description":"Project she energy great box.","categoryId":236,"images":["https://phillips-holt.com/search/wp-content/tagfaq.htm","http://www.ford.info/search/categoryregister.htm","http://smith-krueger.com/wp-contentfaq.jsp","http://www.gomez.com/posts/main/explorepost.html"]}'

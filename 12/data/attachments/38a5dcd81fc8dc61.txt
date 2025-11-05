@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 254' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Remember try","price":0,"description":"President move he sell get.","categoryId":224,"images":["https://www.conley.com/explore/tags/appregister.asp","http://www.marsh-camacho.org/blogfaq.html","http://www.haney.info/blog/explorehomepage.html"]}'

@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/auth/refresh-token' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 160' \
+  -H 'content-type: application/json' \
+  -d '{"refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE0NywiaWF0IjoxNzYyMzM5MzA2LCJleHAiOjE3NjIzNzUzMDZ9.9RQIn6uPQ3oEKF_MlRVar6X4minAVh7fQv9IL_DhOU4"}'

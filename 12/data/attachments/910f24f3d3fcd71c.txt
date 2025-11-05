@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/users' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 130' \
+  -H 'content-type: application/json' \
+  -d '{"name":"Benjamin","email":"angela58@example.com","password":"c64R8EFoub","avatar":"http://barrera.org/app/app/categoryindex.htm"}'

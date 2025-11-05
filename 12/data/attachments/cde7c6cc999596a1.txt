@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 216' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Rich cold year","price":8796.96,"description":"Recent his stock responsibility.","categoryId":235,"images":["https://www.allen.com/wp-content/exploreregister.html","https://www.peterson.net/blogabout.php"]}'

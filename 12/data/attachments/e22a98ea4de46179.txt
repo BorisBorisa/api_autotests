@@ -1,0 +1,10 @@
+25-11-05 10:41:44 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/categories
+25-11-05 10:41:45 |   INFO   |        HTTP_CLIENT        | Got response 400 Bad Request from https://api.escuelajs.co/api/v1/categories
+25-11-05 10:41:45 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 400
+25-11-05 10:41:45 |   INFO   |   CATEGORYS_ASSERTIONS    | Check create category with invalid data response
+25-11-05 10:41:45 |   INFO   |     ERRORS_ASSERTIONS     | Check error response for invalid data request
+25-11-05 10:41:45 |   INFO   |     ERRORS_ASSERTIONS     | Check error response
+25-11-05 10:41:45 |   INFO   |      BASE_ASSERTIONS      | Check that "status_code" equals to 400
+25-11-05 10:41:45 |   INFO   |      BASE_ASSERTIONS      | Check that "error" equals to Bad Request
+25-11-05 10:41:45 |   INFO   |      BASE_ASSERTIONS      | Check that "message" equals to ['image should not be empty', 'image must be a URL address']
+25-11-05 10:41:45 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema

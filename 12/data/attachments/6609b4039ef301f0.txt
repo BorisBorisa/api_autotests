@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 171' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Accept continue","price":4585.69,"description":"Machine leader check discuss role look discuss.","categoryId":226,"images":["http://walter.com/poststerms.html"]}'

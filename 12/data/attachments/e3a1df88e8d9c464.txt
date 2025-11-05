@@ -1,0 +1,14 @@
+25-11-05 10:41:46 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/categories
+25-11-05 10:41:46 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/categories
+25-11-05 10:41:46 |   INFO   |        HTTP_CLIENT        | Make GET request to https://api.escuelajs.co/api/v1/categories/slug/because-community-fine
+25-11-05 10:41:46 |   INFO   |        HTTP_CLIENT        | Got response 200 OK from https://api.escuelajs.co/api/v1/categories/slug/because-community-fine
+25-11-05 10:41:46 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 200
+25-11-05 10:41:46 |   INFO   |   CATEGORYS_ASSERTIONS    | Check get category response
+25-11-05 10:41:46 |   INFO   |   CATEGORYS_ASSERTIONS    | Check category
+25-11-05 10:41:46 |   INFO   |      BASE_ASSERTIONS      | Check that "id" equals to 216
+25-11-05 10:41:46 |   INFO   |      BASE_ASSERTIONS      | Check that "name" equals to Because community fine
+25-11-05 10:41:46 |   INFO   |      BASE_ASSERTIONS      | Check that "slug" equals to because-community-fine
+25-11-05 10:41:46 |   INFO   |      BASE_ASSERTIONS      | Check that "image" equals to https://www.brooks.org/app/blogauthor.html
+25-11-05 10:41:46 |   INFO   |      BASE_ASSERTIONS      | Check that "creation_at" equals to 2025-11-05 10:41:46+00:00
+25-11-05 10:41:46 |   INFO   |      BASE_ASSERTIONS      | Check that "updated_at" equals to 2025-11-05 10:41:46+00:00
+25-11-05 10:41:46 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema

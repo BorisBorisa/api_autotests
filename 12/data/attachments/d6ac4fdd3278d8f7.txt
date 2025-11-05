@@ -1,0 +1,14 @@
+25-11-05 10:41:45 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/categories
+25-11-05 10:41:45 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/categories
+25-11-05 10:41:45 |   INFO   |        HTTP_CLIENT        | Make GET request to https://api.escuelajs.co/api/v1/categories/215
+25-11-05 10:41:45 |   INFO   |        HTTP_CLIENT        | Got response 200 OK from https://api.escuelajs.co/api/v1/categories/215
+25-11-05 10:41:45 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 200
+25-11-05 10:41:45 |   INFO   |   CATEGORYS_ASSERTIONS    | Check get category response
+25-11-05 10:41:45 |   INFO   |   CATEGORYS_ASSERTIONS    | Check category
+25-11-05 10:41:45 |   INFO   |      BASE_ASSERTIONS      | Check that "id" equals to 215
+25-11-05 10:41:45 |   INFO   |      BASE_ASSERTIONS      | Check that "name" equals to Expert choice every
+25-11-05 10:41:45 |   INFO   |      BASE_ASSERTIONS      | Check that "slug" equals to expert-choice-every
+25-11-05 10:41:45 |   INFO   |      BASE_ASSERTIONS      | Check that "image" equals to https://www.maxwell-erickson.net/blog/app/blogabout.php
+25-11-05 10:41:45 |   INFO   |      BASE_ASSERTIONS      | Check that "creation_at" equals to 2025-11-05 10:41:45+00:00
+25-11-05 10:41:45 |   INFO   |      BASE_ASSERTIONS      | Check that "updated_at" equals to 2025-11-05 10:41:45+00:00
+25-11-05 10:41:45 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema

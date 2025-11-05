@@ -1,0 +1,14 @@
+25-11-05 10:41:52 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/categories
+25-11-05 10:41:52 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/categories
+25-11-05 10:41:52 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/products
+25-11-05 10:41:53 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/products
+25-11-05 10:41:53 |   INFO   |        HTTP_CLIENT        | Make PUT request to https://api.escuelajs.co/api/v1/products/203
+25-11-05 10:41:53 |   INFO   |        HTTP_CLIENT        | Got response 400 Bad Request from https://api.escuelajs.co/api/v1/products/203
+25-11-05 10:41:53 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 400
+25-11-05 10:41:53 |   INFO   |    PRODUCTS_ASSERTIONS    | Check product update response with invalid data
+25-11-05 10:41:53 |   INFO   |     ERRORS_ASSERTIONS     | Check error response for invalid data request
+25-11-05 10:41:53 |   INFO   |     ERRORS_ASSERTIONS     | Check error response
+25-11-05 10:41:53 |   INFO   |      BASE_ASSERTIONS      | Check that "status_code" equals to 400
+25-11-05 10:41:53 |   INFO   |      BASE_ASSERTIONS      | Check that "error" equals to Bad Request
+25-11-05 10:41:53 |   INFO   |      BASE_ASSERTIONS      | Check that "message" equals to ['price must be a positive number']
+25-11-05 10:41:53 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema

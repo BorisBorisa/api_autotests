@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/users' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 151' \
+  -H 'content-type: application/json' \
+  -d '{"name":"Rebecca","email":"reginaldgonzalez@example.net","password":"apu6zJds5A","avatar":"http://www.gregory.org/category/search/wp-contenthome.html"}'

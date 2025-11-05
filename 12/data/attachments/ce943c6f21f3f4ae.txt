@@ -1,0 +1,13 @@
+25-11-05 10:41:52 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/categories
+25-11-05 10:41:52 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/categories
+25-11-05 10:41:52 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/products
+25-11-05 10:41:52 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/products
+25-11-05 10:41:52 |   INFO   |        HTTP_CLIENT        | Make GET request to https://api.escuelajs.co/api/v1/products/202
+25-11-05 10:41:53 |   INFO   |        HTTP_CLIENT        | Got response 200 OK from https://api.escuelajs.co/api/v1/products/202
+25-11-05 10:41:53 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 200
+25-11-05 10:41:53 |   INFO   |    PRODUCTS_ASSERTIONS    | Check get product response
+25-11-05 10:41:53 |   INFO   |    PRODUCTS_ASSERTIONS    | Check product
+25-11-05 10:41:53 |   INFO   |      BASE_ASSERTIONS      | Check that "id" equals to 202
+25-11-05 10:41:53 |   INFO   |      BASE_ASSERTIONS      | Check that "title" equals to Bad seek relationship
+25-11-05 10:41:53 |   INFO   |      BASE_ASSERTIONS      | Check that "slug" equals to bad-seek-relationship
+25-11-05 10:41:53 |   INFO   |      BASE_ASSERTIONS      | Check that "price" equals to 7236.76
