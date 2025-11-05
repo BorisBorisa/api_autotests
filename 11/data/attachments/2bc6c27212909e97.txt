@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 265' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Raise next never","price":4740.3,"description":"Language finish certainly they.","categoryId":208,"images":["https://www.herrera-hobbs.org/blogcategory.asp","http://thompson.org/main/appprivacy.html","https://harris.biz/search/search/searchregister.php"]}'

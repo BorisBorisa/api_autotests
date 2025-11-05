@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 243' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Agency result","price":6435.8,"description":"","categoryId":200,"images":["https://www.harmon-white.com/list/wp-contentfaq.php","https://moreno-calderon.com/app/appcategory.html","https://www.mason-ross.net/tags/wp-contentfaq.html"]}'

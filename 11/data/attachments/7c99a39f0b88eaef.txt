@@ -1,0 +1,9 @@
+25-11-05 10:27:38 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/users
+25-11-05 10:27:38 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/users
+25-11-05 10:27:38 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 201
+25-11-05 10:27:38 |   INFO   |     USERS_ASSERTIONS      | Check create user response
+25-11-05 10:27:38 |   INFO   |      BASE_ASSERTIONS      | Check that "name" equals to Brian
+25-11-05 10:27:38 |   INFO   |      BASE_ASSERTIONS      | Check that "email" equals to kristenhickman@example.net
+25-11-05 10:27:38 |   INFO   |      BASE_ASSERTIONS      | Check that "password" equals to EI8bYOpaA2
+25-11-05 10:27:38 |   INFO   |      BASE_ASSERTIONS      | Check that "avatar" equals to http://wang-barr.com/maincategory.php
+25-11-05 10:27:38 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema

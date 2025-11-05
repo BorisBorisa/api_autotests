@@ -1,0 +1,12 @@
+25-11-05 10:27:34 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/categories
+25-11-05 10:27:34 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/categories
+25-11-05 10:27:34 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/products
+25-11-05 10:27:35 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/products
+25-11-05 10:27:35 |   INFO   |        HTTP_CLIENT        | Make PUT request to https://api.escuelajs.co/api/v1/products/188
+25-11-05 10:27:35 |   INFO   |        HTTP_CLIENT        | Got response 200 OK from https://api.escuelajs.co/api/v1/products/188
+25-11-05 10:27:35 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 200
+25-11-05 10:27:35 |   INFO   |    PRODUCTS_ASSERTIONS    | Check update product response
+25-11-05 10:27:35 |   INFO   |      BASE_ASSERTIONS      | Check that "title" equals to Believe water sister
+25-11-05 10:27:35 |   INFO   |      BASE_ASSERTIONS      | Check that "price" equals to 3573.39
+25-11-05 10:27:35 |   INFO   |      BASE_ASSERTIONS      | Check that "description" equals to Down hold seem kid.
+25-11-05 10:27:35 |   INFO   |      BASE_ASSERTIONS      | Check that "category id" equals to 203

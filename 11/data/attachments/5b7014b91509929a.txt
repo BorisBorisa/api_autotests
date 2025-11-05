@@ -1,0 +1,14 @@
+25-11-05 10:27:30 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/categories
+25-11-05 10:27:30 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/categories
+25-11-05 10:27:30 |   INFO   |        HTTP_CLIENT        | Make GET request to https://api.escuelajs.co/api/v1/categories/slug/finally-during-offer-have
+25-11-05 10:27:30 |   INFO   |        HTTP_CLIENT        | Got response 200 OK from https://api.escuelajs.co/api/v1/categories/slug/finally-during-offer-have
+25-11-05 10:27:30 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 200
+25-11-05 10:27:30 |   INFO   |   CATEGORYS_ASSERTIONS    | Check get category response
+25-11-05 10:27:30 |   INFO   |   CATEGORYS_ASSERTIONS    | Check category
+25-11-05 10:27:30 |   INFO   |      BASE_ASSERTIONS      | Check that "id" equals to 189
+25-11-05 10:27:30 |   INFO   |      BASE_ASSERTIONS      | Check that "name" equals to Finally during offer have
+25-11-05 10:27:30 |   INFO   |      BASE_ASSERTIONS      | Check that "slug" equals to finally-during-offer-have
+25-11-05 10:27:30 |   INFO   |      BASE_ASSERTIONS      | Check that "image" equals to http://bush.net/explore/list/wp-contentindex.htm
+25-11-05 10:27:30 |   INFO   |      BASE_ASSERTIONS      | Check that "creation_at" equals to 2025-11-05 10:27:30+00:00
+25-11-05 10:27:30 |   INFO   |      BASE_ASSERTIONS      | Check that "updated_at" equals to 2025-11-05 10:27:30+00:00
+25-11-05 10:27:30 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema

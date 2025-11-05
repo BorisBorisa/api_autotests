@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 234' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Spring build while","price":7245.71,"description":"Wind system whatever dog center some risk.","categoryId":206,"images":["http://www.mccarty-davidson.com/listterms.htm","https://robertson.com/main/tag/wp-contentlogin.htm"]}'

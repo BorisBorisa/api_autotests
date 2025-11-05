@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/categories' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 76' \
+  -H 'content-type: application/json' \
+  -d '{"name":"From sort","image":"http://weaver-potts.com/categoriessearch.html"}'

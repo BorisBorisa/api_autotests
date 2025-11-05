@@ -1,0 +1,9 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/files/upload' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 7294' \
+  -H 'content-type: multipart/form-data; boundary=f7053c73b288f8a19d2c421a292719ff'

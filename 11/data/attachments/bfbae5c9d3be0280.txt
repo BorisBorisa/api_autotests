@@ -1,0 +1,9 @@
+25-11-05 10:27:30 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/categories
+25-11-05 10:27:30 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/categories
+25-11-05 10:27:30 |   INFO   |        HTTP_CLIENT        | Make PUT request to https://api.escuelajs.co/api/v1/categories/190
+25-11-05 10:27:31 |   INFO   |        HTTP_CLIENT        | Got response 200 OK from https://api.escuelajs.co/api/v1/categories/190
+25-11-05 10:27:31 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 200
+25-11-05 10:27:31 |   INFO   |   CATEGORYS_ASSERTIONS    | Check update category response
+25-11-05 10:27:31 |   INFO   |      BASE_ASSERTIONS      | Check that "name" equals to Ago us
+25-11-05 10:27:31 |   INFO   |      BASE_ASSERTIONS      | Check that "image" equals to https://oconnor.com/posts/search/taghomepage.jsp
+25-11-05 10:27:31 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema

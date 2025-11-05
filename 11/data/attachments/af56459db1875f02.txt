@@ -1,0 +1,4 @@
+25-11-05 10:27:40 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/users
+25-11-05 10:27:40 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/users
+25-11-05 10:27:40 |   INFO   |        HTTP_CLIENT        | Make PUT request to https://api.escuelajs.co/api/v1/users/138
+25-11-05 10:27:40 |   INFO   |        HTTP_CLIENT        | Got response 200 OK from https://api.escuelajs.co/api/v1/users/138

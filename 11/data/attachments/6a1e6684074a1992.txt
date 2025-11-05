@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 169' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Apply","price":1223.68,"description":"Instead crime these around worker.","categoryId":201,"images":["https://www.medina.com/tags/wp-content/apphomepage.htm"]}'

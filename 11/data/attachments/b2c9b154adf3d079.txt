@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 292' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Defense card","price":6689.92,"description":"Painting stay large threat.","categoryId":212,"images":["https://www.willis.org/mainregister.html","http://smith-reyes.com/main/list/listmain.html","http://www.robinson.com/categorycategory.html","http://kline-bishop.org/bloglogin.php"]}'
