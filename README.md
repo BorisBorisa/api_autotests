@@ -27,7 +27,9 @@
 
 ### Allure отчет
 
-Результаты выполнения тестов доступны по ссылке: [Allure report](https://borisborisa.github.io/api_autotests/)
+Отчёт о результатах автоматизированного тестирования генерируется с помощью Allure и публикуется автоматически после каждого запуска CI/CD пайплайна в GitHub Actions.
+
+С актуальными результатами можно ознакомиться по ссылке: [Allure report](https://borisborisa.github.io/api_autotests/)
 
 ## Начало работы
 
