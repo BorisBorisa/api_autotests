@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 285' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Write pass gun social","price":1062.15,"description":"","categoryId":172,"images":["https://www.morrison.com/postslogin.php","https://www.phillips-jackson.biz/search/list/wp-contenthome.html","http://thompson-curry.com/listhomepage.htm","http://www.garcia.biz/mainmain.php"]}'

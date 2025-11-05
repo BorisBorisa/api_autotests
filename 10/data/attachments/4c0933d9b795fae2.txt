@@ -1,0 +1,12 @@
+25-11-05 10:19:42 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/categories
+25-11-05 10:19:43 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/categories
+25-11-05 10:19:43 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/products
+25-11-05 10:19:43 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/products
+25-11-05 10:19:43 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 201
+25-11-05 10:19:43 |   INFO   |    PRODUCTS_ASSERTIONS    | Check create product response
+25-11-05 10:19:43 |   INFO   |      BASE_ASSERTIONS      | Check that "title" equals to Probably himself letter
+25-11-05 10:19:43 |   INFO   |      BASE_ASSERTIONS      | Check that "price" equals to 6392.5
+25-11-05 10:19:43 |   INFO   |      BASE_ASSERTIONS      | Check that "description" equals to Glass brother maintain each.
+25-11-05 10:19:43 |   INFO   |      BASE_ASSERTIONS      | Check that "category id" equals to 174
+25-11-05 10:19:43 |   INFO   |      BASE_ASSERTIONS      | Check that "images" equals to ['http://www.rodriguez.com/listfaq.html']
+25-11-05 10:19:43 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema

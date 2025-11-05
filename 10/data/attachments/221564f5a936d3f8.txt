@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 199' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Save sort ok","price":5719.37,"description":"Attention factor consumer effect deal political traditional decade.","categoryId":183,"images":["http://www.johnson-page.com/mainhomepage.php"]}'

@@ -1,0 +1,12 @@
+25-11-05 10:19:32 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/users
+25-11-05 10:19:33 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/users
+25-11-05 10:19:33 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/auth/login
+25-11-05 10:19:33 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/auth/login
+25-11-05 10:19:33 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/auth/refresh-token
+25-11-05 10:19:33 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/auth/refresh-token
+25-11-05 10:19:33 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 201
+25-11-05 10:19:33 |   INFO   | AUTHENTICATION_ASSERTIONS | Check refresh tokens response
+25-11-05 10:19:33 |   INFO   | AUTHENTICATION_ASSERTIONS | Check response contains both access and refresh tokens
+25-11-05 10:19:33 |   INFO   |      BASE_ASSERTIONS      | Check that "access_token" is true
+25-11-05 10:19:33 |   INFO   |      BASE_ASSERTIONS      | Check that "refresh_token" is true
+25-11-05 10:19:33 |   INFO   |    SCHEMAS_ASSERTIONS     | Validating JSON schema

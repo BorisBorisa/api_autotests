@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 287' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Recent reveal newspaper","price":915.58,"description":"Call institution south bit body prepare common.","categoryId":181,"images":["https://guzman-lam.com/searchindex.htm","https://atkins-gray.biz/search/wp-content/categoriesprivacy.php","http://www.lynch.biz/mainindex.html"]}'

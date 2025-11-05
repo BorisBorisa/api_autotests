@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 219' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Happy take","price":3106.6,"description":"Home two yes possible personal.","categoryId":175,"images":["https://www.ayala-mora.com/blog/postsabout.html","http://www.mann-wilkins.info/list/exploreregister.php"]}'

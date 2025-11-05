@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 207' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Day fight price","price":0,"description":"Many control fish three heavy.","categoryId":170,"images":["http://white-rasmussen.org/postsmain.htm","http://bell-woods.com/search/tags/explorehome.php"]}'

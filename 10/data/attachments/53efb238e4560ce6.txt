@@ -1,0 +1,8 @@
+curl -X 'GET' \
+  'https://api.escuelajs.co/api/v1/auth/profile' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEyMCwiaWF0IjoxNzYyMzM3OTcyLCJleHAiOjE3NjQwNjU5NzJ9.5Zti6uG-owGl2yEf-7itE4lc97Sn6kdpkNB0IRdiQHA'

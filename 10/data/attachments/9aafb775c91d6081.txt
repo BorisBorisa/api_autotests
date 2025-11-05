@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 343' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Final right brother","price":6751.66,"description":"Magazine old blue most he television.","categoryId":177,"images":["http://www.waller-park.com/tag/wp-contentterms.htm","http://burns.com/search/category/wp-contentterms.htm","https://www.lawrence.com/tag/posts/categoryhomepage.jsp","https://www.ellis.com/list/tags/tagslogin.php"]}'

@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 299' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Bit south","price":2149.83,"description":"Song son voice parent less only least prepare.","categoryId":184,"images":["http://butler.com/tagsindex.php","http://www.ray.com/searchpost.jsp","http://www.rodriguez.com/categoriesabout.php","http://bennett.com/tags/wp-content/tagregister.html"]}'

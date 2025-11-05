@@ -1,0 +1,6 @@
+25-11-05 10:19:35 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/categories
+25-11-05 10:19:40 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/categories
+25-11-05 10:19:40 |   INFO   |        HTTP_CLIENT        | Make DELETE request to https://api.escuelajs.co/api/v1/categories/169
+25-11-05 10:19:40 |   INFO   |        HTTP_CLIENT        | Got response 200 OK from https://api.escuelajs.co/api/v1/categories/169
+25-11-05 10:19:40 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 200
+25-11-05 10:19:40 |   INFO   |     DELETE_ASSERTIONS     | Check delete response

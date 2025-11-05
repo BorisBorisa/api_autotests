@@ -1,0 +1,10 @@
+curl -X 'POST' \
+  'https://api.escuelajs.co/api/v1/products' \
+  -H 'host: api.escuelajs.co' \
+  -H 'accept: */*' \
+  -H 'accept-encoding: gzip, deflate, zstd' \
+  -H 'connection: keep-alive' \
+  -H 'user-agent: python-httpx/0.28.1' \
+  -H 'content-length: 342' \
+  -H 'content-type: application/json' \
+  -d '{"title":"Significant floor","price":-1,"description":"Already cause consider family necessary three if.","categoryId":171,"images":["https://www.king.com/posts/tags/postshomepage.htm","https://willis-buckley.com/category/wp-contentpost.php","https://owens.com/tag/search/postsauthor.html","http://www.hughes.org/category/mainregister.html"]}'

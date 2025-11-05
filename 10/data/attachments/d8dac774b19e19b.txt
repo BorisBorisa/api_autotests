@@ -1,0 +1,7 @@
+25-11-05 10:19:49 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/categories
+25-11-05 10:19:50 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/categories
+25-11-05 10:19:50 |   INFO   |        HTTP_CLIENT        | Make POST request to https://api.escuelajs.co/api/v1/products
+25-11-05 10:19:50 |   INFO   |        HTTP_CLIENT        | Got response 201 Created from https://api.escuelajs.co/api/v1/products
+25-11-05 10:19:50 |   INFO   |        HTTP_CLIENT        | Make PUT request to https://api.escuelajs.co/api/v1/products/184
+25-11-05 10:19:50 |   INFO   |        HTTP_CLIENT        | Got response 500 Internal Server Error from https://api.escuelajs.co/api/v1/products/184
+25-11-05 10:19:50 |   INFO   |      BASE_ASSERTIONS      | Check that response status code equals to 400
